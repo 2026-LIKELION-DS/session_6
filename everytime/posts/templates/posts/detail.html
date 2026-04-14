@@ -1,0 +1,68 @@
+<body>
+    <a href={% url 'posts:main' %}>메인페이지로 돌아가기</a><br><br>
+    {% if request.user.is_authenticated %}
+        <p>nickname : {{ user }}</p>
+        <a href="{% url 'accounts:logout' %}">로그아웃</a>
+    {% else %}
+        <a href="{% url 'accounts:login' %}">로그인</a>
+    {% endif %}
+    <hr>
+
+    <h2>{{ post.title }}</h2><br>
+    <h3>{{ post.content }}</h3><br>
+
+    {% if post.image %}
+        <image width="320" height="240" src="{{ post.image.url }}"></image>
+    {% endif %}
+    {% if post.video %}
+        <video width="320" height="240" controls>
+            <source src="{{ post.video.url }}" type="video/mp4" />
+        </video>
+    {% endif %}
+
+    <h3>{{ post.created_at }}</h3>
+    {% if post.is_anonymous %}
+        <h5>익명</h5>
+    {% else %}
+        <h5>{{ post.author.nickname }}</h5>
+    {% endif %}
+
+    {% if request.user == post.author %}
+        <a href="{% url 'posts:update' post.id %}">수정하기</a>
+        <a href="{% url 'posts:delete' post.id %}">삭제하기</a>
+    {% endif %}
+
+    <p>공감 {{ post.like.count }}개 스크랩 {{ post.scrap.count }}개</p>
+
+    {% if request.user in post.like.all %}
+    <a href="{% url 'posts:remove-like' post.id %}"><input type="button" value="공감 취소" /></a>
+    {% else %}
+    <a href="{% url 'posts:add-like' post.id %}"><input type="button" value="공감" /></a>
+    {% endif %}
+
+
+    {% if request.user in post.scrap.all %}
+    <a href="{% url 'posts:remove-scrap' post.id %}"><input type="button" value="스크랩 취소" /></a>
+    {% else %}
+    <a href="{% url 'posts:add-scrap' post.id %}"><input type="button" value="스크랩" /></a>
+    {% endif %}
+
+    <hr>
+    <h4>댓글</h4>
+    <br>
+    {% for comment in post.comments.all %} {% if comment.anonymity %} 익명: {% else %} {{ comment.author.nickname }}: {% endif %}
+    {{ comment.content }} - {{ comment.created_at }}
+    {% if request.user == comment.author %}
+        <a href="{% url 'posts:delete-comment' post.id comment.id %}">삭제하기</a>
+    {% endif%}
+    <br>
+    <br>
+    {% empty %} 댓글이 없습니다 {% endfor %}
+
+    <form method="POST" action="{% url 'posts:create-comment' post.id %}">
+        {% csrf_token %} 댓글 <input type="text" name="content" /><input type="submit" value="작성" />
+        <input type="checkbox" name="anonymity" value="anonymity_true" />익명
+    </form>
+    <hr>
+    <br>
+</body>
