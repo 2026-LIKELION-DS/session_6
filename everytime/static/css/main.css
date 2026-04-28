@@ -1,0 +1,474 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html{
+    margin:0;
+    padding:0;
+    /* min-width: 1200px; */
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.container {
+    position:sticky;
+    top:0;
+    z-index: 1000;
+    display: flex;
+    align-items: center; 
+    justify-content:space-between;
+    gap:16px;
+    background-color: white;
+    width:100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0;  
+    white-space: nowrap;
+}
+
+    
+.container1{
+    display: flex;
+    justify-content:flex-start;
+    align-items:stretch;
+    /* margin-right: 150px; */
+    margin:0;
+}
+
+.container2{
+    display:flex;
+    justify-content:center;
+    margin:12px;
+
+}
+
+.container3{
+    display:flex;
+    justify-content: flex-end;
+    /* margin-left : 300px; */
+    margin:0;
+}
+.container3 img{
+    border: 1px solid rgb(198, 191, 191);
+    border-radius: 10px;
+    padding:7px;
+    margin:3px
+}
+
+.header-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid #cecece;
+}
+.menucolor{
+    font-weight:500;
+    list-style:none;
+    margin:0 12px;
+}
+#menuC{
+    color:red; 
+    padding:30px 0;
+    border-bottom: 4px solid red;
+}
+
+.logoRight {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px; 
+}
+
+#everytime {
+    font-size: 13px;
+    font-weight: 500px;
+    color: red;
+    margin:0;
+
+}
+.everyTime{
+    font-size: 13px;
+    font-weight: 500px;
+    color: red;
+    margin:0;
+}
+
+#Duksung {
+    font-size: 23px;
+    height:27px;
+    text-align: center;
+    padding:0;
+    margin:0;
+}
+
+.navbox{
+    display:flex;
+    justify-content: center;
+    background-color: rgb(240, 240, 240);
+    border:1px solid rgb(206, 204, 204);
+    padding:0 16px;
+    flex-wrap: nowrap;
+    font-size: 13px;
+    scrollbar-width: none;
+}
+
+.navbox li{
+    display: block;
+    padding:0 0 3px 0;
+    font-weight: 1px;
+    width: auto;
+    min-width:0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.navbox > div:nth-child(1) ul,
+.navbox > div:nth-child(n+3):nth-child(-n+6) ul{
+    border-left: 1px solid rgb(184, 180, 180);
+
+}
+.navbox > div:nth-child(7) ul{
+    border-right: 1px solid rgb(184, 180, 180);
+}
+
+ul {
+    list-style:none;
+    padding:0 10px;
+}
+h3{
+    border:1px solid rgb(220, 219, 219);
+    padding : 10px;
+    font-weight: 950px;
+    margin-bottom:5px;
+}
+
+.bodyBox{
+    display:flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: flex-start;
+    gap:20px;
+    width:100%;
+    max-width: 1200px;    
+    margin: 0 auto;
+}
+.section1{
+    display:flex;
+    flex-direction: column;
+}
+.sectionBox{
+    background-color: rgb(232, 246, 248);
+    font-size: 14px;
+    font-weight: 300; 
+    border-radius: 10%;
+    padding:13px;
+    margin:10px 5px;
+}
+.sectionBox1{
+    display:flex;
+    align-items: center;
+    padding:0px;
+    white-space: nowrap;
+    overflow: hidden;
+
+}
+
+.sectionBox2{
+    display:flex;
+    align-items: center;
+    margin-bottom:7px;
+    padding:0px;
+}
+.sectionChBox{
+    background-color: rgb(253, 236, 240);
+    font-weight: 300;
+    font-size:14px;
+    border-radius: 10px;
+    padding: 14px;
+    margin:0px;
+}
+
+.sectionBox1 > img, .sectionBox2 > img {
+    width: 25px;
+    height: 25px;
+    margin: 0 8px 0 10px;
+    flex-shrink: 0;
+}
+
+.sectionChBox img{
+    width:12px;
+    height:12px;
+    margin: 0 2px;
+    padding: 0;
+}
+
+.asideBox{
+    width : 300px;
+    margin : 20px 50px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    flex-shrink:0;
+}
+
+.asideBox1{
+    border: 1px solid #d0cccc;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+}
+.asideBox2{
+    border: 1px solid #d0cccc;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+}
+.asideBox3{
+    background-color: #f9f9f9;
+    border: 1px solid #d0cccc;
+    color: #0f7bcd;
+    font-weight: 600;
+    padding :7px;
+    font-size:17px;
+}
+.aside-inform{
+    color:rgb(171, 167, 167);
+    font-size: 14px;
+    font-weight: 100;
+}
+.asidetitle{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    color: #0f7bcd;
+    font-weight: 600;
+    border-bottom:1px solid #d0cccc;
+    padding :7px 7px 7px 10px;
+    font-size:14px;
+} 
+
+.asidetxt{
+    text-align: left;
+    font-size: 15px;
+    font-weight: 450;
+    padding-left :10px;
+    margin:8px 0 8px 0;
+}
+.asideChtxt{
+    font-size: 12px;
+    font-weight: 300;
+    text-align: left;
+    padding-left :10px;
+    margin:0;
+}
+.asideChBox{
+    border-bottom:1px solid #d0cccc;
+}
+.asideChBox3{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+.aside-thirdtxt{
+    color :#949191;
+    font-size: 12px;
+    text-align: left;
+    padding :7px 7px;
+    margin:0;
+    padding-left :10px;
+}
+.listtxt{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 7px 10px 10px 10px;
+    border-bottom: 1px solid #d0cccc;
+    text-align: left;
+    font-weight : 200px;
+    margin:0;
+}
+.textsubmit{
+    color: #ecebeb;
+    font-size: 14px;
+    margin:5px 0;
+}
+
+.textsubmit input{
+    background-color:#f8f6f6;
+    width:100%;
+    height:50px;
+    box-sizing: border-box;
+    padding-left: 10px;
+    border: 1px solid rgb(223, 223, 223);
+    border-width: 2px;
+}
+.input-wrap {
+    position: relative;
+}
+
+.input-wrap input {
+    width: 100%;
+    height: 50px;
+    padding-right: 35px; 
+    box-sizing: border-box;
+    cursor:pointer;
+}
+
+
+.input-icon{
+    position: absolute;
+    right: 3px;
+    top: 1px;   
+    width: 50px;
+    height: 50px;
+    pointer-events: none;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    min-width:0;
+}
+.articleBox1{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-width:20px;
+    border:1px solid #d0cccc;
+    padding:0 0 10px 20px;
+}
+
+.articleTitle{
+    font-size:14px;
+    font-weight: 500;
+    margin:15px 0 0 0;
+}
+.articleStory{
+    margin:0;
+    font-weight: 300;
+    font-size:14px;
+}
+.articleColor{
+    color:
+}
+.articleSmall{
+    font-size:10px
+}
+
+.sectioncontainer{
+    border: 1px solid rgb(198, 191, 191);
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+}
+
+.redTxt{
+    color:rgb(252, 36, 36);
+    font-size:12px
+}
+.blueTxt{
+    color:rgb(164, 215, 229);
+    font-size:12px
+}
+
+.grayTxt{
+    color:rgb(155, 155, 155);
+    font-size:12px;
+}
+.articleFooter{
+    padding:0;
+    margin:0;
+}
+
+/*footer태그*/
+footer{
+    background-color: #f9f9f9;
+}
+.footer-container{
+    margin:0;
+    padding: 40px 32px 60px;
+    max-width: 1200px;
+    margin: 30px auto 0 auto;
+}
+.footer-title{
+    font-size: 100;
+    font-weight: 500;
+    margin:0;
+    padding: 30px 0 3px 0;
+}
+.footer-small{
+    font-size:12px;
+    font-weight: 300;
+    padding: 0 0 15px 0;
+    margin:0;
+}
+.footer-last{
+    font-size:12px;
+    font-weight: 300;
+    padding:0;
+    margin:0;
+}
+
+.textBox1{
+    display:none;
+    flex-direction: column;
+    justify-content: center;
+    border:2px solid rgb(198, 197, 197);
+    padding:0px;
+    margin-bottom:5px;
+}
+.textBox1 > p{
+    border-bottom: 2px solid #d0cccc;
+}
+form.textBox1 p{
+    padding:15px;
+    margin:0;
+}
+.hamburgerBar{
+    display: none;
+}
+@media (max-width:640px){
+    .container{
+        display:none;
+    }
+    aside{
+        display:none;
+    }
+    
+    .hamburgerBar{
+        display:flex;
+        align-items: center;
+    }
+    .barImg{
+        padding:5px;
+        margin-left: 10px;
+    }
+    .navbox{
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        white-space: nowrap; 
+    }
+    .section1 > h3{
+        display: none;
+    }
+    .section1{
+        margin-top:10px;
+    }
+    .bodyBox{
+        /* flex-direction: column; */
+        width: 100%;
+        max-width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .asideBox{
+        width: 100%;
+        margin: 10px 0 0 0;
+    }
+}
