@@ -14,7 +14,7 @@
     </header>
 
     <section>
-    <form method='post' action= {% url 'accounts:login' %} class="section-container"> 
+    <form method='post' action= "{% url 'accounts:login' %}" class="section-container"> 
         {% csrf_token %}
         <input type="text" name="username" placeholder="LIKELION13" class="input-login"></input>
         <input type="password" name="password" placeholder="비밀번호" class="input-login input-pw"></input>
