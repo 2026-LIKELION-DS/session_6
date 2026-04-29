@@ -1,0 +1,21 @@
+.write-collapsed {
+  padding: 12px 15px;
+  border: 1px solid #e3e3e3;
+  color: #a6a6a6;
+  cursor: text;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.write-expanded {
+  border: 2px solid #d6d6d6;
+  padding: 15px;
+}
+
+.info-box {
+  border: 2px solid #05BCBC;
+  margin-top: 10px;
+  padding: 10px;
+}

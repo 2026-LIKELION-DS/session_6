@@ -1,4 +1,30 @@
-<body>
+{% extends 'base.html' %} {% load static %} {% block style %}
+<link rel="stylesheet" href="{% static 'css/post.css' %}" />
+{% endblock %} {% block body %}
+
+<div id="writeCollapsed" class="write-collapsed">새 글을 작성해주세요!</div>
+
+<div id="writeExpanded" class="write-expanded hidden">
+  <form method="post" action="{% url 'posts:create' %}">
+    {% csrf_token %}
+    <input type="text" name="title" placeholder="글 제목" />
+    <textarea placeholder="내용을 입력하세요..."></textarea>
+
+    <div class="checkbox-container">
+      <input type="checkbox" name="is_question" id="questionCheck" />
+      <label for="questionCheck">질문</label>
+    </div>
+
+    <button type="submit">작성</button>
+  </form>
+  <div id="questionInfoBox" class="info-box hidden">
+    <p>질문 글을 작성하면 게시판 상단에 일정 기간 노출되어...</p>
+  </div>
+</div>
+
+<script src="{% static 'js/post.js' %}"></script>
+{% endblock %}
+{% comment %} <body>
     <a href={% url 'posts:main' %}>메인페이지로 돌아가기</a><br><br>
     {% if request.user.is_authenticated %}
         <p>nickname : {{ user }}</p>
@@ -65,4 +91,4 @@
     </form>
     <hr>
     <br>
-</body>
+</body> {% endcomment %}

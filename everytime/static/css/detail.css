@@ -1,0 +1,396 @@
+.post-box {
+  border: 1px solid #e3e3e3;
+  max-width: 900px;
+  font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+
+.post-header {
+  display: flex;
+  padding: 15px;
+  align-items: center;
+}
+.profile-pic {
+  width: 10px;
+  height: 10px;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+.profile-info {
+  display: flex;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.profile-info img {
+  width: 35px;
+  border-radius: 8px;
+}
+.nickname {
+  font-weight: bold;
+  font-size: 14px;
+}
+.time {
+  color: #a6a6a6;
+  font-size: 10px;
+}
+.header-actions span {
+  color: #a6a6a6;
+  font-size: 12px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.post-title {
+  padding: 0 15px;
+  margin: 0 0 15px 0;
+  font-size: 22px;
+  color: #222;
+  margin-left: 15px;
+}
+.post-content {
+  padding: 0 15px;
+  margin: 0 0 20px 0;
+  font-size: 15px;
+  color: #444;
+  margin-left: 15px;
+}
+
+.post-stats {
+  padding: 0 15px;
+  margin-bottom: 15px;
+  font-size: 13px;
+  display: flex;
+  margin-left: 15px;
+}
+.post-stats span {
+  margin-right: 15px;
+}
+.stat-like {
+  color: #f91f15;
+  display: flex;
+  gap: 10px;
+}
+.stat-comment {
+  color: #00a2ff;
+  display: flex;
+  gap: 10px;
+}
+.stat-scrap {
+  color: #ffb800;
+  display: flex;
+  gap: 10px;
+}
+
+.post-buttons {
+  display: flex;
+  gap: 10px;
+}
+.btn-action {
+  padding: 8px 12px;
+  background: #f9f9f9;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #444;
+  font-weight: bold;
+}
+
+.comment-input-area {
+  display: flex;
+  border-top: 1px solid #e3e3e3;
+  height: 40px;
+}
+.comment-input-area input {
+  flex-grow: 1;
+  border: none;
+  padding: 15px;
+  background: #fdfdfd;
+  outline: none;
+}
+
+.btn-submit {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+}
+.btn-submit img {
+  width: 40px;
+  height: 40px;
+
+  background: #f91f15;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.post-stats img {
+  width: 15px;
+  display: flex;
+  gap: 15px;
+}
+
+.profiletime {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-list img {
+  display: flex;
+}
+.post-buttons {
+  display: flex;
+  gap: 5px;
+  margin-left: 15px;
+  margin-bottom: 15px;
+
+  .btn-action {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    background: #f9f9f9;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #a6a6a6;
+    font-weight: bold;
+  }
+
+  .btn-action img {
+    width: 12px;
+    height: 12px;
+  }
+}
+.everytime-comment-container {
+  width: 100%;
+  border-top: 1px solid #e3e3e3;
+  background-color: #fff;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+}
+
+.comment-item {
+  padding: 12px 20px; /* 좌우 여백을 늘려 정렬을 맞춤 */
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.profile-placeholder {
+  width: 20px;
+  height: 20px;
+  background-color: #eee;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ccc"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>');
+  background-size: cover;
+  border-radius: 3px;
+  margin-right: 7px;
+}
+
+.username {
+  font-size: 13px;
+  font-weight: 700;
+  color: #292929;
+}
+
+.comment-actions a {
+  font-size: 12px;
+  color: #a6a6a6;
+  text-decoration: none;
+  margin-left: 8px;
+}
+
+.comment-content {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 4px;
+}
+
+.comment-footer {
+  font-size: 10px;
+  color: #a6a6a6;
+  display: flex;
+  padding-left: 15px;
+}
+
+.like-count {
+  margin-left: 8px;
+  color: #f91f15;
+  font-weight: bold;
+}
+.comment-section {
+  width: 100%;
+  background: #fff;
+}
+.comment-item {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.user-info {
+  display: flex;
+  align-items: center;
+}
+.profile-placeholder {
+  width: 20px;
+  height: 20px;
+  background: #eee;
+  border-radius: 3px;
+  margin-right: 7px;
+}
+.username {
+  font-size: 13px;
+  font-weight: bold;
+  color: #292929;
+}
+
+.username.author {
+  color: #0ca5af;
+}
+
+.comment-actions a {
+  font-size: 12px;
+  color: #a6a6a6;
+  text-decoration: none;
+  margin-left: 10px;
+}
+.comment-content {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #444;
+}
+.comment-footer {
+  font-size: 11px;
+  color: #a6a6a6;
+}
+.like-count {
+  color: #f91f15;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.reply-container {
+  margin-top: 10px;
+}
+.reply-item {
+  background-color: #f9f9f9;
+  border: 1px solid #e3e3e3;
+  padding: 10px 12px;
+  border-radius: 2px;
+}
+.reply-input-wrapper {
+  display: flex;
+  border: 1px solid #e3e3e3;
+  margin-top: 10px; /* 위쪽 댓글과의 간격 */
+  height: 40px;
+  background: #fdfdfd;
+}
+
+.reply-input-wrapper input[type="text"] {
+  flex-grow: 1;
+  border: none;
+  padding: 0 15px;
+  background: transparent;
+  outline: none;
+  font-size: 13px;
+}
+
+.reply-options {
+  display: flex;
+  align-items: center;
+}
+
+.reply-options label {
+  font-size: 12px;
+  color: #a6a6a6;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.reply-options input[type="checkbox"] {
+  margin-right: 4px;
+}
+
+.btn-reply-submit {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.btn-reply-submit img {
+  width: 40px;
+  height: 40px;
+  background: #f91f15;
+}
+
+.mini-header {
+  display: none;
+}
+
+.hambugerbar {
+  display: flex;
+  align-items: center;
+}
+
+.hambugerbar img {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-size: 24px 24px;
+}
+
+.like-count img {
+  width: 10px;
+  display: flex;
+  gap: 15px;
+  height: 10px;
+}
+.like-count {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  font-size: 10px;
+}
+@media screen and (max-width: 990px) {
+  .right-sidebar {
+    display: none;
+  }
+  .header-inner {
+    display: none;
+  }
+  .board-title {
+    display: none;
+  }
+  .mini-header {
+    display: flex;
+    gap: 15px;
+  }
+}
