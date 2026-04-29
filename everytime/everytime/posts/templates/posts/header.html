@@ -1,0 +1,52 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clone - 에브리타임 글 상세페이지</title>
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}" />
+    <script src="{% static 'js/detail.js' %}" defer></script>
+    </head>
+
+    <body>
+        <header class="top_header">
+            <div class="hamburger_menu">
+                <img src="{% static 'img/aside.title.hamburger.png' %}" alt="햄버거바">
+                <p>상세 페이지</p>
+            </div>
+
+            <header class="logo_header">
+                <img src="{% static 'img/nav.logo.png' %}" alt="에타 로고" />
+                <header class="textheader">
+                    <div class="et_name">
+                        <p>에브리타임</p>
+                    </div>
+                    <div class="school_name">
+                        <p>덕성여대</p>
+                    </div>
+                </header>
+        </header>
+
+        <header class="list_of_service">
+            <div class="now_on_service">
+                <p>게시판</p>
+            </div>
+
+            <p>강의실</p>
+            <p>학점계산기</p>
+            <p>친구</p>
+            <p>책방</p>
+            <p>캠퍼스픽</p>
+        </header>
+
+        <header class="chat_and_profile">
+            <div>
+                <img src="{% static 'img/icon_communication_chat_filled_gray500_light.svg' %}" alt="채팅로고"/>
+            </div>
+
+            <div>
+                <img src="{% static 'img/icon_account_user_filled_gray500_light.svg' %}" alt="프로필로고"/>
+            </div>
+        </header>
+    </header>

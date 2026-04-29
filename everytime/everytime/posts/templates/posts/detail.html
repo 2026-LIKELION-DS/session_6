@@ -1,0 +1,115 @@
+{% load static %}
+<div class="main_part">
+    <div class="bigBox">
+    <header class="header_for_sb_category">
+        <p>비밀게시판</p>
+    </header>
+    
+    <section class="secret_board">
+        <article class="detailed_post">
+            <div class="who_wrote_this">
+                <div class="smallBox">
+                    <img src="{% static 'img/anonymous.profile.png' %}" alt="익명프사">
+                    <div class="name_tag">
+                        <p class="nickname">{{ post.author }}</p>
+                        <p class="written_time">{{ post.created_at|date:"m/d H:i" }}</p>
+                    </div>
+                </div>
+                <div class="post_options">
+                    <div>쪽지</div>
+                    <div>신고</div>
+                </div>
+            </div>
+
+            <h2 class="post_title">{{ post.title }}</h2>
+            <p class="post_text">{{ post.content }}</p>
+
+            <div class="post_reaction">
+                <div class="ttabong">
+                    <img class="good" src="{% static 'img/container.articles.vote.png' %}" alt="따봉">
+                    <div class="ttabong_count">{{ post.likes_count }}</div>
+                </div>
+                    
+                <div class="thatguel">
+                    <img class="post_comments" src="{% static 'img/container.articles.comment.png' %}" alt="댓글">
+                    <div>{{ comments.count }}</div>
+                </div>
+                    
+                <div class="peogayo">
+                    <img class="scrap" src="{% static 'img/container.articles.scrap.png' %}" alt="스크랩">
+                    <div class="scrap_count">0</div>
+                </div>
+            </div>
+
+            <div class="post_button">
+                <button class="ttabong_button">
+                    <img src="{% static 'img/container.articles.buttons.posvote.png' %}" alt="따봉버튼">
+                    <div>공감</div>
+                </button>
+
+                <button class="scrap_button">
+                    <img src="{% static 'img/container.articles.buttons.scrap.png' %}" alt="스크랩버튼">
+                    <div>스크랩</div>
+                </button>
+            </div>
+        </article>
+
+        <div class="realComments">
+            {% for comment in comments %}
+            <div class="commentContent">
+                <div class="middleBox">
+                    <div class="smallBox">
+                        <img src="{% static 'img/anonymous.profile.png' %}" alt="익명프사">
+                        <div class="name_tag">
+                            <p class="nickname">{{ comment.author }}</p>
+                        </div>
+                    </div>
+                    <div class="sideOfComment">
+                        <button id="reReply">대댓글</button>
+                        <p>공감</p>
+                        <p>쪽지</p>
+                        <p>신고</p>
+                    </div>
+                </div>
+
+                <p>{{ comment.content }}</p>
+                <div>{{ comment.created_at|timesince }} 전</div>
+            </div>
+            {% endfor %}
+            
+            <div class="boxForHide">
+                <div class="reThatGuel">
+                    <input type="text" class="reThatguelChang" placeholder="대댓글을 입력하세요.">
+                    <div class="comment_musuri">
+                        <label>
+                            <input type="checkbox" checked> 익명
+                        </label>
+
+                        <button class="submit_comment_rtg">
+                            <img src="{% static 'img/container.articles.write.submit.png' %}" alt="연필">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form class="leave_comment" method="POST">
+            {% csrf_token %}
+            <input type="text" name="content" class="thatguelChang" placeholder="댓글을 입력하세요.">
+            <div class="comment_musuri">
+                <label>
+                    <input type="checkbox" name="is_anonymous" checked> 익명
+                </label>
+
+                <button type="submit" class="submit_comment_tg">
+                    <img src="{% static 'img/container.articles.write.submit.png' %}" alt="연필">
+                </button>
+            </div>
+        </form>
+        
+        <div class="post_list">
+            <img src="{% static 'img/container.articles.pagination.list.png' %}" alt="목록">
+            <div>글 목록</div>
+        </div>
+    </section>
+</div>
