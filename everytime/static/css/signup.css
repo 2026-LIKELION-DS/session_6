@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Apple SD Gothic Neo", "맑은 고딕", "돋움", sans-serif;
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    padding: 16px 24px 48px 24px;
+    box-sizing: border-box;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+section h2 {
+    line-height: 30px;
+    color: #292929;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+section p {
+    margin-top: 8px;
+    line-height: 20px;
+    color: #737373;
+    font-size: 14px;
+}
+
+.input {
+    display: block;
+    box-sizing: border-box;
+    margin-top: 4px;
+    border: none;
+    padding: 10px;
+    border-radius: 12px;
+    width: 100%;
+    font-size: 16px;
+    background-color: #F2F2F2;
+    outline: none;
+}
+
+.signup_btn {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 12px;
+    width: 100%;
+    border: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #888888;
+    cursor: pointer;
+}
+.signup{
+    margin-top: 40px;
+}
+
+.input_group{
+    margin: 10px 0;
+}

@@ -1,4 +1,4 @@
-<body>
+{% comment %} <body>
     <a href={% url 'posts:main' %}>메인페이지로 돌아가기</a><br><br>
     {% if request.user.is_authenticated %}
         <p>nickname : {{ user }}</p>
@@ -65,4 +65,353 @@
     </form>
     <hr>
     <br>
-</body>
+</body> {% endcomment %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>에브리타임</title>
+  <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/detail.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/post.css' %}" />
+</head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <!--header 부분 -->
+        <img src="{% static 'img/nav.logo.png' %}" alt="로고" class="logo_img"/>
+        <img src="{% static 'img/aside.title.hamburger.png' %}" alt="메뉴" class="hamburger"/>
+        <p class="school_name">
+            <span class="font_red">에브리타임</span><br><span style="font-size: 25px">덕성여대</span>
+        </p>
+        <p class="menu_name">비밀게시판</p>
+        <ul class="menu">
+          <li><a class="active" href="">게시판</a></li>
+          <li><a href="">시간표</a></li>
+          <li>강의실</li>
+          <li>학점계산기</li>
+          <li>친구</li>
+          <li>책방</li>
+          <li>캠퍼스픽</li>
+        </ul>
+        <div class="top_icons">
+          <button class="communication_btn"><img src="{% static 'img/icon_communication_chat_filled_gray500_light.svg' %}" alt="쪽지함"/></button>
+          <button class="user_btn"><img src="{% static 'img/icon_account_user_filled_gray500_light.svg' %}" alt="내정보"/>
+        </div>
+      </header>
+      <nav class="nav">
+        <!--navigation 부분 -->
+        <div class="navBox">
+          <div class="line"></div>
+          <ul class="group">
+            <li>자유게시판</li>
+            <li><span class="font_red">질문게시판</span></li>
+            <li>질문게시판</li>
+            <li>졸업생게시판</li>
+            <li>새내기게시판</li>
+            <li>시사•이슈</li>
+            <li>정보게시판</li>
+            <li>이벤트게시판</li>
+          </ul>
+          <ul class="group">
+            <li>홍보게시판</li>
+            <li>동아리•학회</li>
+          </ul>
+          <div class="line"></div>
+          <ul class="group">
+            <li>취업•진로</li>
+            <li>⭐👩‍🏫교직이수👩‍🏫⭐</li>
+            <li>덕성 예비공무원들❤️</li>
+            <li>대학원 뿌숭뿌슝🔥🔥</li>
+            <li>미래의 회계사(CPA)</li>
+          </ul>
+          <div class="line"></div>
+          <ul class="group">
+            <li>총학생회</li>
+            <li>신문사</li>
+            <li>영자신문사</li>
+            <li>운현방송국</li>
+            <li>대학일자리본부</li>
+            <li>교지편집위원회</li>
+            <li>과학기술대학 학생회</li>
+            <li><span class="font_red">더 보기</span></li>
+          </ul>
+          <div class="line"></div>
+          <ul class="group">
+            <li>👩‍💻디지털소프트웨어공학부</li>
+            <li>📑덕성여대 경영학과</li>
+            <li>국제통상학과</li>
+            <li>🌚덕성 법학도🌚</li>
+            <li>💰두드리는 회계학과</li>
+            <li>✍️열공하는 약대생✍️</li>
+            <li>🧠심리학과 자게🧠</li>
+            <li><span class="font_red">더 보기</span></li>
+          </ul>
+          <div class="line"></div>
+          <ul class="group">
+            <li>🌺뻔선뻔후 찾기 프로젝트</li>
+            <li>🌺덕성여대 장터🌺</li>
+            <li>❤️덕성여대 기숙사❤️</li>
+            <li>주의 없는 게시판</li>
+            <li>덕성 연애방</li>
+            <li>덕성여대 자취생 모임</li>
+            <li>덕성여대~수유역 맛집</li>
+            <li>미팅 모집방</li>
+          </ul>
+          <ul class="group">
+            <li>덕성의 국가근로동자들</li>
+            <li>퀴어이기 전에 여성</li>
+            <li>💘덕성 파견학생💘</li>
+            <li>덕성의 아이돌❤️</li>
+            <li>덕친소: 내 덕친은 누구</li>
+            <li>덕성이네 고추밭</li>
+            <li>정병자조클럽</li>
+            <li><span class="font_red">더 보기</span></li>
+          </ul>
+          <div class="line"></div>
+        </div>
+      </nav>
+      <div class="container">
+        <section class="section">
+          <h1>비밀게시판</h1>
+          <article class="post_detail">
+            <div class="post_info">
+              <img src="{% static 'img/anonymous.profile.png' %}" alt="프로필"/>
+              <div class="profile_info">
+                <p class="nickname">익명</p>
+                <p class="time">04/01 21:07</p>
+              </div>
+              <div class="post_top">
+                <p>쪽지</p>
+                <p>신고</p>
+              </div>
+            </div>
+            <div class="content">
+              <h2 class="title">기숙사나 인대 라운지 열람실 등 오늘 학교에서 밤새는 사람 있니................</h2>
+              <p class="text">혼자가 아니라고 해줘,,,,,</p>
+            </div>  
+            <div class="status">
+              <div><img src="{% static 'img/container.articles.vote.png' %}" alt="공감"/><span class="like_num">3</span></div>
+              <div><img src="{% static'img/container.articles.comment.png' %}" alt="댓글"/><span class="comment_num">0</span></div>
+              <div><img src="{% static'img/container.articles.scrap.png' %}" alt="스크랩"/><span class="scrap_num">1</span></div>
+            </div>
+            <div class="buttons">
+              <button class="like_btn"><img src="{% static 'img/container.articles.buttons.posvote.png' %}" alt="공감"/>공감</button>
+              <button class="scrap_btn"><img src="{% static 'img/container.articles.buttons.scrap.png' %}" alt="스크랩"/>스크랩</button>
+            </div>
+          </article>  
+          <div class="comment_container">
+            <div class="comment_item">
+              <div class="comment_header">
+                <div class="user_info">
+                  <img src="{% static 'img/anonymous.profile.png' %}" alt="프로필" class="profile_img">
+                  <span class="nickname">익명1</span>
+                </div>
+                <div class="comment_menu">
+                  <button type="button" class="re_comment_btn">대댓글</button> <span>공감</span> <span>쪽지</span> <span>신고</span>
+                </div>
+              </div>
+              <p class="comment_text">나나</p>
+              <span class="comment_time">4분 전</span>
+              <div class="child_comment">
+                <div class="comment_header">
+                  <div class="user_info">
+                    <img src="{% static 'img/anonymous.profile.png' %}" alt="프로필" class="profile_img">
+                    <span class="nickname">익명2</span>
+                  </div>
+                  <div class="comment_menu">
+                    <span>공감</span> <span>쪽지</span> <span>신고</span>
+                  </div>
+                </div>
+                <p class="comment_text">같이 화이팅 해보자!!</p>
+                <span class="comment_time">2분 전</span>
+              </div>
+              <!-- 대댓글 부분 -->
+              <div class="re_comment_input">
+                <input type="text" class="re_input_text" placeholder="대댓글을 입력하세요."/>
+                <div class="tools">
+                  <button class="anonym_btn" type="button"><img src="{% static 'img/container.articles.write.anonym.png' %}" alt="익명"/></button>
+                  <button class="submit_btn"><img src="{% static 'img/container.articles.write.submit.png' %}" alt="글 작성"/></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="input_container">
+            <input type="text" class="input_text" placeholder="댓글을 입력하세요." />
+            <div class="tools">
+              <button class="anonym_btn" type="button"><img src="{% static 'img/container.articles.write.anonym.png' %}" alt="익명"/></button>
+              <button class="submit_btn"><img src="{% static 'img/container.articles.write.submit.png' %}" alt="글 작성"/></button>
+            </div>
+          </div>
+          <button class="list-btn"><img src="{% static 'img/container.articles.pagination.list.png' %}" alt="목록"> 글 목록</button>
+        </section>
+        <aside class="aside">
+          <!--right side-->
+          <div class="card">
+            <div class="board">
+              <h3>실시간 인기 글</h3>
+              <div class="board_article">
+                <h2>어린게 발랑 까져서~~~</h2>
+                <p class="grey_font">너무 귀엽다</p>
+                <div class="item3">
+                  <p class="small">비밀게시판</p>
+                  <img src="{% static 'img/container.articles.vote.png' %}" alt="좋아요" />
+                  <p class="font_red_s">27</p>
+                  <img src="{% static 'img/container.articles.comment.png' %}" alt="댓글" />
+                  <p class="font_blue_s">1</p>
+                </div>
+              </div>
+              <div class="board_article">
+                <h2>새내기들아 친구 엄청 쉽게 만들 수 있음</h2>
+                <p class="grey_font">
+                  나같경 새내기때 학교에서 하는 건 거의 죄다 참여했음 새터부터
+                  시작해서 각종 개총 동아리 ds-fm 짝덕우 뻔선뻔후 스터디
+                </p>
+                <div class="item3">
+                  <p class="small">새내기게시판</p>
+                  <img src="{% static 'img/container.articles.vote.png' %}" alt="좋아요" />
+                  <p class="font_red_s">22</p>
+                  <img src="{% static 'img/container.articles.comment.png' %}" alt="댓글" />
+                  <p class="font_blue_s">2</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--실시간 인기 글 끝-->
+          <div class="card">
+            <!--HOT 게시판-->
+            <div class="board">
+              <div class="item4">
+                <h3>HOT 게시물</h3>
+                <p class="grey_font_r">더 보기</p>
+              </div>
+              <div class="board_article">
+                <div class="item4">
+                  <p>봄날엔도 잊으면 안 되는거 알지?</p>
+                  <p class="grey_font">03/28 01:47</p>
+                </div>
+              </div>
+              <div class="board_article">
+                <div class="item4">
+                  <p>타대학원 홍보🧫🧬</p>
+                  <p class="grey_font">03/27 20:43</p>
+                </div>
+              </div>
+              <div class="board_article">
+                <div class="item4">
+                  <p>나 왜이리 인기많아</p>
+                  <p class="grey_font">03/28 11:11</p>
+                </div>
+              </div>
+              <div class="board_article">
+                <div class="item4">
+                  <p>이거우리학교맞아?</p>
+                  <p class="grey_font">03/28 06:09</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--HOT 게시물 끝-->
+          <div class="card">
+            <!--BEST 게시판-->
+            <div class="item4">
+              <h3>BEST 게시판</h3>
+              <p class="grey_font_r">더 보기</p>
+            </div>
+          </div>
+          <!--BEST 게시판 끝-->
+          <div class="card">
+            <!--학교 소식-->
+            <div class="board">
+              <h3>학교 소식</h3>
+              <div class="board_article">
+                <h2>
+                  🤝덕성여자대학교 X 뮤지컬 &lt;빌리 엘리어트&gt; 제휴 안내🤝
+                </h2>
+                <p class="grey_font">
+                  안녕하세요, 덕성여자대학교 제42대 총학생회 &lt;여정&gt;입니다.
+                </p>
+                <div class="item3">
+                  <p class="small">총학생회</p>
+                  <img src="{% static 'img/container.articles.vote.png' %}" alt="좋아요" />
+                  <p class="font_red_s">2</p>
+                  <img src="{% static 'img/container.articles.comment.png' %}" alt="댓글" />
+                  <p class="font_blue_s">0</p>
+                </div>
+              </div>
+              <div class="board_article">
+                <h2>🎥더블뉴스 61회🎥</h2>
+                <p class="grey_font">
+                  📅 3월 27일 금요일<br />🎙️ 뉴스를 더블하다.
+                </p>
+                <div class="item3">
+                  <p class="small">운현방송국</p>
+                  <img src="{% static 'img/container.articles.vote.png' %}" alt="좋아요" />
+                  <p class="font_red_s">22</p>
+                  <img src="{% static 'img/container.articles.comment.png' %}" alt="댓글" />
+                  <p class="font_blue_s">0</p>
+                </div>
+              </div>
+            </div>
+            <!--학교 소식 끝-->
+          </div>
+          <div class="card">
+            <!--최근 강의평-->
+            <div class="board">
+              <div class="item4">
+                <h3>최근 강의평</h3>
+                <p class="grey_font_r">더 보기</p>
+              </div>
+              <div class="board_article">
+                <div class="item5">
+                  <img src="{% static 'img/app.subject.rating.details.star.off.png' %}" alt="별"/>
+                  <h2>미분적분학2 : 원대연</h2>
+                  <p class="grey_font_b">
+                    일단 큰 개념부터 크게크게 공부하세요.<br />
+                    그 다음 교과서에 있는 예제 문제 열심히 풀면 됩니다.
+                  </p>
+                </div>
+              </div>
+              <div class="board_article">
+                <div class="item5">
+                  <img src="{% static 'img/app.subject.rating.details.star.off.png' %}" alt="별"/>
+                  <h2>문학의이해 : 유예현</h2>
+                  <p class="grey_font_b">
+                    시험 없어서 너무 좋았어요 !!! 한 과목이라도 시험 부담 덜고
+                    싶다면 적극 추천..
+                  </p>
+                </div>
+              </div>
+              <div class="board_article">
+                <div class="item5">
+                  <img src="{% static 'img/app.subject.rating.details.star.off.png' %}" alt="별"/>
+                  <h2>학교폭력예방및학생의이해 : 유지인</h2>
+                  <p class="grey_font_b">별 1점도 아까움. 별-5점 드릴게요.</p>
+                </div>
+              </div>
+            </div>
+            <!--최근 강의평 끝-->
+          </div>
+        </aside>
+        <!--right side 끝-->
+      </div>
+      <footer class="footer">
+        <div class="address">
+          <h4>비누랩스 주식회사</h4>
+          <p>
+            서울특별시 마포구 양화로 113, 5층 | 사업자등록번호 : 407-88-00024 |
+            직업정보제공사업 신고번호 : J1204020230008
+          </p>
+        </div>
+        <p>
+          이용약관 | <b>개인정보처리방침</b> | 청소년보호정책 | 커뮤니티이용규칙
+          | 공지사항 | 문의하기 |  <b>&copy; 에브리타임</b>
+        </p>
+      </footer>
+    </div>
+
+    <script src="{% static 'js/detail.js' %}" defer></script>
+  </body>
+</html>

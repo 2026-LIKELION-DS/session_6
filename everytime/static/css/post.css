@@ -1,0 +1,118 @@
+/*에브리타임 글 작성페이지 클론코딩*/
+/* 기본 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Apple SD Gothic Neo", "맑은 고딕", "돋움", sans-serif;
+}
+.article_form {
+    display: flex; 
+    justify-content: center; 
+    padding: 20px;
+}
+.post_container {
+    width: 780px;
+    border:1.5px solid #d6d6d6;
+    display: none;
+    margin: 10px 0;
+}
+
+/* 제목 입력 */
+.input_title {
+    width: 100%;
+    border: none;
+    border-bottom: 1.5px solid #d6d6d6;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 10px;
+    outline: none;
+}
+
+/* 본문 입력 */
+textarea {
+    width: 100%;
+    height: 350px;
+    border: none;
+    font-size: 14px;
+    color: #a6a6a6;
+    padding: 15px;
+    border-bottom: 1.5px solid #d6d6d6;
+    display: block;
+    resize: none;
+    outline: none;
+}
+
+/* 하단 바 */
+.bottom_bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+}
+
+.hashtag_btn, 
+.attach_btn {
+    background: none;
+    border: none;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left_icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.right_options {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.anonym_btn,
+.question_btn{
+    border: none;
+    background-color: transparent;
+}
+
+.anonym_btn img,
+.question_btn img{
+    width: 40px;
+    height: 100%;
+}
+
+.submit_btn {
+    background-color: #F91F15;
+    border: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit_btn img { 
+    width: 30px;
+    height: 30px;
+}
+
+
+.question_box {
+    display: none;
+    background-color: #f0fcfd;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    color: #05BCBC;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.question_box b {
+    color: #05BCBC;
+    font-weight: bold;
+}
