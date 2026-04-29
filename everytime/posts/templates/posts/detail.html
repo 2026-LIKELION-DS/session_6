@@ -1,4 +1,4 @@
-<body>
+<!-- <body>
     <a href={% url 'posts:main' %}>메인페이지로 돌아가기</a><br><br>
     {% if request.user.is_authenticated %}
         <p>nickname : {{ user }}</p>
@@ -65,4 +65,43 @@
     </form>
     <hr>
     <br>
+</body> -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/post.css' %}"> 
+    <title>Detail</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'img/nav.logo.png' %}">
+</head>
+<body>
+    <div class="hamburgerBar">
+    <img src="{% static 'img/aside.title.hamburger.png' %}" class="barImg" width="30" height="30" alt="Bar">
+    <p> 비밀게시판</p>
+</div>
+    {% include "posts/header.html" %}
+    {% include "posts/navigation.html" %}
+<div class="bodyBox">
+
+    {% include "posts/detail_section.html" %}
+    {% include "posts/aside.html" %}
+</div>
+<footer>
+    <div class="footer-container">
+        <p class="footer-title">비누랩스 주식회사</p>
+        <p class="footer-small">서울특별시 마포구 양화로 113, 5층 | 
+            사업자등록번호:407-88-00024 | 
+            직업정보제공사업 신고번호 : J1204020230008</p>
+        <p class="footer-last">이용약관 | 개인정보처리방침 | 
+            청소년보호정책 | 커뮤니티이용규칙 | 공지사항 | 문의하기 | 에브리타임</p>
+
+    </div>
+</footer>
+<script src="{% static 'js/post.js' %}"></script>
+<script src="{% static 'js/detail.js' %}"></script>
 </body>
+</html>

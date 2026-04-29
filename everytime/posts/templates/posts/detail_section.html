@@ -1,0 +1,121 @@
+{% load static %}
+<section>
+    <div class="sectionTilte">
+        <h6 class="section1_title">비밀게시판</h6>
+    </div>
+    <div class="sectionContent">
+        <div class="sectionFirst">
+            <div class="writer">
+                <div class="writerImg"><img src="{% static 'img/anonymous.profile.png' %}" width="30" height="30">
+                </div>
+                <div class="writerAbout">
+                <p class="writername">익명</p>
+                <p class="writeTime">04/01 21:30</p>
+                </div>
+            </div>
+
+            <div class="writerRight">
+                {% if request.user == post.author %}
+                <ul>
+                <a href="{% url 'posts:update' post.id %}" class="sectionRight-menu" >수정하기</a>
+                <a href="{% url 'posts:delete' post.id %}" class="sectionRight-menu">삭제하기</a>
+                </ul>
+                {% else %}
+                    <li class="sectionRight-menu">쪽지</li>
+                    <li class="sectionRight-menu">신고</li>
+                </ul>
+                {% endif %}
+            </div>
+
+        </div>  
+        
+        <div class="secitionContent">
+            <p class="contentTitle">{{ post.title }}</p>
+        </div>
+        <div class="sectionContent2">{{ post.content }}
+        </div>
+        <div class="reaction">
+            <img src="{% static 'img/container.articles.vote.png' %}" width="10" alt="likes">
+                <span class="redTxt">{{ post.like.count }}` &nbsp; </span>
+                <img src="{% static 'img/container.articles.comment.png' %}" width="10" alt="chat">
+                <span class="blueTxt">0</span>
+                <img src="{% static 'img/container.articles.scrap.png' %}" width="10" alt="chat">
+                <span class="yellowTxt">0</span>
+        </div>
+        <div class="reactionButton">
+            <div class="reaction_button1">
+                <img src="{% static 'img/container.articles.buttons.posvote.png' %}" width="10" alt="chat">
+                <span class="grayTxt1">공감</span></div>
+            <div class="reaction_button2">
+                <img src="{% static 'img/container.articles.buttons.scrap.png' %}" width="10" alt="chat">
+                <span class="grayTxt">스크랩</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="sectionComment">
+        <!-- 기본 띄어지는 댓글창 -->
+        <div class="sectionComment active">
+            <div class="coment-box">
+                <div class="writer">
+                    <div class="writerImg"><img src="{% static 'img/anonymous.profile.png' %}" width="20" height="20">
+                    </div>
+                    <div class="writerAbout2">
+                    <p class="writername2">익명2</p>
+                    </div>
+                </div>
+                <ul class="comentWriter">
+                    <li class="sectionRight-menu jscoment" >대댓글</li>
+                    <li class="sectionRight-menu">공감</li>
+                    <li class="sectionRight-menu">쪽지</li>
+                    <li class="sectionRight-menu">신고</li>
+                </ul>
+            </div>
+            <div class="comentValue">
+                기본 댓글창!!
+                <p class="writeTime">04/05 21:30</p>
+            </div>
+            <!-- 대댓글창 -->
+            <div class="dbcometnContainer">
+                <div class="sectionComment active" id="dbComent">
+                <div class="coment-box">
+                    <div class="writer">
+                        <div class="writerImg"><img src="{% static 'img/anonymous.profile.png' %}" width="20" height="20">
+                        </div>
+                        <div class="writerAbout2">
+                        <p class="writername2">익명3</p>
+                        </div>
+                    </div>
+                    <ul class="comentWriter">
+                        <li class="sectionRight-menu">공감</li>
+                        <li class="sectionRight-menu">쪽지</li>
+                        <li class="sectionRight-menu">신고</li>
+                    </ul>
+                </div>
+                <div class="comentValue">
+                    대댓글입니다🥰
+                    <p class="writeTime">04/05 21:30</p>
+                </div>    
+            </div>
+            <!-- 기본 띄어지는 댓글창 여기까지-->
+            <!-- 이 밑으로 댓글 달면 달림 -->
+    </div>
+        </div>
+    </div>
+
+
+    <div class="comentContainer">
+        <input type="text" class="comentbox" placeholder="댓글을 입력하세요"></input>
+        <ul class="textfunction">
+            <li class="check-coment"><input type="checkbox" class="anonymousBox">익명</li>
+            <li class="writeButton"><img src="{% static 'img/container.articles.write.submit.png' %}"width="40px"height="40px" alt="글작성버튼"></li>
+        </ul>
+    </div>
+
+
+    <div class="textList">
+        <img src="{% static 'img/container.articles.pagination.list.png' %}" 
+        width="10" height="10" alt="햄버거바">
+        <p class="textlist_style">글 목록</p>
+    </div>
+</section>

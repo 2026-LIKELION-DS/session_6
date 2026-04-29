@@ -1,0 +1,121 @@
+{% load static %}
+{% load humanize %}
+<section>
+        <div class="section1">
+            <h3> 비밀게시판</h3>
+            <div class="sectioncontainer">
+                <div class="sectionBox1">
+                    <img src="{% static 'img/icn_mcr_board_question_light.png' %}" width=40 height=40 alt="chat">
+                    <div class="sectionBox">보건결석</div>
+                    <div class="sectionBox">학교 헬스장</div>
+                    <div class="sectionBox">일본어회화 단어 시험</div>
+                    <div class="sectionBox">이러닝 출석은 어디서 확인하나요?</div>
+                    <div class="sectionBox">데이터와 친해지기</div>
+                </div>
+                <div class="sectionBox2">
+                    <img src="{% static 'img/icn_mcr_board_hotarticle_light.png' %}" width=40 alt="fire">
+                    <div class="sectionChBox">내가 보려고 올리는 글 &nbsp;
+                        <img src="{% static 'img/container.articles.vote.png' %}" width="10" alt="likes">&nbsp;<span class="everyTime">153</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="textsubmit input-wrap">
+                <input type="text" name="글제출" placeholder="새 글을 작성해주세요!">
+                <img src="{% static 'img/container.write.background.png' %}" alt="pencil" class="input-icon">
+            </div>
+
+
+
+            <form method="post" action="{% url 'posts:create' category.slug %}" class="textBox1">
+            {% csrf_token %}
+            <p><input name="title" placeholder="글 제목" class="textTitle"></p>
+            <p><textarea name="content" placeholder="에브리타임은 누구나 기분 좋게 참여할 수 있는 커뮤니티를 만들기 위해 커뮤니티 이용규칙을 제정하여 운영하고 있습니다. 위반 시 게시물이 삭제되고 서비스 이용이 일정 기간 제한될 수 있습니다. 
+
+아래는 이 게시판에 해당하는 핵심 내용에 대한 요약 사항이며, 게시물 작성 전 커뮤니티 이용규칙 전문을 반드시 확인하시기 바랍니다. 
+
+※ 정치·사회 관련 행위 금지 
+- 국가기관, 정치 관련 단체, 언론, 시민단체에 대한 언급 혹은 이와 관련한 행위 
+- 정책·외교 또는 정치·정파에 대한 의견, 주장 및 이념, 가치관을 드러내는 행위 
+- 성별, 종교, 인종, 출신, 지역, 직업, 이념 등 사회적 이슈에 대한 언급 혹은 이와 관련한 행위 
+- 위와 같은 내용으로 유추될 수 있는 비유, 은어 사용 행위 
+* 해당 게시물은 시사·이슈 게시판에만 작성 가능합니다. 
+
+※ 홍보 및 판매 관련 행위 금지 
+- 영리 여부와 관계 없이 사업체·기관·단체·개인에게 직간접적으로 영향을 줄 수 있는 게시물 작성 행위 
+- 위와 관련된 것으로 의심되거나 예상될 수 있는 바이럴 홍보 및 명칭·단어 언급 행위 
+* 해당 게시물은 홍보게시판에만 작성 가능합니다. 
+
+※ 불법촬영물 유통 금지
+불법촬영물등을 게재할 경우 「전기통신사업법」 제22조의5에 의거하여, 「성폭력범죄의 처벌 등에 관한 특례법」 제14조 등 관련 법률에 따라 삭제 조치 및 서비스 이용이 영구적으로 제한될 수 있으며 관련 법률에 기반하여 처벌받을 수 있습니다. 
+
+※ 그 밖의 규칙 위반 
+- 타인의 권리를 침해하거나 불쾌감을 주는 행위 
+- 범죄, 불법 행위 등 법령을 위반하는 행위 
+- 욕설, 비하, 차별, 혐오, 자살, 폭력 관련 내용을 포함한 게시물 작성 행위 
+- 음란물, 성적 수치심을 유발하는 행위 
+- 스포일러, 공포, 속임, 놀라게 하는 행위" class="text_Content">
+</textarea></p>
+<div class="questionContainer"><p class="questionText">질문 글을 작성하면 게시판 상단에 일정 기간 동안 노출되어, 
+    더욱 빠르게 답변을 얻을 수 있게 됩니다. <br> 또한, 다른 학우들이 정성껏 작성한 답변을 유지하기 위해, 
+    댓글이 달린 이후에는 글을 <b>수정 및 삭제할 수 없습니다.</b></p>
+</div>
+<ul class="textfunction">
+    <li class="hashTag"><img src="{% static 'img/container.articles.write.hashtag.png' %}" width="50px" alt="해시태그"></li>
+    <li class="linkImg"><img src="{% static 'img/container.articles.write.attach.png' %}" width="50px" alt="링크첨부"></li>
+    <li class="checkBox"><input type="checkbox" id="questionBox">질문</li>
+    <li class="checkBox1"><input type="checkbox" name="is_anonymous" class="anonymousBox">익명</li>
+    <li class="wrightButton"> <button type="submit" class="writeImageButton"><img src="{% static 'img/container.articles.write.submit.png' %}" width="50px" height="54.5px"alt="글작성버튼"></button></li>
+</ul>
+</form>
+</div>
+
+
+    {% for post in posts %}
+    <article class="article1" onclick="location.href='{% url 'posts:detail' post.id %}'">
+    <div class="articleBox1">
+
+            <p class="articleTitle">{{ post.title }}</p>
+            <p class="articleStory">{{ post.content }}</p>
+
+            <p class="articleFooter">
+                <img src="{% static 'img/container.articles.vote.png' %}" width="10" alt="chat">
+                <span class="redTxt">{{ post.like.count }}</span>
+                <span class="grayTxt">
+                    &nbsp;&nbsp;| {{ post.created_at|naturaltime }} |
+                    {% if post.is_anonymous %}
+                        익명
+                    {% else %}
+                        익명
+                    {% endif %}
+                </span>
+            </p>
+    </div>
+    </article>
+    {% empty %}
+    <h2>글이 없습니다.</h2>
+    {% endfor %}
+
+
+        <article>
+            <div class="articleBox1">
+                <p class="articleTitle">SW과제가 너무 많아요</p>
+                <p class="articleStory">휴학하고싶어요 드랍하고싶어요 엉엉</p>
+                <p class="articleFooter">
+                <span class="grayTxt">3분 전 | 익명</span></span></p>
+            </div>
+        </article>
+        <article>
+            <div class="articleBox1">
+                <p class="articleTitle">코난 극장판 개봉함</p>
+                <p class="articleStory">본 지 오래됐는데 친구가 제발 보라고 강추해서 궁금해이</p>
+                <p class="articleFooter">
+                    <img src="{% static 'img/container.articles.vote.png' %}" width="10" alt="likes">
+                    <span class="redTxt">3 </span>
+                    <img src="{% static 'img/container.articles.comment.png' %}" width="10" alt="chat">
+                    <span class="blueTxt">15
+                    <span class="grayTxt">&nbsp;| 25분 전 | 익명</span></span>
+                </p></span>
+            </div>
+        </article>
+    </section>
