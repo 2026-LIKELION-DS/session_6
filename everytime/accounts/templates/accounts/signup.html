@@ -1,6 +1,46 @@
-<h2>회원가입</h2>
-<form method='post' action={% url 'accounts:signup' %}>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type='submit'>signup</button>
-</form>
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clone - 회원가입 페이지</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}" />
+    <script src="{% static 'js/signup.js' %}" defer></script>
+</head>
+<body>
+    <header id="signupInfo">
+        <h1>에브리타임 회원가입</h1>
+
+        <div id="oneSentence">
+            <p id="explain">에브리타임 계정으로 <div>캠퍼스픽, 에브리타임</div> 등</p>
+        </div>
+
+        <p>다양한 대학생 서비스를 모두 이용하실 수 있습니다.</p>
+    </header>
+
+    <form id="signupForm" method="POST" action="{% url 'accounts:signup' %}">
+        {% csrf_token %}
+        
+        <div class="inputBigBox">
+            {# 장고 폼의 필드들을 자동으로 생성합니다. #}
+            {# CSS 스타일링을 위해 forms.py에서 각 필드에 class="inputBox"를 추가해주는 것이 좋습니다. #}
+            {{ form.as_p }}
+        </div>
+
+        {# 비밀번호 재확인 등 form.as_p에 포함되지 않는 추가 필드가 있다면 아래처럼 수동으로 추가할 수 있습니다. #}
+        {# 하지만 보통은 forms.py에서 정의한 후 {{ form }} 하나로 관리하는 것이 정석입니다. #}
+
+        <button id="signupBtn" type="submit">
+            <p>회원가입</p>
+        </button>
+    </form>
+
+    <footer id="footer">
+        <p>이용약관</p>
+        <p>개인정보처리방침</p>
+        <p>문의하기</p>
+        <p>@에브리타임</p>
+    </footer>
+</body>
+</html>
