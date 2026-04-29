@@ -1,7 +1,55 @@
-<h2>로그인</h2>
-<form method='post' action={% url 'accounts:login' %}>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">login</button>
-</form>
-<p><a href="{% url 'accounts:signup' %}">회원가입</a></p>
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인 페이지</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  </head>
+
+  <body>
+    <div class="allbox">
+      <div class="header">
+        <img src="{% static 'img/logo.png' %}" alt="로고" />
+      </div>
+      <form method='post' action={% url 'accounts:login' %} class="formTag">
+        {% csrf_token %}
+        <div class="box">
+          <div class="box1">
+            <input
+              type="text"
+              name="username"
+              id="user-id"
+              class="id-input"
+              placeholder="LIKELION14"
+            />
+          </div>
+          <div class="box2">
+            <input 
+              type="password"
+              name="password"
+              id="user-password"
+              class="password-input"
+              placeholder="비밀번호"
+            />
+          </div>
+          <div class="box3">
+            <button type="submit" id="user-login" class="login-input">
+              에브리타임 로그인
+            </button>
+          </div>
+        </div>
+        <a href="{% url 'accounts:signup' %}" class="word">회원가입</a>
+      </form>
+      <div class="word-box">
+        <span class="word1">이용약관</span>
+        <span class="word1">개인정보처리방침</span>
+        <span class="word1">문의하기</span>
+        <span class="word1">@에브리타임</span>
+      </div>
+    </div>
+
+    <script src="{% static 'js/login.js' %}"></script>
+  </body>
+</html>

@@ -1,6 +1,87 @@
-<h2>회원가입</h2>
+<!-- <h2>회원가입</h2>
 <form method='post' action={% url 'accounts:signup' %}>
     {% csrf_token %}
     {{ form.as_p }}
     <button type='submit'>signup</button>
-</form>
+</form> -->
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입 페이지</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css'%}" />
+  </head>
+
+  <body>
+    <div class="allbox">
+      <div class="header">
+        <div class="header1">에브리타임 회원가입</div>
+        <div class="header2">
+          에브리타임 계정으로 <span class="bold">캠퍼스픽, 에브리타임</span> 등
+        </div>
+        <div class="header2">
+          다양한 대학생 서비스를 모두 이용하실 수 있습니다.
+        </div>
+      </div>
+      <form method='post' action={%url 'accounts:signup' %} class="down">
+        {% csrf_token %}
+        <div class="box">
+          <div class="name" style="font-size: 13px" >이름</div>
+          <input
+            type="text"
+            id="user-name"
+            class="people"
+            placeholder="이름을 입력하세요."
+            name="username"
+          />
+        </div>
+        <div class="box">
+          <div class="name" style="font-size: 13px">닉네임</div>
+          <input
+            type="text"
+            id="user-nickname"
+            class="people"
+            placeholder="닉네임을 입력하세요."
+            name="nickname"
+          />
+        </div>
+        <div class="box">
+          <div class="name" style="font-size: 13px">이메일</div>
+          <input
+            type="text"
+            id="user-email"
+            class="people"
+            placeholder="이메일을 입력하세요."
+            name="email"
+          />
+        </div>
+        <div class="box">
+          <div class="name" style="font-size: 13px">비밀번호</div>
+          <input
+            type="password"
+            id="user-pw"
+            class="people"
+            placeholder="숫자/문자 조합, 최소 8자 이상"
+            name=password
+          />
+        </div>
+        <div class="box">
+          <div class="name" style="font-size: 13px">비밀번호 재입력</div>
+          <input
+            type="password"
+            id="user-pw-confirm"
+            class="people"
+            placeholder="비밀번호를 재입력하세요."
+            name="password2"
+          />
+        </div>
+        <button type="submit" id="last" class="last">회원가입</button>
+      </form>
+    </div>
+
+    <script src="{% static 'js/signup.js'%}"></script>
+  </body>
+</html>
