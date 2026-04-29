@@ -1,7 +1,39 @@
-<h2>로그인</h2>
-<form method='post' action={% url 'accounts:login' %}>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">login</button>
-</form>
-<p><a href="{% url 'accounts:signup' %}">회원가입</a></p>
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>에브리타임 로그인</title>
+    <link rel="stylesheet" href="{% static "css/login.css" %}" />
+</head>
+<body>
+    <div class="login-container">
+        <img src="{% static "img/logo.png" %}" alt="에타 로고" class="eta-logo">
+        <form method='post' action="{% url 'accounts:login' %}" class="login-form">
+            {% csrf_token %}
+            <input type="text" id="userid" class="input-box" placeholder="아이디" name="username">
+            <input type="password" id="userpw" class="input-box" placeholder="비밀번호" name="password">
+            <input type="submit" id="login-btn" class="submit-btn" value="에브리타임 로그인">
+        </form>
+
+        <div class="options">
+            <div class="login">
+                <input type="checkbox" class="stay-check">
+                <span class="stay-loggedin">로그인 유지</span>
+            </div>
+            <div class="find">아이디/비밀번호 찾기</div>
+        </div>
+
+        <a href="{% url 'accounts:signup' %}" class="register">회원가입</a>
+
+        <footer class="footer">
+            <span class="footer-plain">이용약관</span>
+            <span class="footer-bold">개인정보처리방침</span>
+            <span class="footer-plain">문의하기</span>
+            <span class="footer-bold">&copy; 에브리타임</span>
+        </footer>
+    </div>
+    <script src="{% static "js/login.js" %}"></script>
+</body>
+</html>

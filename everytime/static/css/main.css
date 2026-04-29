@@ -1,0 +1,794 @@
+body {
+    font-family: "Apple SD Gothic Neo", "맑은 고딕", "Malgun Gothic", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.everytime-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 40px;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column; 
+    white-space: nowrap;
+}
+
+.logo-everytime {
+    margin: 0;
+    color: #ff1900;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.logo-univname {
+    margin: 0;
+    color: #292929;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    width: 1180px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.banner-top {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.banner-top div {
+    text-decoration: none; /* 하이퍼링크 시 생기는 파란 글씨 밑 밑줄 제거용*/
+    color: #444444;
+    font-weight: bold;
+    font-size: 16px;
+    
+}
+
+.banner-top-option div {
+    color: #f91f15; 
+}
+
+.users-menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.icon-img {
+    width: 40px; 
+    height: 40px;
+    margin: 0 0 0 4px;
+}
+
+.bulletin-board {
+    background-color: #f8f8f8;
+    border-top: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
+    display: flex;
+    padding: 15px 0;
+    justify-content: flex-start;
+    overflow-x: auto;
+}
+
+.board-type {
+    display: flex;
+    border-right: 1px solid #e3e3e3;
+    padding: 0 20px;
+    flex-shrink: 0;
+}
+
+.board-type:first-child {
+    margin-left: auto;
+}
+
+.board-type:last-child {
+    margin-right: auto;
+}
+
+.board-type-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.board-type-list li {
+    font-size: 13px;
+    color: #444444;
+    white-space: nowrap;
+}
+
+.board-type-list .secret-board {
+    color: #f91f15;
+    font-weight: bold;
+}
+
+.board-type-list .clickForMore {
+    color: #f91f15;
+}
+
+.main-container {
+    display: flex; 
+    width: 1180px;
+    margin: 0 auto;
+    justify-content: flex-start; /* 가로 길이 줄어들 시 right-sidebar부터 사라지도록 center -> flex-start로 변경*/
+    padding: 25px 0;
+    gap: 20px;
+}
+
+
+.board-contents {
+    background-color: #ffffff;
+    width: 780px;
+    flex-shrink: 0;
+}
+
+.board-qandhot-wrap {
+    padding: 15px;
+    border: 1px solid #d6d6d6;
+    margin-bottom: 5px;
+}
+
+.board-title {
+    font-weight: bold;
+    font-size: 20px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.board-title-whole {
+    padding: 15px;
+    border: 1px solid #d6d6d6;
+    margin-bottom: 5px;
+}
+
+.board-questions-whole {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.question-icon {
+    width: 20px; 
+    height: 20px;
+    margin-right: 10px;
+}
+
+.questions-hot-whole {
+    display: flex;
+    gap: 5px;
+}
+
+.questions-hot-each {
+    background-color: #eafffb;
+    color: #666;
+    font-size: 13px;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 12px;
+    margin: 0 0 0 0;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.board-hot-whole {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.hot-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.hots-each {
+    display: flex;
+    align-items: center;
+    background-color: #fcf3f3;
+    color: #666;
+    font-size: 13px;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 15px;
+}
+
+.like-icon {
+    width: 13px;
+    height: 13px;
+    margin-left: 8px;
+    margin-right: 3px; 
+}
+
+.likes-count {
+    font-weight: bold;
+}
+
+.post-new-article {
+    border: 3px solid #e3e3e3;
+    background-color: #f8f8f8;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.write {
+    display: none;
+}
+
+.new-article-input {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+    outline: none;
+    color: #a6a6a6;
+}
+
+.write-icon {
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
+}
+
+.article-list-box {
+    border: 1px solid #e3e3e3;
+}
+
+.article-link {
+    text-decoration: none;
+    color: #222222;
+    display: block;
+}
+
+.post-each {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.article-link:last-child .post-each {
+    border-bottom: none;
+}
+
+.post-title {
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    font-size: 14px;
+}
+
+.post-content {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    color: #444444;
+}
+
+.post-info {
+    margin: 0;
+    font-size: 12px;
+    color: #a6a6a6;
+}
+
+.post-meta-whole {
+    display: flex;
+    align-items: center;
+}
+
+.comment-img {
+    width: 12px;
+    height: 12px;
+    margin-right: 4px;
+}
+
+.right-sidebar {
+    width: 373px;
+    flex-shrink: 0;
+}
+
+.sidebar-box {
+    border: 1px solid #e3e3e3;
+    background-color: #f8f8f8;
+    margin-bottom: 10px;
+}
+
+.sidebar-title-box {
+    border-bottom: 1px solid #e3e3e3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidebar-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #056AB5;
+    padding: 10px;
+}
+
+.sidebar-link {
+    text-decoration: none;
+    color: #222222;
+    display: block;
+}
+
+.sidebar-hot-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #e3e3e3;
+    justify-content: space-between;
+}
+.sidebar-item {
+    padding: 10px;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.more {
+    color: #a6a6a6;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.item-hot {
+    height: 17px;
+    color: #444444;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.time {
+    margin: 0 0 0 10px;
+    height: 17px;
+    line-height: 18px;
+    color: #a6a6a6;
+    font-size: 11px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.sidebar-link:last-child .sidebar-item {
+    border-bottom: none;
+}
+
+.item-title {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.item-content {
+    margin: 0 0 5px 0;
+    font-size: 12px;
+    color: #737373;
+}
+
+.item-meta-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.board-name {
+    font-size: 12px;
+    font-weight: bold;
+    color: #a6a6a6;
+    margin-right: 10px;
+}
+
+.vote-icon, .comment-icon {
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+}
+
+.vote-count {
+    font-size: 12px;
+    color: #f91f15;
+    margin-right: 8px;
+}
+
+.comment-count {
+    font-size: 12px;
+    color: #05BCBC;
+}
+
+
+
+
+.write {
+    display: none;
+    flex-direction: column; 
+    border: 2px solid #d6d6d6;
+    margin-bottom: 5px;
+    margin-top: 0;
+    padding: 0;
+}
+
+.title {
+    box-sizing: border-box; 
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #e3e3e3;
+    margin: 0;
+    padding: 15px;
+    color: #292929;
+    font-size: 16px;
+    font-weight: bold;
+    outline: none;
+}
+
+.content {
+    box-sizing: border-box;
+    width: 100%;
+    height: 350px;
+    border: none;
+    padding: 15px;
+    margin: 0;
+    color: #292929;
+    font-size: 14px;
+    resize: none; /* textarea는 이 설정을 줘야 웹에서 크기 조절 불가능하게 막을 수 있음 */
+}
+
+.question {
+    padding: 15px;
+    background-color: #fff;
+    display: block;
+    align-items: center;
+    border: 1px solid #e3e3e3;
+    display: none; /* 이것을 적용해줘야 처음부터 나오지 않고, 질문 체크박스 클릭 시에만 나옴 */
+}
+.question-notice {
+    background-color: #edfffe;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.question-notice-strong {
+    font-weight: bold;}
+
+.question-notice p {
+    margin: 0;
+    color: #05BCBC;
+    font-size: 12px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #e3e3e3;
+    height: 40px;
+}
+
+.option-left {
+    display: flex;
+    align-items: center;
+}
+
+.option-left img {
+    width: 40px; 
+    height: 40px;
+    cursor: pointer;
+}
+
+.option-right {
+    display: flex;
+    align-items: center;
+}
+
+.check-group {
+    display: flex;
+    align-items: center;
+}
+.question-check, .anonym-check {
+    cursor: pointer
+}
+.check-text {
+    margin: 0 15px 0 0 ;
+    font-size: 13px;
+    color: #666;
+    font-weight: bold;
+}
+
+.submit-btn-wrap {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #F91F15;
+
+}
+
+.submit-btn-wrap img {
+    width: 40px;
+    height: 40px;
+}
+
+
+
+.hamburger-icon {
+    display: none;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.mobile-header, .side-hamburger {
+    display: none;
+}
+
+.header-inner {
+    width: 100%;
+    padding: 15px 100px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.desktop-header {
+    display: flex;
+    align-items:center;
+}
+
+.desktop-header .banner-top {
+    margin: 0 0 0 40px;
+    gap: 24px;
+}
+
+.users-menu {
+    margin-left: auto;
+}
+
+
+
+@media (max-width: 640px) {
+    header {
+        height: 50px;
+    }
+    
+    .banner-top, .everytime-logo {
+        display: none; 
+    }
+
+    .mobile-header {
+        display: flex;
+        align-items: center;
+        height: 50px;
+    }
+
+    .hamburger-icon {
+        display: block;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        margin-right: 15px;
+    }
+
+    .bulletin-board {
+        display: flex;
+        flex-direction: row; 
+        overflow-x: auto; 
+        justify-content: flex-start;
+        border-bottom: 2px solid #e3e3e3;
+        background-color: #f8f8f8;
+    }
+
+    .board-type {
+        border-right: 1px solid #e3e3e3;
+        border-bottom: none;
+        padding: 0px 20px;
+        flex-shrink: 0; 
+        white-space: nowrap;
+    }
+
+    .right-sidebar {
+        display: none;
+    }
+
+    .main-container {
+        padding: 15px 20px;
+    }
+
+    .board-contents {
+        width: 100%;
+    }
+    
+    .new-article-input {
+        width: 90%;
+    }
+
+    .side-hamburger {
+        display: none;
+        position: fixed;
+        flex-direction: column;
+        align-items: flex-start;
+        left: 0;
+        top: 0;
+        width: 75%;
+        height: 100vh;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        background-color: #fff;
+        z-index: 1000;
+    }
+
+    .side-hamburger.active {
+        display: flex;
+    }
+
+    .everytime-logo-hamburger {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 24px;
+        gap: 8px;
+    }
+
+    .everytime-logo-hamburger a {
+        width: 40px;
+        height:40px;
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-everytime {
+        margin-left: 3px;
+        line-height: 15px;
+        font-size: 12px;
+    }
+
+    .logo-univname {
+        line-height: 25px;
+        color: #292929;
+        font-size: 22px;
+    }
+
+    .banner-top {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%
+
+    }
+
+    .banner-top li {
+        width: 100%;
+    }
+
+    .banner-top div {
+        display: block;
+        padding: 12px 24px;
+        box-sizing: border-box;
+        width: 100%;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    
+    .users-menu {
+        display: flex;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        padding-left: 24px;
+        height: 80px;
+    }
+
+    .desktop-header { 
+        display: none; 
+    }
+    
+    .header-inner {
+        width: 100%;
+        padding: 0 15px;
+        height: 50px;
+    }
+
+    .mobile-header {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    .which-board {
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .side-hamburger {
+        display: none;
+        position: fixed;
+        flex-direction: column;
+        align-items: flex-start;
+        left: 0;
+        top: 0;
+        width: 75%;
+        height: 100vh;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        background-color: #fff;
+        z-index: 9999;
+    }
+
+    .side-hamburger.active {
+        display: flex;
+    }
+
+    .everytime-logo-hamburger {
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+        border-bottom: 1px solid #e3e3e3;
+        gap: 8px;
+    }
+
+    .logo-img {
+        width: 40px;
+        height: 40px;
+        margin-top: 2px;
+    }
+
+    .banner-top li {
+        width: 100%;
+    }
+
+    .banner-top div {
+        display: block;
+        padding: 15px 20px;
+        box-sizing: border-box;
+        width: 100%;
+        color: #121212;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .side-hamburger .banner-top div.active-menu {
+        background-color: #f9f9f9;
+        color: #F91F15;
+    }
+
+    .side-hamburger .users-menu {
+        display: flex;
+        gap: 15px;
+        margin-top: auto;
+        padding: 20px;
+    }
+
+    .side-hamburger .banner-top {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+    }
+}

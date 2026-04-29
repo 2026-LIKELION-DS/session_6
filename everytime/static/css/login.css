@@ -1,0 +1,133 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: transparent;
+    font-family: sans-serif;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 360px;
+}
+
+.eta-logo {
+    width: 210px;
+    height: 56px;
+    margin: 0 75px 40px 75px;
+}
+
+.title {
+    color: #c92a18;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.input-box {
+    box-sizing: border-box;
+    margin-top: 4px;
+    padding: 10px;
+    border-radius: 12px;
+    width: 100%;
+    line-height: 24px;
+    color: #292929;
+    font-size: 16px;
+    background-color: #F2F2F2;
+    border: none;
+    outline: none;
+}
+
+.submit-btn {
+    margin-top: 4px;
+    padding: 10px;
+    border-radius: 12px;
+    width: 100%;
+    line-height: 24px;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #6b6b6b;
+    border: none;
+    outline: none;
+}
+
+.submit-btn.active {
+    background-color: #f91f15;
+    cursor: pointer;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    line-height: 20px;
+    padding-left: 8px;
+    width: 360px;
+}
+
+.login {
+    gap: 8px;
+    display: flex;
+}
+
+.stay-check {
+    width: 14px;
+    height: 14px;
+    color: #A6A6A6;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.stay-loggedin {
+    color: #A6A6A6;
+    font-size: 14px;
+}
+
+.find {
+    color: #A6A6A6;
+    font-size: 14px;
+}
+
+.register {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    line-height: 20px;
+    color: #737373;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 96px;
+    gap: 16px;
+}
+
+.footer-plain {
+    line-height: 18px;
+    color: #737373;
+    font-size: 12px;
+}
+
+.footer-bold {
+    line-height: 18px;
+    color: #737373;
+    font-size: 12px;
+    font-weight: bold;
+}
