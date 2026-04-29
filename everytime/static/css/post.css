@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+}
+
+.new_write {
+  border: 2px solid rgba(0, 0, 0, 0.176);
+  background-color: #ffffff;
+  color: rgba(0, 0, 0, 0.398);
+  margin-bottom: 5px;
+
+  font-size: 12px;
+  color: #666;
+  letter-spacing: -0.5px;
+}
+
+.new_write p {
+  margin: 0;
+  padding: 15px;
+  border-bottom: 1px solid #e3e3e3;
+  background-color: #ffffff;
+}
+
+.title {
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  border: 0;
+  color: #292929;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+textarea {
+  width: 100%;
+  height: 350px;
+  border: 0;
+  color: #292929;
+  font-size: 14px;
+  resize: none;
+  letter-spacing: -0.5px;
+}
+
+.p_write {
+  display: none;
+  padding: 8px;
+  margin: 15px;
+  border-radius: 8px;
+  line-height: 18px;
+  color: #05bcbc;
+  font-size: 12px;
+  background-color: #edfffe;
+}
+.que_div {
+  display: none;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.left-g > div {
+  width: 40px;
+  height: 40px;
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.right-g > div,
+.right-g > button {
+  width: 40px;
+  height: 40px;
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.hashtag {
+  background-image: url("../img/container.articles.write.hashtag.png");
+}
+.attach {
+  background-image: url("../img/container.articles.write.attach.png");
+}
+
+.anonym {
+  background-image: url("../img/container.articles.write.anonym.png");
+}
+.question2 {
+  display: block;
+  background-image: url("../img/container.articles.write.question.png");
+}
+
+.question3 {
+  display: none;
+  background-image: url("../img/container.articles.write.question.active.png");
+}
+.submit {
+  border: none;
+  background-image: url("../img/container.articles.write.submit.png");
+  background-color: #f91f15;
+}
+
+.left-g,
+.right-g {
+  display: flex;
+  gap: 10px;
+}
+
+.title,
+textarea {
+  outline: none;
+}

@@ -1,5 +1,5 @@
 {% load static %}
-<html lang="ko">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,20 +18,11 @@
           다양한 대학생 서비스를 모두 이용하실 수 있습니다.
         </p>
       </section>
-      <form
-        method="post"
-        action="{% url 'accounts:signup' %}"
-        class="signup-info"
-      >
+      <form method="post" action="{% url 'accounts:signup' %}" class="signup-info">
         {% csrf_token %}
         <div class="name">
           <p>이름</p>
-          <input
-            id="name"
-            type="text"
-            placeholder="이름을 입력하세요."
-            name="username"
-          />
+          <input id="name" type="text" placeholder="이름을 입력하세요." name="username" />
         </div>
         <div class="nick-name">
           <p>닉네임</p>
@@ -44,12 +35,7 @@
         </div>
         <div class="e-mail">
           <p>이메일</p>
-          <input
-            id="e-mail"
-            type="email"
-            placeholder="이메일을 입력하세요."
-            name="email"
-          />
+          <input id="e-mail" type="email" placeholder="이메일을 입력하세요." name="email"/>
         </div>
         <div class="signup-pw">
           <p>비밀번호</p>
@@ -70,11 +56,11 @@
           />
         </div>
         <div>
-          <button id="signup-button" type="submit">회원가입</button>
+          <button id="signup-button" type="button">회원가입</button>
         </div>
       </form>
     </div>
 
-    <script src="{% static 'js/signup.js' %}"></script>
+    <script src="{% static '../js/signup.js' %}"></script>
   </body>
 </html>

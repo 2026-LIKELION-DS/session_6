@@ -1,5 +1,5 @@
 {% load static %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
@@ -12,25 +12,11 @@
       <section>
         <img class="logo" src="{% static 'img/logo.png' %}" />
       </section>
-      <form
-        method="post"
-        action="{% url 'accounts:login' %}"
-        class="everytime-section"
-      >
-        {% csrf_token %}
-        <input
-          class="login-id"
-          type="text"
-          placeholder="아이디"
-          name="username"
-        />
-        <input
-          class="login-pw"
-          type="password"
-          placeholder="비밀번호"
-          name="password"
-        />
-        <button class="everytime-login" type="submit">에브리타임 로그인</button>
+      <form method="post" action="{% url 'acounts:login' %}" class="everytime-section">
+      {% csrf_token %}
+        <input class="login-id" type="text" placeholder="아이디" name="username"/>
+        <input class="login-pw" type="password" placeholder="비밀번호" name="password" />
+        <button class="everytime-login" type="button">에브리타임 로그인</button>
         <div class="everytime-etc">
           <label class="keep-wrap">
             <input
@@ -39,12 +25,13 @@
               value="로그인 유지"
             />로그인 유지
           </label>
-          <a href="{% url 'accounts:signup' %}" class="idpw-find"
-            >아이디/비밀번호 찾기</a
-          >
+          <a href="{% url 'account:signup' %} class="idpw-find">아이디/비밀번호 찾기</a>
         </div>
         <div>
-          <a class="signup" href="{% url 'accounts:signup' %}" target="_blank"
+          <a
+            class="signup"
+            href="{% url 'account:signup' %}"
+            target="_blank"
             >회원가입</a
           >
         </div>

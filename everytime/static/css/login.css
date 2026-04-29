@@ -1,0 +1,137 @@
+@import url("https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo.css");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Apple SD Gothic Neo", "맑은 고딕", "돋움", sans-serif;
+}
+
+.everytime-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  letter-spacing: -0.5px;
+}
+
+.everytime-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.logo {
+  width: 210px;
+  height: 56px;
+  object-fit: contain;
+  margin: 40px;
+}
+
+.login-id,
+.login-pw,
+.everytime-login {
+  display: block;
+  width: 340px;
+  height: 44px;
+  padding: 10px;
+  margin: 4px;
+
+  appearance: none;
+  outline: none;
+  border: none;
+  background-color: #f2f2f2;
+  border-radius: 12px;
+
+  color: #a6a6a6;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "Apple SD Gothic Neo", "맑은 고딕", "돋움", sans-serif;
+}
+
+.everytime-etc {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.keep-wrap {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  line-height: 20px;
+  color: #a6a6a6;
+  font-size: 14px;
+}
+
+.login-keep {
+  outline: none;
+}
+
+.signup {
+  float: right;
+  margin: 30px;
+  line-height: 20px;
+  color: #737373;
+  font-size: 14px;
+  text-decoration-line: underline;
+}
+
+.login-id,
+.login-pw {
+  font-weight: 400;
+  color: #292929;
+}
+.everytime-login {
+  font-weight: 800;
+  color: #636363;
+  background-color: #b5b5b5;
+}
+
+.idpw-find {
+  line-height: 20px;
+  color: #737373;
+  font-size: 14px;
+}
+input[type="checkbox"] {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 0.1px solid #a6a6a6;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  background-image: url(../img/icn_e_check_mini_on_light.svg);
+  border-color: #f91f15;
+}
+
+.everytime-footer {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 100px;
+
+  letter-spacing: -0.5px;
+  line-height: 18px;
+  color: #737373;
+  font-size: 12px;
+}
+
+#foo {
+  font-weight: 800;
+  color: #737373;
+}
