@@ -1,0 +1,89 @@
+#postContainer {
+  width: 780px;
+  /* height: 635px; */
+  border: 2px solid #d6d6d6;
+  margin-bottom: 10px;
+}
+.title {
+  padding: 15px;
+  color: #666;
+  height: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+.content-text {
+  padding: 13px;
+  /* height: 350px; */
+  color: #666;
+  font-size: 11px;
+  font-weight: 400;
+}
+.bar {
+  width: 780px;
+  /* height: 20px; */
+  border-top: 1px solid #d6d6d6;
+}
+.images {
+  display: flex;
+}
+.barImg1 {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.barImg2 {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.barImg3 {
+  width: 42px;
+  height: 45px;
+  cursor: pointer;
+  background-color: #f91f15;
+}
+.barImg {
+  display: flex;
+}
+#file {
+  display: none;
+}
+#questionButton {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+#who {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.rightImgs {
+  display: flex;
+  height: 40px;
+  gap: 10px;
+}
+.bigImgs {
+  display: flex;
+  justify-content: space-between;
+}
+#questionContainer{
+  height: 82px;
+  border-top: 1px solid #d6d6d6;
+  display: none;
+}
+#qSmallContainer{
+  width: 746px;
+  height: 52px;
+  /* padding: 8px; */
+  background-color: #EDFFFE;
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-left: 15px;
+  color: #05BCBC;
+  font-size: 12px;
+}
+#qSmallContainer div{
+  padding: 8px;
+}
