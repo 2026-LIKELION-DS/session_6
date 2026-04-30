@@ -1,5 +1,8 @@
-{% load static %}
+{% comment %} {% load static %}
 <body>
+
+    {% include 'header.html'%}
+
     {% load humanize %}
     <a href={% url 'posts:main' %}>메인페이지로 돌아가기</a><br><br>
     {% if request.user.is_authenticated %}
@@ -42,4 +45,69 @@
     <hr>
     {% empty %} <h2>글이 없습니다.</h2> {% endfor %}
 
+</body>  {% endcomment %}
+{% comment %} 
+{% load static %}
+<body>
+    {% load humanize %}
+    <a href={% url 'posts:main' %}>메인페이지로 돌아가기</a><br><br>
+    {% if request.user.is_authenticated %}
+        <p>nickname : {{ user }}</p>
+        <a href="{% url 'accounts:logout' %}">로그아웃</a>
+    {% else %}
+        <a href="{% url 'accounts:login' %}">로그인</a>
+    {% endif %}
+    <hr>
+
+
+    {% include 'header.html' %}
+
+    {% include 'navigation.html' %}
+
+
+    <h1>{{ category.name }}</h1>
+
+    {% include 'section.html' %}
+
+    {% include 'post.html' %}
+</body> {% endcomment %}
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/post.css' %}">
+</head>
+<body>
+    {% load humanize %}
+
+    <a href={% url 'posts:main' %}>메인페이지로 돌아가기</a><br><br>
+    {% if request.user.is_authenticated %}
+        <p>nickname : {{ user }}</p>
+        <a href="{% url 'accounts:logout' %}">로그아웃</a>
+    {% else %}
+        <a href="{% url 'accounts:login' %}">로그인</a>
+    {% endif %}
+    <hr>
+
+
+    {% include 'posts/header.html' %}
+
+    {% include 'posts/navigation.html' %}
+
+
+    <h1>{{ category.name }}</h1>
+
+    {% include 'posts/section.html' %}
+
+    {% include 'posts/aside.html' %}
+
+    {% comment %} {% include 'posts/post.html' %} {% endcomment %}
 </body>
+</html>

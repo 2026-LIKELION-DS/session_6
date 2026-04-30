@@ -1,4 +1,4 @@
-<body>
+{% comment %} <body>
     <a href={% url 'posts:main' %}>메인페이지로 돌아가기</a><br><br>
     {% if request.user.is_authenticated %}
         <p>nickname : {{ user }}</p>
@@ -65,4 +65,36 @@
     </form>
     <hr>
     <br>
+</body> {% endcomment %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% load humanize %}
+
+    <a href={% url 'posts:main' %}>메인페이지로 돌아가기</a><br><br>
+    {% if request.user.is_authenticated %}
+        <p>nickname : {{ user }}</p>
+        <a href="{% url 'accounts:logout' %}">로그아웃</a>
+    {% else %}
+        <a href="{% url 'accounts:login' %}">로그인</a>
+    {% endif %}
+    <hr>
+
+
+    {% include 'posts/header.html' %}
+
+    {% include 'posts/navigation.html' %}
+
+    {% include 'posts/detail.html' %}
+
+    {% include 'posts/aside.html' %}
+
 </body>
+</html>

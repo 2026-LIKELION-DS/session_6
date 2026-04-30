@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}" />
+</head>
+<body>
+    <header class="anotherHeader">
+        <img src="{% static 'img/aside.title.hamburger.png' %}" class="hamburger">
+        <div class="headerText">비밀게시판</div>
+    </header>
+    <header>
+        <div class="top-menu">
+            <div class="logo">
+                <div id="logo-img">
+                    <img src="{% static 'img/nav.logo.png' %}" alt="에브리타임로고" />
+                </div>
+                <div class="logo-text">
+                    <div id="logo-everytime">에브리타임</div>
+                    <div id="logo-duksung">덕성여대</div>
+                </div>
+        </div>
+            <ul id="menu">
+                <li class="menu1-0">게시판</li>
+                <li class="menu1-1">시간표</li>
+                <li class="menu1-1">강의실</li>
+                <li class="menu1-1">학점계산기</li>
+                <li class="menu1-1">친구</li>
+                <li class="menu1-1">책방</li>
+                <li class="menu1-1">캠퍼스픽</li>
+            </ul>
+            <div class="icon">
+                <div id="icon-message">
+                    <img
+                    src="{% static 'img/icon_communication_chat_filled_gray500_light.svg' %}"
+                    alt="messageImg"
+                    class="messageImg"
+                    />
+                </div>
+                <div id="icon-my">
+                    <img
+                    src="{% static 'img/icon_account_user_filled_gray500_light.svg' %}"
+                    alt="person"
+                    class="personImg"
+                    />
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+</html>

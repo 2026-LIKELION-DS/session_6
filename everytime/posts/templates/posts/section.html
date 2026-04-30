@@ -1,0 +1,233 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/post.css' %}">
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+</head>
+<body>
+    
+
+
+
+
+
+
+
+
+    <div class="big-container">
+        <div class="container">
+            <section>
+                <div class="section-title">
+                    <h2 id="section-title.text">비밀게시판</h2>
+                </div>
+                <div class="section-box1">
+                    <div id="question">
+                        <div id="question-items">
+                            <!-- <div class="question-icon"></div> -->
+                            <img src="{% static 'img/icn_mcr_board_question_light.png' %}" alt="questionIcon" class="questionIcon">
+                            <div id="item1">학교 고양이</div>
+                            <div id="item2">종강</div>
+                            <div id="item3">출결</div>
+                            <div id="item4">지각 세번</div>
+                            <div id="item5">학관 아이스티</div>
+                        </div>
+                    </div>
+                    <div class="hot">
+                        <img src="{% static 'img/icn_mcr_board_hotarticle_light.png' %}" alt="hotImg" class="hotImg">
+                        <div class="hot-container">
+                            <div class="hotBox">
+                                <div id="hot-item">근화제 언제</div>
+                                <div class="hot-goodIcon">
+                                    <img src="{% static 'img/container.articles.vote.png' %}" alt="hotGood" class="hotGood">
+                                    <div class="hot-textt">17</div>
+                                </div>
+                            </div>
+                            <!-- <div id="hot-item">근화제 언제</div>
+                            <div class="hot-goodIcon">
+                                <img src="../img/container.articles.vote.png" alt="hotGood" class="hotGood">
+                                <div class="hot-textt">17</div>
+                            </div> -->
+                            <!-- <img src="../img/container.articles.vote.png" alt="hotGood" class="hotGood">
+                            <div class="hot-textt">17</div> -->
+                        </div>
+                    </div>
+                </div>
+                <div id="sectionBox2">
+                    새 글을 작성해주세요!
+                    <img src="{% static 'img/container.write.background.png' %}" id="sectionPencil">
+                </div>
+                <div id="postContainer">
+                    <input type="text" class="title" placeholder="글 제목">
+                    <div class="content">
+                        <textarea name="text" placeholder="에브리타임은 누구나 기분 좋게 참여할 수 있는 커뮤니티를 만들기 위해 커뮤니티 이용규칙을 제정하여 운영하고 있습니다. 위반 시 게시물이 삭제되고 서비스 이용이 일정 기간 제한될 수 있습니다. 
+
+아래는 이 게시판에 해당하는 핵심 내용에 대한 요약 사항이며, 게시물 작성 전 커뮤니티 이용규칙 전문을 반드시 확인하시기 바랍니다. 
+
+※ 정치·사회 관련 행위 금지 
+- 국가기관, 정치 관련 단체, 언론, 시민단체에 대한 언급 혹은 이와 관련한 행위 
+- 정책·외교 또는 정치·정파에 대한 의견, 주장 및 이념, 가치관을 드러내는 행위 
+- 성별, 종교, 인종, 출신, 지역, 직업, 이념 등 사회적 이슈에 대한 언급 혹은 이와 관련한 행위 
+- 위와 같은 내용으로 유추될 수 있는 비유, 은어 사용 행위 
+* 해당 게시물은 시사·이슈 게시판에만 작성 가능합니다. 
+
+※ 홍보 및 판매 관련 행위 금지 
+- 영리 여부와 관계 없이 사업체·기관·단체·개인에게 직간접적으로 영향을 줄 수 있는 게시물 작성 행위 
+- 위와 관련된 것으로 의심되거나 예상될 수 있는 바이럴 홍보 및 명칭·단어 언급 행위 
+* 해당 게시물은 홍보게시판에만 작성 가능합니다. 
+
+※ 불법촬영물 유통 금지
+불법촬영물등을 게재할 경우 「전기통신사업법」 제22조의5에 의거하여, 「성폭력범죄의 처벌 등에 관한 특례법」 제14조 등 관련 법률에 따라 삭제 조치 및 서비스 이용이 영구적으로 제한될 수 있으며 관련 법률에 기반하여 처벌받을 수 있습니다. 
+
+※ 그 밖의 규칙 위반 
+- 타인의 권리를 침해하거나 불쾌감을 주는 행위 
+- 범죄, 불법 행위 등 법령을 위반하는 행위 
+- 욕설, 비하, 차별, 혐오, 자살, 폭력 관련 내용을 포함한 게시물 작성 행위 
+- 음란물, 성적 수치심을 유발하는 행위 
+- 스포일러, 공포, 속임, 놀라게 하는 행위" class="smallplaceholder"></textarea>
+
+                    </div>
+                    <div id="questionContainer">
+                        <div id="qSmallContainer">
+                            <div>
+                                질문 글을 작성하면 게시판 상단에 일정 기간 동안 노출되어, 더욱 빠르게 답변을 얻을 수 있게 됩니다.<br>
+                                또한, 다른 학우들이 정성껏 작성한 답변을 유지하기 위해, 댓글이 달린 이후에는
+                                <b>글을 수정 및 삭제할 수 없습니다.</b>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bar">
+                        <div class="bigImgs">
+                            <div class="bigImg">
+                                <div class="barImg">
+                                    <img src="{% static 'img/container.articles.write.hashtag.png' %}" alt="shap" class="barImg1">
+                                    <label for="file">
+                                        <img src="{% static 'img/container.articles.write.attach.png' %}" alt="clip" class="barImg2">
+                                    <input id="file" type="file">
+                                </div>
+                            </div>
+                            <div class="rightImgs">
+                                <div class="qImg">
+                                    <img src="{% static 'img/container.articles.write.question.png' %}" id="questionButton">
+                                </div>
+                                <div class="whoImg">
+                                    <img src="{% static 'img/container.articles.write.anonym.png' %}" id="who">
+                                </div>
+                                <div class="barImg">
+                                    <img src="{% static 'img/container.articles.write.submit.png' %}" alt="pencil" class="barImg3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <article class="article-list">
+                    <div class="article-list1">
+                        <div class="article-box">
+                            <h2 class="article-title">디저트 창업동아리 팀원 구해봅니다!</h2>
+                            <p class="article-content">
+                                이번에 학교 창업동아리 공고 떴는데, 같이 지원해 볼 팀원 구해요! 저도 창업은 아예 처음이고 관련 스펙도 없어서 지원서 보고 막막하더라고요..
+                                그래도 식품이랑 기획 등에 관심있어서, 처음부터 같이 시행착오 겪으면서 열정적으로 부딪쳐 보실 분 찾습니 
+                            </p>
+                            <div class="article-end">
+                                <p class="time">방금</p>
+                                <p class="article-line">|</p>
+                                <h3 class="who">익명</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article-list1">
+                        <div class="article-box">
+                            <h2 class="article-title">딜라이트 잡아놨는데..</h2>
+                            <p class="article-content">
+                                담주에 부득이하게 약속이 생김..
+                                딜라이트 줌만 틀어놓고 약속 갈까? 아님 걍 딜라이트 취소할까? 친구들은 괜찮대
+                                어쩌는게 조을까..
+                            </p>
+                            <div class="article-end">
+                                <p class="time">16분 전</p>
+                                <p class="article-line">|</p>
+                                <h3 class="who">익명</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article-list1">
+                        <div class="article-box">
+                            <h2 class="article-title">이렇게 결제하는거 너무 야비해?</h2>
+                            <p class="article-content">
+                                스카 오픈 이벤트로 4주 이용권이 10만원이었어
+                                그 이벤트가 3/31까진데 내 이용권은 4/5 끝날 예정이야. 그때 연장하지 않고 3/31에 새롭게 이용권 구매하면 이벤트가..
+                            </p>
+                            <div class="article-end">
+                                <p class="time">18분 전</p>
+                                <p class="article-line">|</p>
+                                <h3 class="who">익명</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article-list1">
+                        <div class="article-box">
+                            <h2 class="article-title">과일산도!</h2>
+                            <p class="article-content">
+                                안녕하세요 오늘 17시까지 운영하는 백운시장 플리마켓에서  
+                                산도랑 이것저것을 팔고 있어요. 덕우들은 쿠폰?도 준다고 하니 시간 날 때 구경오세요
+                            </p>
+                            <div class="article-end">
+                                <p class="time">19분 전</p>
+                                <p class="article-line">|</p>
+                                <h3 class="who">익명</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article-list1">
+                        <div class="article-box">
+                            <h2 class="article-title">소모임만들고싶다</h2>
+                            <p class="article-content">
+                                그냥 나랑 친구해줄 소모임..
+                                활동내용: 김ㅇㅇ이랑 밥 먹어주기, 김ㅇㅇ이랑 놀러가주기, 김ㅇㅇ이랑 피크닉해주기..김ㅇㅇ이랑 영화보러가기
+                            </p>
+                            <div class="article-end">
+                                <p class="time">13:09</p>
+                                <p class="article-line">|</p>
+                                <h3 class="who">익명</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article-list1">
+                        <div class="article-box">
+                            <h2 class="article-title">알바 구할 때</h2>
+                            <p class="article-content">
+                                접수방법에 간편문자지원이라고 되어있는데 폰번호도 적혀있으면 직접 폰번호로 지원해야 할까 간편문자지원으로 해야 할까...항상 고민됨
+                            </p>
+                            <div class="article-end">
+                                <p class="time">13:09</p>
+                                <p class="article-line">|</p>
+                                <h3 class="who">익명</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article-list1">
+                        <div class="article-box">
+                            <h2 class="article-title">빨대 텀블러</h2>
+                            <p class="article-content">
+                                텀블러 사려고 하는데 어디 거가 좋을까?
+                                크기는 600ml 정도 생각하고 있고 실리콘 빨대는 얼음 젓는 게 잘 안돼서 별로더라
+                                손잡이 위에 달린 거였으면 좋겠는데 맞는 데가 있을까?
+                            </p>
+                            <div class="article-end">
+                                <p class="time">13:02</p>
+                                <p class="article-line">|</p>
+                                <h3 class="who">익명</h3>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </div>
+    <script src="../js/main.js"></script>
+</body>
+</html>
