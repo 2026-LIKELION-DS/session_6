@@ -1,4 +1,4 @@
-<body>
+<!-- <body>
     <a href={% url 'posts:main' %}>메인페이지로 돌아가기</a><br><br>
     {% if request.user.is_authenticated %}
         <p>nickname : {{ user }}</p>
@@ -65,4 +65,18 @@
     </form>
     <hr>
     <br>
-</body>
+</body> -->
+
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/detail.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include 'posts/header.html'%}
+{% include 'posts/navigation.html'%}
+{% include 'posts/detail.html' %}
+{% include 'posts/aside.html' %}
+
+<script src="{% static 'js/detail.js ' %}">
+{% endblock %}

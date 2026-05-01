@@ -1,4 +1,4 @@
-<body>
+<!-- <body>
     <h2>글 수정</h2>
     <form method="POST" action="{% url 'posts:update' post.id %}" enctype="multipart/form-data">
         {% csrf_token %}
@@ -20,4 +20,18 @@
         <input type="checkbox" name="is_anonymous" {% if post.is_anonymous %} checked {% endif %}>익명
         <input type="submit" value="수정하기">
     </form>
-</body>
+</body> -->
+
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/post.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include 'posts/header.html'%}
+{% include 'posts/navigation.html'%}
+{% include 'posts/post.html' %}
+{% include 'posts/aside.html' %}
+
+<script src="{% static 'js/post.js' %}"></script>
+{% endblock %}

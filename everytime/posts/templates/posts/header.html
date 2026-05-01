@@ -1,0 +1,59 @@
+{% load static %}
+<header class="site-header">
+        <div class="header-inner">
+          <h1 class="logo">
+            <a href="{% url 'posts:main' %}">
+              <img src="{% static 'img/nav.logo.png' %}" alt="에브리타임 로고" />
+              <span class="logo-text">
+                <small>에브리타임</small>
+                <strong>덕성여대</strong>
+              </span>
+            </a>
+          </h1>
+
+          <nav class="main-nav" label="주요 메뉴">
+            <ul>
+              <li><a href="#" class="active">게시판</a></li>
+              <li><a href="#">시간표</a></li>
+              <li><a href="#">강의실</a></li>
+              <li><a href="#">학점계산기</a></li>
+              <li><a href="#">친구</a></li>
+              <li><a href="#">책방</a></li>
+              <li><a href="#">캠퍼스픽</a></li>
+            </ul>
+          </nav>
+          
+
+          <div class="header-icons">
+            
+                
+                
+
+
+            <a href="#" class="icon-btn" label="쪽지">
+              <img
+                src="{% static 'img/icn_m_chat_gray800_light.png' %}"
+                alt="쪽지 아이콘"
+              />
+              <span class="badge">1</span>
+            </a>
+
+
+            {% if request.user.is_authenticated %}
+            <p>nickname : {{ user }}</p>
+            <a href="{% url 'accounts:logout' %}" class="icon-btn" title="로그아웃">
+              <img
+                src="{% static 'img/icn_m_account_gray800_light.png' %}"
+                alt="내 정보 아이콘"
+              />
+            </a>
+            {% else %}
+            <a href="{% url 'accounts:login' %}" class="icon-btn" title="로그인">
+            <img src="{% static 'img/icn_m_account_gray800_light.png' %}" alt="로그인 아이콘" />
+             </a>
+            {% endif %}
+
+
+          </div>
+        </div>
+      </header>

@@ -143,6 +143,7 @@ ul {
 }
 
 .main-nav2 {
+  max-width: 1400px;
   width: 100%;
   margin: 0 auto;
   padding: 14px 80px;
@@ -193,10 +194,11 @@ ul {
 .low-box {
   background-color: #ffffff;
   display: flex;
-  gap: 10px;
+  gap: 30px;
   align-items: flex-start;
-  width: 1180px;
+  width: 1400px;
   box-sizing: border-box;
+  padding-left: 200px;
 }
 
 .low-box section {
@@ -589,4 +591,96 @@ ul {
     overflow-x: auto;
     white-space: nowrap;
   }
+}
+
+
+/* 여기서부터 post 페이지 */
+#postArea {
+  display: none;
+}
+
+.allbox {
+  border: 4px solid gray;
+  width: 680px;
+}
+
+.header {
+  border-bottom: 1px solid #ddd;
+}
+
+.header-name {
+  font-size: 30px;
+  color: blcak;
+  font-weight: bold;
+  padding: 20px;
+  width: 94%;
+  border: none;
+}
+
+.write {
+  color: black;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  resize: none;
+  width: 100%;
+  height: 450px;
+  font-size: 20px;
+  box-sizing: border-box;
+}
+
+#questionNotice {
+  display: none;
+  margin: 18px 18px;
+  background-color: #dff8f8;
+  color: #2bbec0;
+  border-radius: 18px;
+  padding: 10px 10px;
+  font-size: 15px;
+}
+
+.lastbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  color: gray;
+}
+
+.label {
+  font-size: 20px;
+  color: gray;
+}
+
+.right img {
+  width: 80px;
+  height: 90px;
+}
+
+.checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  border: none;
+  background-color: white;
+}
+
+.icon img {
+  width: 50px;
+  height: 50px;
+}
+
+
+#boardArea,
+#postArea {
+  width: 100%;
+  box-sizing: border-box;
 }

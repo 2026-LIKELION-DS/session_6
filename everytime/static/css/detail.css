@@ -411,10 +411,11 @@ ul {
 .low-box {
   background-color: #ffffff;
   display: flex;
-  gap: 10px;
+  gap: 30px;
   align-items: flex-start;
-  width: 1180px;
+  width: 1400px;
   box-sizing: border-box;
+  padding-left: 200px;
 }
 
 .low-box section {

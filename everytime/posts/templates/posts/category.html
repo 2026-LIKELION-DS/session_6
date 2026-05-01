@@ -1,4 +1,4 @@
-{% load static %}
+<!-- {% load static %}
 <body>
     {% load humanize %}
     <a href={% url 'posts:main' %}>메인페이지로 돌아가기</a><br><br>
@@ -42,4 +42,21 @@
     <hr>
     {% empty %} <h2>글이 없습니다.</h2> {% endfor %}
 
-</body>
+</body> -->
+
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include 'posts/header.html'%}
+{% include 'posts/navigation.html'%}
+<div class="wow" style="display:flex"; "justify-content:center";>
+{% include 'posts/section.html' %}
+{% include 'posts/aside.html' %}
+</div>
+<script src="{% static 'js/main.js ' %}">
+{% endblock %}
+
+

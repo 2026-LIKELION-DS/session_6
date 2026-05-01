@@ -1,0 +1,147 @@
+{% load static %}
+<div class="allpage">
+
+    <div class="allbox">
+        <div class="top">
+            <h1 style="font-size: 25px;">비밀게시판</h1>
+        </div>
+        <div class="post-box">
+            <div class="post-inner">
+                <div class="post-top">
+                    <div class="writer-info">
+                        <img src="{% static 'img/anonymous.profile.png' %}" alt="프로필 이미지">
+                        <div class="writer-text">
+                            <span class="writer-name">익명</span>
+                            <span class="writer-time">6분 전</span>
+                        </div>
+                    </div>
+                    <div class="post-menu">
+                        <span>쪽지</span>
+                        <span>신고</span>
+                    </div>
+                </div>
+                <div class="post-title">이 고양이 알면 고학번</div>
+                <div class="post-content">누군지 아는 사람</div>
+                <div class="image-list">
+                    <img src="{% static 'img/고양이사진1.png' %}" alt="고양이 사진1">
+                    <img src="{% static 'img/고양이사진2.png' %}" alt="고양이 사진2">
+                </div>
+
+                <!--!!!!!!!!!!!!!! js !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+
+
+              
+                <div class="reaction-count">
+                  <div class="count-item">
+                    <div class="like">
+                        <img src="{% static 'img/container.articles.vote.red.png' %}" alt="따봉"> 
+                        <span id="likecount">1</span>
+                    </div>
+                  </div>
+                
+                    
+                    <div class="comment">
+                        <img src="{% static 'img/container.articles.comment.png' %}" alt="댓글"> 
+                        <span>0</span>
+                    </div>
+                    
+
+                    <div class="count-item">
+                    <div class="scrap">
+                        <img src="{% static 'img/container.articles.scrap.png' %}" alt="스크랩"> 
+                        <span id="scrapcount">0</span>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="action-button">
+                <div class="action-buttons1">
+                  <!-- <div id="counter"> -->
+                    <button type="button" id="likeBtn">
+                    <img src="{% static 'img/container.articles.buttons.posvote.png' %}" alt="따봉이미지"/> 공감</button>
+                  <!-- </div> -->
+                </div>
+                <div class="action-buttons2">
+                    <button type="button" id="scrapBtn">
+                        <img src="{% static 'img/container.articles.buttons.scrap.png' %}" alt="스크랩이미지">
+                        <span id="scrapText">스크랩</span>
+                      </button>
+                </div>
+                </div>
+                     
+                    
+                    <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+
+                </div>
+
+
+  <div class="none" id="comment-list" style="display: none;">
+    <div class="comment1">
+    <div class="comment-header">
+        <div class="user-info">
+            <img src="{% static 'img/anonymous.profile.png' %}" class="profile-img">
+            <span class="nickname">익명2</span>
+        </div>
+        <div class="comment-menu">
+            <span>대댓글</span> <span>공감</span> <span>쪽지</span> <span>신고</span>
+        </div>
+    </div>
+    <div class="content">삼김이?</div>
+    <div class="footer">
+        <span class="date">02/09 22:30</span>
+    </div>
+</div>            
+
+    <div class="comment1">
+    <div class="comment-header">
+        <div class="user-info">
+            <img src="{% static 'img/anonymous.profile.png' %}" class="profile-img">
+            <span class="nickname">익명3</span>
+        </div>
+        <div class="comment-menu">
+            <span id="reply-btn" style="cursor: pointer;">대댓글</span> <span>공감</span> <span>쪽지</span> <span>신고</span>
+        </div>
+    </div>
+    <div class="content">도덕이❤️</div>
+    <div class="footer">
+        <span class="date">02/09 22:35</span>
+        <span class="one"><img src="../img/container.articles.vote.red.png" alt="따봉">1</span>
+    </div>
+</div>
+
+<div class="reply" id="reply-area" style="display: none;">
+    <div class="comment-header">
+        <div class="user-info">
+            <img src="{% static 'img/anonymous.profile.png' %}" class="profile-img">
+            <span class="nickname writer" style="color: mediumaquamarine;">익명(글쓴이)</span>
+        </div>
+        <div class="comment-menu">
+            <span>공감</span> <span>쪽지</span> <span>신고</span>
+        </div>
+    </div>
+    <div class="content">정답😘</div>
+    <div class="footer">
+        <span class="date">02/09 22:49</span>
+    </div>
+</div>
+</div>
+
+                <div class="comment-box">
+                    <input type="text" id="comment-input" class="comment-input" placeholder="댓글을 입력하세요.">
+                    <div class="comment-right">
+                        <label>
+                        <input type="checkbox">
+                            익명
+                        </label>
+                        <button type="button" id="redpencilebutton" class="redpencilebutton"><img src="../img/redpencile.png" alt="작성펜 사진"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-btn">
+            <button type="button" class="list-btn">
+                <img src="{% static 'img/container.articles.pagination.list.png' %}"> <span>글 목록</span>
+            </button> 
+            </div>
+                  
+</div>
