@@ -13,7 +13,7 @@
     border-bottom: 2px solid #d0cccc;
 }
 form.textBox p{
-    padding:15px;
+    padding:0;
     margin:0;
 }
 
@@ -51,14 +51,17 @@ textarea:focus {
     white-space: nowrap;
     padding:15px;
 }
-.wrightButton > img{
+.writeImageButton{
     background-color: red;
+    border:none;
 }
 .textfunction li:nth-child(3) {
     margin-left: auto;
 }
 .checkBox1{
-    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    margin:0;
 }
 .wrightButton{
     padding-bottom: 0;

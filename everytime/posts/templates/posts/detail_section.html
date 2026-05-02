@@ -1,4 +1,8 @@
 {% load static %}
+
+
+
+
 <section>
     <div class="sectionTilte">
         <h6 class="section1_title">비밀게시판</h6>
@@ -9,8 +13,15 @@
                 <div class="writerImg"><img src="{% static 'img/anonymous.profile.png' %}" width="30" height="30">
                 </div>
                 <div class="writerAbout">
-                <p class="writername">익명</p>
-                <p class="writeTime">04/01 21:30</p>
+                <p class="writername">
+                    {% if post.is_anonymous %}
+                        익명
+                    {% else %}
+                        {{ post.author.nickname }}
+                    {% endif %}    
+                
+                </p>
+                <p class="writeTime">{{ post.created_at }}</p>
                 </div>
             </div>
 
@@ -34,25 +45,51 @@
         </div>
         <div class="sectionContent2">{{ post.content }}
         </div>
+
+        {% if post.image %}
+            <image width="320" height="240" src="{{ post.image.url }}"></image>
+        {% endif %}
+        {% if post.video %}
+            <video width="320" height="240" controls>
+                <source src="{{ post.video.url }}" type="video/mp4" />
+            </video>
+        {% endif %}
+
+
+
         <div class="reaction">
             <img src="{% static 'img/container.articles.vote.png' %}" width="10" alt="likes">
-                <span class="redTxt">{{ post.like.count }}` &nbsp; </span>
+                <span class="redTxt">{{ post.like.count }} &nbsp; </span>
                 <img src="{% static 'img/container.articles.comment.png' %}" width="10" alt="chat">
                 <span class="blueTxt">0</span>
                 <img src="{% static 'img/container.articles.scrap.png' %}" width="10" alt="chat">
-                <span class="yellowTxt">0</span>
+                <span class="yellowTxt">{{ post.scrap.count }}</span>
         </div>
         <div class="reactionButton">
             <div class="reaction_button1">
                 <img src="{% static 'img/container.articles.buttons.posvote.png' %}" width="10" alt="chat">
-                <span class="grayTxt1">공감</span></div>
+                <span class="grayTxt1">
+                {% if request.user in post.like.all %}
+                <a href="{% url 'posts:remove-like' post.id %}"><input type="button" value="공감 취소" /></a>
+                {% else %}
+                <a href="{% url 'posts:add-like' post.id %}"><input type="button" value="공감" /></a>
+                {% endif %}
+                </span></div>
             <div class="reaction_button2">
                 <img src="{% static 'img/container.articles.buttons.scrap.png' %}" width="10" alt="chat">
-                <span class="grayTxt">스크랩</span>
+                <span class="grayTxt">
+                        {% if request.user in post.scrap.all %}
+                        <a href="{% url 'posts:remove-scrap' post.id %}"><input type="button" value="스크랩 취소" /></a>
+                        {% else %}
+                        <a href="{% url 'posts:add-scrap' post.id %}"><input type="button" value="스크랩" /></a>
+                        {% endif %}
+                    </span>
             </div>
         </div>
     </div>
 
+
+    {% for comment in post.comments.all %}
     <div class="sectionComment">
         <!-- 기본 띄어지는 댓글창 -->
         <div class="sectionComment active">
@@ -61,56 +98,50 @@
                     <div class="writerImg"><img src="{% static 'img/anonymous.profile.png' %}" width="20" height="20">
                     </div>
                     <div class="writerAbout2">
-                    <p class="writername2">익명2</p>
+                    <p class="writername2">
+                        {% if comment.anonymity %} 익명 
+                        {% else %} {{ comment.author.nickname }} 
+                        {% endif %}
+                    </p>
                     </div>
                 </div>
                 <ul class="comentWriter">
                     <li class="sectionRight-menu jscoment" >대댓글</li>
                     <li class="sectionRight-menu">공감</li>
                     <li class="sectionRight-menu">쪽지</li>
-                    <li class="sectionRight-menu">신고</li>
+                    <li class="sectionRight-menu">
+                        {% if request.user == comment.author %}
+                        <a href="{% url 'posts:delete-comment' post.id comment.id %}">삭제하기</a>
+                    {% endif%}</li>
                 </ul>
             </div>
             <div class="comentValue">
-                기본 댓글창!!
-                <p class="writeTime">04/05 21:30</p>
+                {{ comment.content }}
+                <p class="writeTime">{{ comment.created_at }}</p>
             </div>
+
+
             <!-- 대댓글창 -->
-            <div class="dbcometnContainer">
-                <div class="sectionComment active" id="dbComent">
-                <div class="coment-box">
-                    <div class="writer">
-                        <div class="writerImg"><img src="{% static 'img/anonymous.profile.png' %}" width="20" height="20">
-                        </div>
-                        <div class="writerAbout2">
-                        <p class="writername2">익명3</p>
-                        </div>
-                    </div>
-                    <ul class="comentWriter">
-                        <li class="sectionRight-menu">공감</li>
-                        <li class="sectionRight-menu">쪽지</li>
-                        <li class="sectionRight-menu">신고</li>
-                    </ul>
-                </div>
-                <div class="comentValue">
-                    대댓글입니다🥰
-                    <p class="writeTime">04/05 21:30</p>
-                </div>    
-            </div>
-            <!-- 기본 띄어지는 댓글창 여기까지-->
-            <!-- 이 밑으로 댓글 달면 달림 -->
-    </div>
+
+            
         </div>
+
     </div>
 
 
-    <div class="comentContainer">
-        <input type="text" class="comentbox" placeholder="댓글을 입력하세요"></input>
+    {% empty %} 댓글이 없습니다{% endfor %}
+
+    <form method="POST" action="{% url 'posts:create-comment' post.id %}" class="comentContainer">
+        {% csrf_token %}<input type="text" name="content" class="comentbox" placeholder="댓글을 입력하세요"></input>
         <ul class="textfunction">
-            <li class="check-coment"><input type="checkbox" class="anonymousBox">익명</li>
-            <li class="writeButton"><img src="{% static 'img/container.articles.write.submit.png' %}"width="40px"height="40px" alt="글작성버튼"></li>
+            <li class="check-coment"><input type="checkbox" name="anonymity" value="anonymity_true" class="anonymousBox">
+            익명
+            </li>
+            <li class="check-coment"><button type="submit" value="작성" class="writeButton"><img src="{% static 'img/container.articles.write.submit.png' %}"width="40px"height="40px" class="buttonImg" alt="글작성버튼"></button></li>
         </ul>
-    </div>
+    </form>
+
+
 
 
     <div class="textList">

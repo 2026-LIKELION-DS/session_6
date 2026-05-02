@@ -30,6 +30,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/post.css' %}">
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
     <title>everytime</title>
     <link rel="icon" type="image/x-icon" href="{% static 'img/nav.logo.png' %}">
 
@@ -38,10 +39,33 @@
 {% include "posts/header.html" %}
 {% include "posts/navigation.html" %}
 
+<div class="bodyBox">
+<section>
+    <div class="section1">
+        <h6 class="section1_title">비밀게시판</h6>
+    
+    <form method="POST" class="textBox1 editForm" action="{% url 'posts:update' post.id %}" enctype="multipart/form-data" >
+    {% csrf_token %}
+        <p><input type="text" class="textTitle" value="{{ post.title }}" name="title"><br><br></p>
+        <p><textarea name="content" class="text_Content">{{ post.content }}</textarea><br><br></p>
+    <div class="questionContainer"><p class="questionText">질문 글을 작성하면 게시판 상단에 일정 기간 동안 노출되어, 
+        더욱 빠르게 답변을 얻을 수 있게 됩니다. <br> 또한, 다른 학우들이 정성껏 작성한 답변을 유지하기 위해, 
+        댓글이 달린 이후에는 글을 <b>수정 및 삭제할 수 없습니다.</b></p>
+    </div>
+    <ul class="textfunction">
+        <li class="hashTag"><img src="{% static 'img/container.articles.write.hashtag.png' %}" width="50px" alt="해시태그"></li>
+        <li class="linkImg"><img src="{% static 'img/container.articles.write.attach.png' %}" width="50px" alt="링크첨부"></li>
+        <li class="checkBox"><input type="checkbox" id="questionBox">질문</li>
+        <li class="checkBox1"><input type="checkbox" name="is_anonymous" class="anonymousBox"><p>익명</p></li>
+        <button type="submit" class="writeImageButton"><img src="{% static 'img/container.articles.write.submit.png' %}" width="50px" height="54.5px"alt="글작성버튼"></button>
+    </ul>
+    </form>
+    </div>
+</section>
+    {% include "posts/aside.html" %}
 
-
-
-<footer>
+</div>
+<footer> 
     <div class="footer-container">
         <p class="footer-title">비누랩스 주식회사</p>
         <p class="footer-small">서울특별시 마포구 양화로 113, 5층 | 

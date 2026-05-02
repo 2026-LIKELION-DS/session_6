@@ -49,7 +49,7 @@ section {
     border-top:none;
 }
 /* 대댓글창 */
-#dbComent{
+.dbComent{
     background-color: rgb(245, 244, 244);
     margin:5px 0;
 }
@@ -109,7 +109,9 @@ section {
     display: flex;
     align-items: flex-start;
     height:40px;
+    padding:0;
     background-color: red;
+    border:none;
 }
 .wright img{
     display: flex;
@@ -178,24 +180,26 @@ section {
     background-color: rgb(245, 244, 244);
 }
 .comentbox{
+    width: 100%;
     font-size: 13px;
     padding:0px;
     margin:0;
     background-color: rgb(245, 244, 244);
     border:0;
     color:gray;
-    width:100%;
 }
-.textfunction{
-    align-items: flex-start;
-}
+
 .check-coment{
     display: flex;
     white-space: nowrap;
     align-items: center;
-    margin: 0 10px 0 0;
+    margin: 0;
     font-size:12px;
 }
+.check-coment:first-child {
+    margin-right: 10px;
+}
+
 .anonymousBox{
     margin: 0 5px 0 0;
     height:40px;

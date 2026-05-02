@@ -64,8 +64,8 @@
     <li class="hashTag"><img src="{% static 'img/container.articles.write.hashtag.png' %}" width="50px" alt="해시태그"></li>
     <li class="linkImg"><img src="{% static 'img/container.articles.write.attach.png' %}" width="50px" alt="링크첨부"></li>
     <li class="checkBox"><input type="checkbox" id="questionBox">질문</li>
-    <li class="checkBox1"><input type="checkbox" name="is_anonymous" class="anonymousBox">익명</li>
-    <li class="wrightButton"> <button type="submit" class="writeImageButton"><img src="{% static 'img/container.articles.write.submit.png' %}" width="50px" height="54.5px"alt="글작성버튼"></button></li>
+    <li class="checkBox"><input type="checkbox" name="is_anonymous" class="anonymousBox">익명</li>
+    <button type="submit" class="writeImageButton"><img src="{% static 'img/container.articles.write.submit.png' %}" width="50px" height="54.5px"alt="글작성버튼"></button>
 </ul>
 </form>
 </div>
@@ -86,7 +86,7 @@
                     {% if post.is_anonymous %}
                         익명
                     {% else %}
-                        익명
+                        {{ post.author.nickname }}
                     {% endif %}
                 </span>
             </p>

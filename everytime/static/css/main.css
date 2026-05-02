@@ -424,6 +424,9 @@ footer{
 .textBox1 > p{
     border-bottom: 2px solid #d0cccc;
 }
+.textBox1.editForm {
+    display: flex !important;
+}
 form.textBox1 p{
     padding:15px;
     margin:0;
