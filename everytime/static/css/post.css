@@ -13,6 +13,7 @@
   letter-spacing: -0.5px;
 }
 
+
 .new_write p {
   margin: 0;
   padding: 15px;
@@ -56,18 +57,12 @@ textarea {
 }
 
 .option {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.left-g > div {
-  width: 40px;
-  height: 40px;
 
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
 .right-g > div,
 .right-g > button {
   width: 40px;
@@ -77,16 +72,39 @@ textarea {
   background-size: contain;
   background-position: center;
 }
+
+.left-g > label {
+  width: 40px;
+  height: 40px;
+
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.file-input {
+  display: none;
+}
 .hashtag {
+  appearance: none;
   background-image: url("../img/container.articles.write.hashtag.png");
 }
+
 .attach {
+  appearance: none;
   background-image: url("../img/container.articles.write.attach.png");
 }
 
-.anonym {
-  background-image: url("../img/container.articles.write.anonym.png");
+.left-g {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
+
 .question2 {
   display: block;
   background-image: url("../img/container.articles.write.question.png");
@@ -98,17 +116,72 @@ textarea {
 }
 .submit {
   border: none;
-  background-image: url("../img/container.articles.write.submit.png");
   background-color: #f91f15;
+  background-position: 10px center;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
 }
 
 .left-g,
 .right-g {
   display: flex;
-  gap: 10px;
+  align-items: center;
 }
 
 .title,
 textarea {
   outline: none;
+}
+
+.anony-box {
+  width: 50px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: centerx;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.anony-check {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+.anony-p {
+  width: 50px;
+  font-weight: bold;
+  color: #adadad;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.btnimg {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.form-comment {
+  width: 100%;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 0.1px solid #a6a6a6;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+input[type="checkbox"]:checked {
+  background-image: url(../img/icn_e_check_mini_on_light.svg);
+  border-color: #f91f15;
 }

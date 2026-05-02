@@ -1,13 +1,13 @@
 //공감, 스크랩 버튼
-const likeBtn = document.getElementById("like_gray");
+const likeBtn = document.querySelector(".like_gray");
 const scrapBtn = document.querySelector(".scrap_gray");
 
 //스크랩의 별이미지, 취소 텍스트
 const star = document.querySelector(".scrap_img");
-const cancel = document.getElementById("cancel");
+const cancel = document.querySelector(".cancel");
 
 //공감 수, 스크랩 수
-const likenum = document.getElementById("like-num");
+const likenum = document.querySelector(".like-num");
 const scrapnum = document.getElementById("scrap-num");
 
 //댓글입력창, 입력input 입력빨강버튼
@@ -16,7 +16,7 @@ const commentInput = document.querySelector(".comment");
 const submitBtn = document.querySelector(".submit");
 
 //대댓글 클릭 텍스트, 대댓글 박스
-const reCommentBtn = document.getElementById("reco-button");
+const reCommentBtn = document.querySelector("reco-button");
 const reCommentInput = document.getElementById("re-comment");
 
 //대댓글입력input, 대댓글용 입력빨강버튼

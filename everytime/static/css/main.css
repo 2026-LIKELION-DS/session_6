@@ -57,7 +57,7 @@ header {
   text-decoration-line: none;
   font-weight: 600;
 }
-a:active {
+.link > a:hover {
   color: #f91f15;
 }
 
@@ -312,12 +312,22 @@ span {
   line-height: 20px;
 }
 
-#a1 {
-  font-weight: 700;
+.a1 {
+  font-weight: 300;
   color: black;
   overflow: hidden;
   white-space: nowrap;
   font-size: 13px;
+}
+.a1,
+.a1:link,
+.a1:visited,
+.a1:hover,
+.a1:active {
+  color: black;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
 }
 
 /* 좋아요, 채팅 이모티콘 */

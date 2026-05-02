@@ -1,4 +1,5 @@
-<body>
+
+{% comment %} <body>
     <h2>글 수정</h2>
     <form method="POST" action="{% url 'posts:update' post.id %}" enctype="multipart/form-data">
         {% csrf_token %}
@@ -19,5 +20,278 @@
         
         <input type="checkbox" name="is_anonymous" {% if post.is_anonymous %} checked {% endif %}>익명
         <input type="submit" value="수정하기">
-    </form>
-</body>
+
+</body> {% endcomment %}
+
+
+{% comment %} 
+{% load static %}
+{% load humanize %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/post.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}" />{% endblock %}
+
+{% block body %}
+{% include "./header.html" %}
+{% include "./navigation.html" %}
+
+
+<div class="container">
+
+<section class="secret">
+  <div class="secret_board"><h1>비밀게시판</h1></div>
+  <div class="detail_post">
+
+        <form method="POST" action="{% url 'posts:update' post.id %}" enctype="multipart/form-data" class="new_write">
+            {% csrf_token %}
+                <p>
+                    <input
+                    type="text" value="{{ post.title }}" name="title"
+                    class="title"
+                    placeholder="글 제목"
+                    autocomplete="off"
+                    />
+                </p>
+                <p>
+                    <textarea name="content" autocomplete="off">{{ post.content }}</textarea>
+
+                    {% if post.image %}
+                    <img width="320" height="240" src="{{ post.image.url }}" />
+                    {% endif %}
+                    <input type="file" name="image" />
+                    {% if post.video %}
+                    <video width="320" height="240" controls>
+                        <source src="{{ post.video.url }}" type="video/mp4">
+                    </video>
+                    {% endif %}
+                    <input type="file" name="video" />
+                </p>
+                <div class="que_div">
+                    <div class="p_write" id="active">
+                    질문 글을 작성하면 게시판 상단에 일정 기간 동안 노출되어, 더욱 빠르게
+                    답변을 얻을 수 있게 됩니다.
+                    <br />
+                    또한, 다른 학우들이 정성껏 작성한 답변을 유지하기 위해, 댓글이 달린
+                    이후에는
+                    <b>글을 수정 및 삭제할 수 없습니다.</b>
+                    </div>
+                </div>
+            <div class="option">
+                <div class="left-g">
+                    <input
+                        id="image-upload"
+                        type="file"
+                        
+                        title="해시태그"
+                        class="file-input"
+                    />
+                    <label for="image-upload" class="hashtag" title="해시태그"></label>
+                    <input
+                        id="video-upload"
+                        type="file"
+                        
+                        title="첨부"
+                        class="file-input"
+                    />
+                    <label for="video-upload" class="attach" title="첨부"></label>
+                </div>
+                    <div class="right-g">
+                    <div title="질문" class="question2" id="none"></div>
+                    <div title="질문파랑" class="question3" id="question0"></div>
+                    <label class="anony-box">
+                        <label class="anony-p">
+                            <input type="checkbox" name="is_anonymous" value="anonymity_true"
+                            title="익명"
+                            class="anony-check" {% if post.is_anonymous %} checked {% endif %}>익명
+                        </label>
+                    </label>
+                    <button type="submit" value="수정하기" title="완료" class="submit">
+                        <img
+                        class="btnimg"
+                        src="{% static 'img/container.articles.write.submit.png' %}"
+                        />
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <div class="boxx"></div>
+        <section class="section_end">
+            <div class="redlist">
+            <div class="red_arrow"></div>
+            <input id="list" type="button" value="글 목록" />
+            </div>
+            <div class="search_for"></div>
+        </section>
+    </div>
+</section>
+
+
+{% include "./aside.html" %}
+
+</div>
+
+<script src="{% static 'js/detail.js' %}"></script>
+
+{% endblock %} {% endcomment %}
+
+
+
+
+{% load static %}
+{% load humanize %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+<link rel="stylesheet" href="{% static 'css/post.css' %}" />
+<link rel="stylesheet" href="{% static 'css/detail.css' %}" />
+{% endblock %}
+
+{% block body %}
+{% include "./header.html" %}
+{% include "./navigation.html" %}
+
+<div class="container">
+    <section class="secret">
+        <div class="secret_board">
+            <h1>비밀게시판</h1>
+        </div>
+            <form
+                method="POST"
+                action="{% url 'posts:update' post.id %}"
+                enctype="multipart/form-data"
+                class="new_write"
+    style="display: block; width: 100%; min-height: 300px; border: 2px solid rgba(0, 0, 0, 0.176) ; background: white;"
+>
+                {% csrf_token %}
+
+                <p>
+                    <input
+                        type="text"
+                        value="{{ post.title }}"
+                        name="title"
+                        class="title"
+                        placeholder="글 제목"
+                        autocomplete="off"
+                    />
+                </p>
+
+                <p>
+                    <textarea
+                        name="content"
+                        autocomplete="off"
+                    >{{ post.content }}</textarea>
+                </p>
+
+                {% if post.image %}
+                <div class="preview-image">
+                    <img
+                        width="320"
+                        height="240"
+                        src="{{ post.image.url }}"
+                        alt="기존 이미지"
+                    />
+                </div>
+                {% endif %}
+
+                {% if post.video %}
+                <div class="preview-video">
+                    <video width="320" height="240" controls>
+                        <source src="{{ post.video.url }}" type="video/mp4" />
+                    </video>
+                </div>
+                {% endif %}
+
+                <div class="que_div">
+                    <div class="p_write" id="active">
+                        질문 글을 작성하면 게시판 상단에 일정 기간 동안 노출되어,
+                        더욱 빠르게 답변을 얻을 수 있게 됩니다.
+                        <br />
+                        또한, 다른 학우들이 정성껏 작성한 답변을 유지하기 위해,
+                        댓글이 달린 이후에는
+                        <b>글을 수정 및 삭제할 수 없습니다.</b>
+                    </div>
+                </div>
+
+                <div class="option">
+                    <div class="left-g">
+                        <input
+                            id="image-upload"
+                            type="file"
+                            name="image"
+                            title="이미지 첨부"
+                            class="file-input"
+                        />
+                        <label
+                            for="image-upload"
+                            class="hashtag"
+                            title="이미지 첨부"
+                        ></label>
+
+                        <input
+                            id="video-upload"
+                            type="file"
+                            name="video"
+                            title="비디오 첨부"
+                            class="file-input"
+                        />
+                        <label
+                            for="video-upload"
+                            class="attach"
+                            title="비디오 첨부"
+                        ></label>
+                    </div>
+
+                    <div class="right-g">
+                        <div title="질문" class="question2" id="none"></div>
+                        <div title="질문파랑" class="question3" id="question0"></div>
+
+                        <label class="anony-box">
+                            <span class="anony-p">
+                                <input
+                                    type="checkbox"
+                                    name="is_anonymous"
+                                    value="anonymity_true"
+                                    title="익명"
+                                    class="anony-check"
+                                    {% if post.is_anonymous %}checked{% endif %}
+                                />
+                                익명
+                            </span>
+                        </label>
+
+                        <button
+                            type="submit"
+                            value="수정하기"
+                            title="완료"
+                            class="submit"
+                        >
+                            <img
+                                class="btnimg"
+                                src="{% static 'img/container.articles.write.submit.png' %}"
+                                alt="수정하기"
+                            />
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="boxx"></div>
+
+            <section class="section_end">
+                <div class="redlist">
+                    <div class="red_arrow"></div>
+                    <input id="list" type="button" value="글 목록" />
+                </div>
+                <div class="search_for"></div>
+            </section>
+        
+    </section>
+
+    {% include "./aside.html" %}
+</div>
+
+<script src="{% static 'js/detail.js' %}"></script>
+{% endblock %}

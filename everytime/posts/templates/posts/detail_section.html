@@ -1,0 +1,246 @@
+{% load static %}
+
+<section class="secret">
+  <div class="secret_board"><h1>비밀게시판</h1></div>
+  <div class="detail_post">
+
+    <div class="write_title">
+      <div class="detail-3">
+        <img
+          class="detail-profile"
+          src="{% static 'img/anonymous.profile.png' %}"
+        />
+        <div class="detail-who">
+          {% if post.is_anonymous %}
+          <h3>익명</h3>
+          {% else %}
+          <h3>{{ post.author.nickname }}</h3>
+          {% endif %}
+
+          <time>{{ post.created_at }}</time>
+        </div>
+      </div>
+      <div class="detail-etc">
+        {% if request.user == post.author %}
+        <a class="post-etc" href="{% url 'posts:update' post.id %}">수정</a>
+        <a class="post-etc" href="{% url 'posts:delete' post.id %}">삭제</a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="write_post">
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.content }}</p>
+      <div class="post_img">
+        {% if post.image %}
+        <image width="320" height="240" src="{{ post.image.url }}"></image>
+        {% endif %} {% if post.video %}
+        <video width="320" height="240" controls>
+          <source src="{{ post.video.url }}" type="video/mp4" />
+        </video>
+        {% endif %}
+      </div>
+
+      <div class="status">
+        <div class="status_red">
+          <div id="img_red"></div>
+          <span class="like-num">{{ post.like.count }}</span>
+        </div>
+        <div class="status_blue">
+          <div id="img_blue"></div>
+          <span>3</span>
+        </div>
+        <div class="status_yellow">
+          <div id="img_yellow"></div>
+          <span id="scrap-num">{{ post.scrap.count }}</span>
+        </div>
+      </div>
+
+      <!--공감 버튼 연동-->
+      <div class="button_gray">
+        {% if request.user in post.like.all %}
+        <a
+          href="{% url 'posts:remove-like' post.id %}"
+          class="like_gray"
+          title="like_gray"
+        >
+          <img
+            class="like_img"
+            src="{% static 'img/container.articles.buttons.posvote.png' %}"
+          />
+          공감 취소
+        </a>
+        {% else %}
+        <a
+          href="{% url 'posts:add-like' post.id %}"
+          class="like_gray"
+          title="like_gray"
+          ><img
+            class="like_img"
+            src="{% static 'img/container.articles.buttons.posvote.png' %}"
+          />
+          공감</a
+        >
+        {% endif %}
+
+        <!--스크랩 버튼 연동-->
+        {% if request.user in post.scrap.all %}
+        <a href="{% url 'posts:remove-scrap' post.id %}">
+          <img
+            class="scrap_img"
+            src="{% static 'img/container.articles.buttons.scrap.png' %}"
+          />
+          스크랩 <span class="cancel">취소</span></a
+        >
+        {% else %}
+        <a href="{% url 'posts:add-scrap' post.id %}"
+          ><img
+            class="scrap_img"
+            src="{% static 'img/container.articles.buttons.scrap.png' %}"
+          />
+          스크랩</a
+        >
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- 두번째 댓글 -->
+    {% for comment in post.comments.all %}
+    <div class="comment-detail">
+      <div class="comment-title">
+        <div class="comment-gap">
+          <img
+            class="comment-profile"
+            src="{% static 'img/anonymous.profile.png' %}"
+          />
+          <div class="comment-who">
+            {% if comment.anonymity %}
+            <h3>익명2</h3>
+            {% else %}
+            <h3>{{ comment.author.nickname }}</h3>
+            {% endif %}
+          </div>
+        </div>
+        <div class="comment-etc">
+          <p class="reco-button">대댓글</p>
+          <p>공감</p>
+          {% if request.user == comment.author %}
+          <a
+            class="delete-comment"
+            href="{% url 'posts:delete-comment' post.id comment.id %}"
+            >삭제</a
+          >
+          {% else %}
+          <p>쪽지</p>
+          <p>신고</p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="comment-div">
+        <p class="comment-contents">{{ comment.content }}</p>
+        <div class="reco-status">
+          <div class="reco-time">
+            <time>{{ comment.created_at }}</time>
+          </div>
+          <div class="status_red">
+            {% comment %}
+            <div class="img_red"></div>
+            {% endcomment %}
+            <span class="like-num"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% empty %} 댓글이 없습니다 {% endfor %}
+
+    <!-- 대댓글 생성 -->
+    <div class="reco-option" id="re-comment">
+      <div class="left-g">
+        <input
+          class="reco-input"
+          maxlength="400"
+          type="text"
+          placeholder="대댓글을 입력하세요"
+        />
+      </div>
+      <div class="right-g">
+        <div title="익명" class="anonym"></div>
+        <button type="button" title="완료" class="re-submit"></button>
+      </div>
+    </div>
+
+    <!-- 대댓글 -->
+    <div class="reco-detail">
+      <div class="reco-title">
+        <div class="reco-gap">
+          <img
+            class="reco-profile"
+            src="{% static 'img/anonymous.profile.png' %}"
+          />
+          <div class="reco-who">
+            <h3>익명(글쓴이)</h3>
+          </div>
+        </div>
+        <div class="reco-etc">
+          <p>공감</p>
+          <p>쪽지</p>
+          <p>신고</p>
+        </div>
+      </div>
+      <div class="reco-div">
+        <p class="reco-contents">감사합니당ㅇ</p>
+        <div class="status">
+          <div class="comment-time">
+            <time>04/02 12:44</time>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 댓글 생성 연동 -->
+    <form
+      method="post"
+      action="{% url 'posts:create-comment' post.id %}"
+      class=""
+    >
+      {% csrf_token %}
+      <div class="option">
+        <div class="left-g">
+          <input
+            name="content"
+            class="comment"
+            maxlength="400"
+            type="text"
+            placeholder="댓글을 입력하세요"
+          />
+        </div>
+        <div class="right-g">
+          <label class="anony-box">
+            <label class="anony-p">
+              <input
+                type="checkbox"
+                name="anonymity"
+                value="anonymity_true"
+                title="익명"
+                class="anony-check"
+              />익명</label
+            >
+          </label>
+          <button type="submit" value="작성 완료" title="완료" class="submit">
+            <img
+              class="btnimg"
+              src="{% static 'img/container.articles.write.submit.png' %}"
+            />
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="boxx"></div>
+  <section class="section_end">
+    <div class="redlist">
+      <div class="red_arrow"></div>
+      <input id="list" type="button" value="글 목록" />
+    </div>
+    <div class="search_for"></div>
+  </section>
+</section>
