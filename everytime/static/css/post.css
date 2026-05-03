@@ -49,6 +49,9 @@
 #file {
   display: none;
 }
+#anonymous{
+  display: none;
+}
 #questionButton {
   width: 40px;
   height: 40px;
@@ -86,4 +89,24 @@
 }
 #qSmallContainer div{
   padding: 8px;
+}
+/* .article-list1{
+  width: 50%;
+} */
+/* .big-container{
+  align-items: center;
+}
+.container{
+  align-items: center;
+}
+section{
+  align-items: center;
+}
+.sectionBigContainer{
+  display: flex;
+  flex-direction: column;
+  margin-left: 300px;
+} */
+a{
+  text-decoration: none;
 }

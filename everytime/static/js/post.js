@@ -1,12 +1,15 @@
-const button = document.getElementById("question");
+// const ACTIVE_IMG = "/static/img/container.articles.write.question.active.png";
+// const NORMAL_IMG = "/static/img/container.articles.write.question.png";
+
+const button = document.getElementById("questionButton");
 
 let clicked = true;
 
 button.addEventListener("click", function () {
   if (clicked === true) {
-    button.src = "../img/container.articles.write.question.active.png";
+    button.src = button.dataset.active;
   } else {
-    button.src = "../img/container.articles.write.question.png";
+    button.src = button.dataset.default;
   }
   clicked = !clicked;
 });
@@ -17,13 +20,15 @@ let click = true;
 
 who.addEventListener("click", function () {
   if (click === true) {
-    who.src = "../img/container.articles.write.anonym.active.png";
+    who.src = who.dataset.active;
   } else {
-    who.src = "../img/container.articles.write.anonym.png";
+    who.src = who.dataset.default;
   }
   click = !click;
 });
 
+// "/img/container.articles.write.anonym.active.png"
+// "/img/container.articles.write.anonym.png"
 
 const questionButton= document.getElementById("question");
 
