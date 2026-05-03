@@ -24,14 +24,19 @@
 
 {% load static %}
 {% block style %}
+<link rel="stylesheet" href="{% static 'css/detail.css' %}">
 <link rel="stylesheet" href="{% static 'css/post.css' %}">
+
 {% endblock %}
 
 {% block content %}
 {% include 'posts/header.html'%}
 {% include 'posts/navigation.html'%}
+
+<div class="main-layout" style="display:flex; justify-content:center; align-items:flex-start; gap:20px; ">
 {% include 'posts/post.html' %}
 {% include 'posts/aside.html' %}
+</div>
 
 <script src="{% static 'js/post.js' %}"></script>
 {% endblock %}

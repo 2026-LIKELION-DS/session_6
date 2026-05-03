@@ -15,6 +15,7 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+  
 }
 
 ul {
@@ -137,7 +138,7 @@ ul {
 }
 
 .main-nav2 {
-  width: 100%;
+  width: 1400px;
   margin: 0 auto;
   padding: 14px 80px;
   background-color: #f6f6f6;
@@ -186,13 +187,15 @@ ul {
 /*여기부터 새로 만든 상세페이지 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
 .allbox {
-  width: 700px;
+  width: 750px;
 }
 
 .top {
   border: 1px solid #dcdcdc;
   width: 100%;
-  padding: 10px 20px;
+  padding: 8px 18px;
+  background-color: white;
+  margin-top: 10px;
 }
 
 .top-box {
@@ -401,6 +404,7 @@ ul {
 }
 
 .allpage {
+  background-color: #ffffff;
   display: flex;
   gap: 20px;
   justify-content: center;
@@ -591,11 +595,12 @@ ul {
 }
 
 .sidebar {
-  width: 33%;
+  width: 365px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   flex-shrink: 0;
+  margin-top: 10px;
 }
 
 .box1-1 {

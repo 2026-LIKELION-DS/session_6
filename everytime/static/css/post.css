@@ -1,6 +1,6 @@
 .allbox {
-  border: 4px solid gray;
-  width: 680px;
+  border: 4px solid #c6c5c5;
+  margin-top: 10px;
 }
 
 .header {
@@ -19,10 +19,10 @@
 .write {
   color: black;
   padding: 20px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: none;
   resize: none;
   width: 100%;
-  height: 450px;
+  height: 400px;
   font-size: 20px;
   box-sizing: border-box;
 }
@@ -75,4 +75,52 @@
 .icon img {
   width: 50px;
   height: 50px;
+}
+
+/* .main-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.main-layout > .allbox {
+  width: 760px;
+  flex-shrink: 0;
+}
+
+.main-layout > .article-box {
+  width: 320px;
+  flex-shrink: 0;
+} */
+
+.school img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+.preview {
+  padding: 10px 20px;
+  margin-top: -10px;   
+  /* padding: 0 20px; */
+}
+
+.preview img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.preview video {
+  width: 150px;
+}
+
+.section1 {
+  border-bottom: 1px solid #ddd;
 }

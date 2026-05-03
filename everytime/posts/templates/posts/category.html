@@ -47,16 +47,17 @@
 {% load static %}
 {% block style %}
 <link rel="stylesheet" href="{% static 'css/main.css' %}">
+<link rel="stylesheet" href="{% static 'css/post.css' %}">
 {% endblock %}
 
 {% block content %}
 {% include 'posts/header.html'%}
 {% include 'posts/navigation.html'%}
-<div class="wow" style="display:flex"; "justify-content:center";>
+<div class="wow" style="display: flex; justify-content: center;">
 {% include 'posts/section.html' %}
 {% include 'posts/aside.html' %}
 </div>
-<script src="{% static 'js/main.js ' %}">
+<script src="{% static 'js/main.js ' %}"></script>
 {% endblock %}
 
 

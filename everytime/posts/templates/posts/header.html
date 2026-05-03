@@ -1,4 +1,5 @@
 {% load static %}
+{% load humanize %}
 <header class="site-header">
         <div class="header-inner">
           <h1 class="logo">
@@ -40,13 +41,13 @@
 
 
             {% if request.user.is_authenticated %}
-            <p>nickname : {{ user }}</p>
             <a href="{% url 'accounts:logout' %}" class="icon-btn" title="로그아웃">
               <img
                 src="{% static 'img/icn_m_account_gray800_light.png' %}"
                 alt="내 정보 아이콘"
               />
             </a>
+            
             {% else %}
             <a href="{% url 'accounts:login' %}" class="icon-btn" title="로그인">
             <img src="{% static 'img/icn_m_account_gray800_light.png' %}" alt="로그인 아이콘" />

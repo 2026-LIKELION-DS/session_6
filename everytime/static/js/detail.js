@@ -15,7 +15,7 @@ let islike = false;
 let sCount = 0;
 let isScraped = false;
 
-button.addEventListener("click", function () {
+// button.addEventListener("click", function () {
   if (islike) {
     alert("이미 공감하셨습니다.");
     return;
@@ -27,7 +27,7 @@ button.addEventListener("click", function () {
   islike = true;
 });
 
-scrapBtn.addEventListener("click", function () {
+// scrapBtn.addEventListener("click", function () {
   if (isScraped === false) {
     sCount++;
     scrapText.textContent = "스크랩 취소";
@@ -43,7 +43,7 @@ scrapBtn.addEventListener("click", function () {
   scrapCounter.textContent = sCount;
 });
 
-redPencilBtn.addEventListener("click", function () {
+// redPencilBtn.addEventListener("click", function () {
   const val = commentInput.value;
 
   if (val === "") {
