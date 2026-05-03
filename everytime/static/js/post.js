@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const writeContent = document.querySelector(".write-content");
   const rulesBox = document.querySelector(".rules-box");
 
-  if (writeContent && rulesBox) {
+  if (writeContent && write - collapsed) {
     // 클릭할 때가 아니라, '타자를 칠 때(input)' 동작하게 만듭니다.
     writeContent.addEventListener("input", function () {
       // 입력창에 글자가 1글자라도 있으면 (공백 제외)

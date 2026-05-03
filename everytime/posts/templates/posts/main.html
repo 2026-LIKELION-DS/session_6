@@ -1,45 +1,5 @@
-{% comment %} {% load static %}
-<!doctype html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>시작 - 에브리타임</title>
-    <link rel="stylesheet" href="{% static 'css/start.css' %}" />
-  </head>
-  <body>
-    <div class="intro">
-      <div class="btnSpace">
-        <div class="btnLogo">
-          <img src="{% static 'img/logo.png' %}" alt="에브리타임 로고" />
-        </div>
-        <div class="btnS">
-          {% if request.user.is_authenticated %}
-          <a href="{% url 'accounts:logout' %}"
-            ><button class="logoutBtn">로그아웃</button></a
-          >
-          {% else %}
-          <a href="{% url 'accounts:login' %}"
-            ><button class="loginBtn">로그인</button></a
-          >
-          <a href="{% url 'accounts:signup' %}"
-            ><button class="signupBtn">에브리타임 회원가입</button></a
-          >
-          {% endif %}
-          <a href="{% url 'posts:category' 'secret' %}"
-            ><button class="toMainBtn">비밀게시판</button></a
-          >
-        </div>
-      </div>
-      <div class="contentSpace">
-        <img src="{% static 'img/start_img.png' %}" alt="대문 이미지" />
-      </div>
-    </div>
-  </body>
-</html>
-{% endcomment %}
-<!doctype html>
-{% extends 'base.html' %} {% load static %} {% block style %}
+{% comment %} <!doctype html>
+{% extends 'posts/base.html' %} {% load static %} {% block style %}
 <link rel="stylesheet" href="{% static 'css/main.css' %}" />
 {% endblock %} {% block body %}
 <header>
@@ -129,6 +89,7 @@
             <div class="fire-chat">
               <p>정말 감동이네요</p>
               <img src="{% static 'img/좋아요 189.png' %}" />
+              <p class="Red">189</p>
             </div>
           </div>
         </div>
@@ -154,10 +115,7 @@
           <textarea
             class="write-content"
             name="content"
-            placeholder="내용을 입력하세요."
-          ></textarea>
-          <div class="rules-box">
-            에브리타임은 누구나 기분 좋게 참여할 수 있는 커뮤니티를 만들기 위해
+            placeholder="에브리타임은 누구나 기분 좋게 참여할 수 있는 커뮤니티를 만들기 위해
             커뮤니티 이용규칙을 제정하여 운영하고 있습니다. 위반 시 게시물이
             삭제되고 서비스 이용이 일정 기간 제한될 수 있습니다.<br /><br />
             아래는 이 게시판에 해당하는 핵심 내용에 대한 요약 사항이며, 게시물
@@ -189,7 +147,8 @@
             행위<br />
             - 음란물, 성적 수치심을 유발하는 행위<br />
             - 스포일러, 공포, 속임, 놀라게 하는 행위
-          </div>
+
+          
         </form>
         <div id="questionInfoBox" class="info-box hidden">
           질문 글을 작성하면 게시판 상단에 일정 기간 노출되어, 더욱 빠르게
@@ -360,4 +319,36 @@
   </aside>
 </main>
 <script src="{% static 'js/post.js' %}"></script>
-{% endblock %}
+{% endblock %} {% endcomment %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>시작 - 에브리타임</title>
+    <link rel="stylesheet" href="{% static 'css/start.css' %}" />
+  </head>
+  <body>
+    <div class="intro">
+      <div class="btnSpace">
+        <div class="btnLogo">
+          <img src="{% static 'img/logo.png' %}" alt="에브리타임 로고" />
+        </div>
+        <div class="btnS">
+          {% if request.user.is_authenticated %}
+            <a href="{% url 'accounts:logout' %}"><button class="logoutBtn">로그아웃</button></a>
+          {% else %}
+            <a href="{% url 'accounts:login' %}"><button class="loginBtn">로그인</button></a>
+            <a href="{% url 'accounts:signup' %}"><button class="signupBtn">에브리타임 회원가입</button></a>
+          {% endif %}
+          <a href="{% url 'posts:category' 'secret' %}"><button class="toMainBtn">비밀게시판</button></a>
+        </div>
+      </div>
+      <div class="contentSpace">
+        <img src="{% static 'img/start_img.png' %}" alt="대문 이미지" />
+      </div>
+    </div>
+  </body>
+</html>

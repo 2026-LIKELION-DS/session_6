@@ -9,6 +9,8 @@ urlpatterns = [
     path('', main, name = "main"),
     path('category/<slug:slug>/', category, name = "category"),
     path('create/<slug:slug>/', create_post, name = "create"),
+    path('create/', create_post, name ="create"),
+
     path('update/<int:id>/', update_post, name = "update"),
     path('delete/<int:id>/', delete_post, name = "delete"),
     path('detail/<int:id>/', detail_post, name = "detail"),

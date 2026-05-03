@@ -8,7 +8,7 @@
   <form method="post" action="{% url 'posts:create' %}">
     {% csrf_token %}
     <input type="text" name="title" placeholder="글 제목" />
-    <textarea placeholder="내용을 입력하세요..."></textarea>
+    <textarea name="content" placeholder="내용을 입력하세요..."></textarea>
 
     <div class="checkbox-container">
       <input type="checkbox" name="is_question" id="questionCheck" />
@@ -23,8 +23,7 @@
 </div>
 
 <script src="{% static 'js/post.js' %}"></script>
-{% endblock %}
-{% comment %} <body>
+
     <a href={% url 'posts:main' %}>메인페이지로 돌아가기</a><br><br>
     {% if request.user.is_authenticated %}
         <p>nickname : {{ user }}</p>
@@ -38,7 +37,7 @@
     <h3>{{ post.content }}</h3><br>
 
     {% if post.image %}
-        <image width="320" height="240" src="{{ post.image.url }}"></image>
+        <img width="320" height="240" src="{{ post.image.url }}"/>
     {% endif %}
     {% if post.video %}
         <video width="320" height="240" controls>
@@ -91,4 +90,5 @@
     </form>
     <hr>
     <br>
-</body> {% endcomment %}
+
+{% endblock %}

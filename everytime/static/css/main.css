@@ -161,6 +161,11 @@ header {
   flex-wrap: wrap;
   margin-bottom: 15px;
 }
+
+.recent-posts img {
+  width: 30px;
+}
+
 .recent-post-item {
   background-color: #edfffe;
   border-radius: 12px;
@@ -174,6 +179,11 @@ header {
   align-items: center;
   gap: 10px;
 }
+
+.fire img {
+  width: 30px;
+}
+
 .fire-post-item {
   background-color: #fff3f3;
   border-radius: 12px;
@@ -185,6 +195,12 @@ header {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+.fire-chat img {
+  width: 15px;
+}
+.Red {
+  color: #c62917;
 }
 .smallIcon {
   width: 24px;

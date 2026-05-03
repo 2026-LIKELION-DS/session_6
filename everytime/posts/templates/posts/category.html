@@ -1,71 +1,62 @@
-{% extends 'base.html' %} {% load static %} {% block style %}
+{% extends 'posts/base.html' %} 
+{% load static %} 
+
+{% block style %}
 <link rel="stylesheet" href="{% static 'css/main.css' %}" />
 <link rel="stylesheet" href="{% static 'css/detail.css' %}" />
-{% endblock %} {% block body %}
-<header>
-  <div class="header-inner">
-    <div class="logo">
-      <img src="{% static 'img/nav.logo.png' %}" />
-      <div class="logo-text">
-        <span class="sub-name">에브리타임</span>
-        <span class="main-name">덕성여대</span>
-      </div>
-    </div>
-    <ul class="main-nav">
-      <li class="active">게시판</li>
-      <li>시간표</li>
-      <li>강의실</li>
-      <li>학점계산기</li>
-      <li>친구</li>
-      <li>책방</li>
-      <li>캠퍼스픽</li>
-    </ul>
-    <div class="right">
-      <div class="icon-box"><img src="{% static 'img/채팅로고.svg' %}" /></div>
-      <div class="icon-box">
-        <img src="{% static 'img/에타 사람사진.svg' %}" />
-      </div>
-    </div>
-  </div>
-</header>
-<div class="mini-header">
-  <div class="hambugerbar">
-    <img src="{% static 'img/햄버거바.png' %}" />
-  </div>
-  <p>비밀게시판</p>
+{% endblock %} 
+
+{% block body %}
+
+{% include 'posts/header.html' %}
 </div>
 <nav class="sub-nav">
   <div class="nav-container">
     <div class="line"></div>
     <div class="part">
-      <a href="#">자유게시판</a><a href="#">비밀게시판</a
-      ><a href="#">졸업생게시판</a> <a href="#">새내기게시판</a
-      ><a href="#">시사.이슈</a><a href="#">정보게시판</a
-      ><a href="#">이벤트게시판</a>
-    </div>
-
-    <div class="part"><a href="#">홍보게시판</a><a href="#">동아리학회</a></div>
-    <div class="line"></div>
-    <div class="part">
-      <a href="#">취업・진로</a><a href="#">⭐👩‍🏫교직이수👩‍🏫⭐</a>
-      <a href="#">덕성 예비 공무원</a><a href="#">대학원 뿌슝뿌슝🔥🔥</a
-      ><a href="#">미래의 회계사</a>
+      <a href="#">자유게시판</a>
+      <a href="#">비밀게시판</a>
+      <a href="#">졸업생게시판</a> 
+      <a href="#">새내기게시판</a>
+      <a href="#">시사.이슈</a>
+      <a href="#">정보게시판</a>
+      <a href="#">이벤트게시판</a>
     </div>
 
     <div class="part">
-      <a href="#">총학생회</a><a href="#">신문사</a><a href="#">영자신문사</a>
-      <a href="#">운현방송국</a><a href="#">대학일자리본부</a>
+      <a href="#">홍보게시판</a>
+      <a href="#">동아리학회</a>
     </div>
     <div class="line"></div>
     <div class="part">
-      <a href="#">디지털소프트웨어</a><a href="#">덕성여대 경영학</a>
-      <a href="#">국제통상학과</a><a href="#">덕성 법학도</a
-      ><a href="#">두드리는 회계학</a>
+      <a href="#">취업・진로</a>
+      <a href="#">⭐👩‍🏫교직이수👩‍🏫⭐</a>
+      <a href="#">덕성 예비 공무원</a>
+      <a href="#">대학원 뿌슝뿌슝🔥🔥</a>
+      <a href="#">미래의 회계사</a>
     </div>
 
     <div class="part">
-      <a href="#">덕성여대 장터</a><a href="#">♡덕성여대 기숙사♡</a>
-      <a href="#">주의 없는 게시판</a><a href="#">덕성 연애방</a>
+      <a href="#">총학생회</a>
+      <a href="#">신문사</a>
+      <a href="#">영자신문사</a>
+      <a href="#">운현방송국</a>
+      <a href="#">대학일자리본부</a>
+    </div>
+    <div class="line"></div>
+    <div class="part">
+      <a href="#">디지털소프트웨어</a>
+      <a href="#">덕성여대 경영학</a>
+      <a href="#">국제통상학과</a>
+      <a href="#">덕성 법학도</a>
+      <a href="#">두드리는 회계학</a>
+    </div>
+
+    <div class="part">
+      <a href="#">덕성여대 장터</a>
+      <a href="#">♡덕성여대 기숙사♡</a>
+      <a href="#">주의 없는 게시판</a>
+      <a href="#">덕성 연애방</a>
     </div>
     <div class="line"></div>
   </div>
@@ -99,26 +90,30 @@
 
       <div class="post-stats">
         <span class="stat-like">
-          <img src="../img/빨간 좋아요.png" alt="좋아요" />
-          <span id="like-count">0</span>
+          <img src="{% static 'img/빨간 좋아요.png' %}" alt="좋아요" />
+          <!-- 값이 없으면 0이 뜨도록 default:"0" 추가 -->
+          <span id="like-count">{{ post.like.count|default:"0" }}</span>
         </span>
-        <span class="stat-comment"
-          ><img src="../img/초록 채팅.png" alt="댓글" /> 0</span
-        >
+        <span class="stat-comment">
+          <img src="{% static 'img/초록 채팅.png' %}" alt="댓글" /> 
+          <span id="comment-count">{{ post.comments.count|default:"0" }}</span>
+        </span>
         <span class="stat-scrap">
-          <img src="../img/에타 별.png" alt="스크랩" />
-          <span id="scrap-count">0</span>
+          <img src="{% static 'img/에타 별.png' %}" alt="스크랩" />
+          <span id="scrap-count">{{ post.scrap.count|default:"0" }}</span>
         </span>
       </div>
+      
+      <!-- 하단 공감/스크랩 버튼 부분 -->
       <div class="post-buttons">
-        <button class="btn-action" id="btn-like">
-          <img src="../img/공감.png" alt="공감" /> 공감
+        <button class="btn-action" id="btn-like" data-post-id="{{ post.id }}">
+          <img src="{% static 'img/공감.png' %}" alt="공감" /> 공감
         </button>
-        <button class="btn-action" id="btn-scrap">
-          <img src="../img/스크랩.png" alt="스크랩" /> 스크랩
+        <button class="btn-action" id="btn-scrap" data-post-id="{{ post.id }}">
+          <img src="{% static 'img/스크랩.png' %}" alt="스크랩" /> 스크랩
         </button>
       </div>
-      <div class="everytime-comment-container">
+    <div class="everytime-comment-container">
         <div class="comment-item">
           <div class="comment-header">
             <div class="user-info">
@@ -126,9 +121,7 @@
               <span class="username">익명2</span>
             </div>
             <div class="comment-actions">
-              <a href="javascript:void(0)" onclick="toggleReplyForm(1)"
-                >대댓글</a
-              >
+              <a href="javascript:void(0)" onclick="toggleReplyForm(1)">대댓글</a>
               <a href="#">공감</a>
               <a href="#">쪽지</a>
               <a href="#">신고</a>
@@ -148,9 +141,7 @@
               <span class="username">익명3</span>
             </div>
             <div class="comment-actions">
-              <a href="javascript:void(0)" onclick="toggleReplyForm(2)"
-                >대댓글</a
-              >
+              <a href="javascript:void(0)" onclick="toggleReplyForm(2)">대댓글</a>
               <a href="#">공감</a>
               <a href="#">쪽지</a>
               <a href="#">신고</a>
@@ -159,9 +150,9 @@
           <div class="comment-content">도덕이 ❤️</div>
           <div class="comment-footer">
             <span class="time">02/09 22:35</span>
-            <span class="like-count"
-              ><img src="../img/빨간 좋아요.png" alt="좋아요" /> 1</span
-            >
+            <span class="like-count">
+            <img src="{% static 'img/빨간 좋아요.png' %}" alt="좋아요" /> 1
+            </span>
           </div>
           <div id="reply-area-2" class="reply-container">
             <div class="reply-item">
@@ -190,7 +181,7 @@
           placeholder="댓글을 입력하세요."
         />
         <button class="btn-submit">
-          <img src="../img/에타 연필.png" alt="댓글" />
+         <img src="{% static 'img/에타 연필.png' %}" alt="댓글" />
         </button>
       </div>
     </div>
@@ -212,9 +203,10 @@
       질문 글을 작성하면 게시판 상단에 일정 기간 노출되어, 더욱 빠르게 답변을
       얻을 수 있게 됩니다.
     </div>
-  </section>
-
-  <aside class="right-sidebar">
+  </section> 
+  {% load static %}
+  {% include 'posts/aside.html' %}
+  {% comment %} <aside class="right-sidebar">
     <div class="side-widget">
       <div class="widget-header"><h4>실시간 인기 글</h4></div>
       <div class="widget-content">
@@ -332,7 +324,7 @@
         </a>
       </div>
     </div>
-  </aside>
+  </aside> {% endcomment %}
 </main>
 <script src="{% static 'js/detail.js' %}"></script>
 {% endblock %}

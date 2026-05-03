@@ -87,3 +87,52 @@ function submitReply(commentId) {
     // document.getElementById(`reply-area-${commentId}`).innerHTML = "";
   }
 }
+document.addEventListener("DOMContentLoaded", function () {
+  // 1. 버튼과 숫자 들어갈 공간(span) 가져오기
+  const likeBtn = document.getElementById("btn-like");
+  const scrapBtn = document.getElementById("btn-scrap");
+
+  const likeCountSpan = document.getElementById("like-count");
+  const scrapCountSpan = document.getElementById("scrap-count");
+
+  // 2. 공감 버튼 누를 때
+  if (likeBtn) {
+    likeBtn.addEventListener("click", function () {
+      // 현재 적혀있는 숫자 가져오기 (문자를 숫자로 변환)
+      let currentCount = parseInt(likeCountSpan.innerText) || 0;
+
+      // 이미 'active' 클래스가 있다면? = 이미 눌렀던 상태라면 취소
+      if (likeBtn.classList.contains("active")) {
+        likeCountSpan.innerText = currentCount - 1; // 숫자 1 감소
+        likeBtn.classList.remove("active"); // 활성화 상태 해제
+        likeBtn.style.color = ""; // 글씨 색상 원래대로
+      }
+      // 누르지 않은 상태라면? = 공감 +1
+      else {
+        likeCountSpan.innerText = currentCount + 1; // 숫자 1 증가
+        likeBtn.classList.add("active"); // 활성화 상태 추가
+        likeBtn.style.color = "#c62917"; // 에타 빨간색으로 변경
+      }
+
+      // (나중을 위한 팁) 실제 장고 DB에 숫자를 올리려면
+      // 여기서 fetch('/공감처리하는주소/') 를 날려야 합니다!
+    });
+  }
+
+  // 3. 스크랩 버튼 누를 때 (공감과 원리 동일)
+  if (scrapBtn) {
+    scrapBtn.addEventListener("click", function () {
+      let currentCount = parseInt(scrapCountSpan.innerText) || 0;
+
+      if (scrapBtn.classList.contains("active")) {
+        scrapCountSpan.innerText = currentCount - 1;
+        scrapBtn.classList.remove("active");
+        scrapBtn.style.color = "";
+      } else {
+        scrapCountSpan.innerText = currentCount + 1;
+        scrapBtn.classList.add("active");
+        scrapBtn.style.color = "#ffbc00"; // 에타 노란색으로 변경
+      }
+    });
+  }
+});
