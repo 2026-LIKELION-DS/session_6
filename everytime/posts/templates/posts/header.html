@@ -1,0 +1,36 @@
+{% load static %}
+<header class="main-header">
+    <div class="header-inner">
+        
+        <div class="desktop-header">
+            <div class="everytime-logo">
+                <img src="{% static "img/eta.png" %}" alt="에타 로고" class="logo-img">
+                <div class="logo-text">
+                    <p class="logo-everytime">에브리타임</p>
+                    <p class="logo-univname">덕성여대</p>
+                </div>
+            </div>
+            
+            <ul class="banner-top">
+                <li><div>게시판</div></li>
+                <li><div>시간표</div></li>
+                <li><div>강의실</div></li>
+                <li><div >학점계산기</div></li>
+                <li><div>친구</div></li>
+                <li><div>책방</div></li>
+                <li><div>캠퍼스픽</div></li>
+            </ul>
+
+            <div class="users-menu">
+                <img src="{% static "img/icn_m_chat_gray800_light.png" %}" alt="쪽지" class="icon-img">
+                <img src="{% static "img/icn_m_account_gray800_light.png" %}" alt="내 정보" class="icon-img">
+            </div>
+        </div>
+
+        <div class="mobile-header">
+            <img src="{% static "img/aside.title.hamburger.png" %}" alt="메뉴" class="hamburger-icon" onclick="toggleNav()">
+            <p class="which-board">비밀게시판</p>
+        </div>
+
+    </div>
+</header>

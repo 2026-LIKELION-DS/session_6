@@ -10,7 +10,7 @@
 <body>
     <div class="login-container">
         <img src="{% static "img/logo.png" %}" alt="에타 로고" class="eta-logo">
-        <form method='post' action="{% url 'accounts:login' %}" class="login-form">
+        <form method='post' action={% url 'accounts:login' %} class="login-form">
             {% csrf_token %}
             <input type="text" id="userid" class="input-box" placeholder="아이디" name="username">
             <input type="password" id="userpw" class="input-box" placeholder="비밀번호" name="password">

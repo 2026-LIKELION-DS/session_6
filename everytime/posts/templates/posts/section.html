@@ -1,0 +1,31 @@
+{% load static %}
+<div class="board-title-whole">
+            <div class="board-title">{{ category.name }}</div>
+        </div>
+
+        <div class="board-qandhot-wrap">
+            <div class="board-questions-whole">
+                <img src="{% static "img/icn_mcr_board_question_light.png" %}" alt="질문글 아이콘" class="question-icon">
+                <div class="questions-hot-whole">
+                    <p class="questions-hot-each">포크 면접 결과</p>
+                    <p class="questions-hot-each">학교 헬스장</p>
+                    <p class="questions-hot-each">보건결석</p>
+                    <p class="questions-hot-each">보건실가면 마스크</p>
+                    <p class="questions-hot-each">데이터와친해지기</p>
+                </div>
+            </div>
+
+            <div class="board-hot-whole">
+                <img src="{% static "img/icn_mcr_board_hotarticle_light.png" %}" alt="핫글 아이콘" class="hot-icon">
+                <div class="hots-each">
+                    <span class="hot-text">학교 4년동안 다니면서 가장무서웠던것</span>
+                    <img src="{% static "img/container.articles.vote.png" %}" alt="추천 아이콘" class="like-icon">
+                    <span class="vote-count">116</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="post-new-article" onclick="writeNew()">
+            <input type="text" placeholder="새 글을 작성해주세요!" class="new-article-input">
+            <img src="{% static "img/container.write.background.png" %}" alt="글쓰기 아이콘" class="write-icon">
+        </div>

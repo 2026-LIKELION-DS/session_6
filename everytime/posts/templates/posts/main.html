@@ -1,38 +1,40 @@
-{% comment %} {% load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>시작 - 에브리타임</title>
-    <link rel="stylesheet" href="{% static 'css/start.css' %}" />
-  </head>
-  <body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>시작 - 에브리타임</title>
+        <link rel="stylesheet" href="{% static 'css/start.css' %}" />
+    </head>
+    
+    <body>
     <div class="intro">
-      <div class="btnSpace">
+        <div class="btnSpace">
         <div class="btnLogo">
-          <img src="{% static 'img/logo.png' %}" alt="에브리타임 로고" />
+            <img src="{% static 'img/logo.png' %}" alt="에브리타임 로고" />
         </div>
         <div class="btnS">
-          {% if request.user.is_authenticated %}
+            {% if request.user.is_authenticated %}
             <a href="{% url 'accounts:logout' %}"><button class="logoutBtn">로그아웃</button></a>
-          {% else %}
+            {% else %}
             <a href="{% url 'accounts:login' %}"><button class="loginBtn">로그인</button></a>
             <a href="{% url 'accounts:signup' %}"><button class="signupBtn">에브리타임 회원가입</button></a>
-          {% endif %}
-          <a href="{% url 'posts:category' 'secret' %}"><button class="toMainBtn">비밀게시판</button></a>
+            {% endif %}
+            <a href="{% url 'posts:category' 'secret' %}"><button class="toMainBtn">비밀게시판</button></a>
         </div>
-      </div>
-      <div class="contentSpace">
-        <img src="{% static 'img/start_img.png' %}" alt="대문 이미지" />
-      </div>
+        </div>
+
+        <div class="contentSpace">
+            <img src="{% static 'img/start_img.png' %}" alt="대문 이미지" />
+        </div>
     </div>
-  </body>
-</html> {% endcomment %}
+    </body>
+</html>
 
 
 
-{% load static %}
+{% comment %} {% load static %}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -209,8 +211,8 @@
         </div>
 
         <form class="write">
-            <input class="title" type="text" placeholder="글 제목">
-            <textarea class="content" placeholder="에브리타임은 누구나 기분 좋게 참여할 수 있는 커뮤니티를 만들기 위해 커뮤니티 이용규칙을 제정하여 운영하고 있습니다. 위반 시 게시물이 삭제되고 서비스 이용이 일정 기간 제한될 수 있습니다. 
+            <input class="title" type="text" placeholder="글 제목" name="title">
+            <textarea class="content" name="content" placeholder="에브리타임은 누구나 기분 좋게 참여할 수 있는 커뮤니티를 만들기 위해 커뮤니티 이용규칙을 제정하여 운영하고 있습니다. 위반 시 게시물이 삭제되고 서비스 이용이 일정 기간 제한될 수 있습니다. 
 아래는 이 게시판에 해당하는 핵심 내용에 대한 요약 사항이며, 게시물 작성 전 커뮤니티 이용규칙 전문을 반드시 확인하시기 바랍니다. 
 
 ※ 정치·사회 관련 행위 금지 
@@ -365,4 +367,4 @@
     <script src="{% static "js/main.js" %}"></script>
     <script src="{% static "js/post.js" %}"></script>
 </body>
-</html>
+</html> {% endcomment %}

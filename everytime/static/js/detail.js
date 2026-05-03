@@ -51,10 +51,8 @@ submitBtn.addEventListener("click", function() {
     const commentText = commentInput.value;
     
     if (commentText === "") {
-        alert("댓글 내용을 입력해주세요!");
-    } else {
-        alert("작성하신 댓글: " + commentText);
-        commentInput.value = ""; 
+        alert("댓글을 입력하세요.");
+        event.preventDefault(); // 빈칸일 경우 django에게 전송 x, 그냥 여기서 멈춤
     }
 });
 
@@ -72,6 +70,7 @@ function toggleQuestion(checkbox) {
         questionText.style.color = "#666";
     }
 }
+
 
 
 const replyBtn = document.querySelectorAll(".reply-btn");
@@ -94,10 +93,8 @@ for (let i = 0; i < replySubmitBtn.length; i++) {
         const text = replyText[i].value;
 
         if (text === "") {
-            alert("대댓글 내용을 입력해주세요!");
-        } else {
-            alert("작성하신 대댓글: " + text);
-            replyText[i].value = "";
+            alert("대댓글 내용을 입력하세요.");
+            event.preventDefault();
         }
     });
 }
