@@ -1,60 +1,48 @@
 {% comment %} {% load static %}
-{% load humanize %}
-<!doctype html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8" />
-    <title>{{ category.name }} - 에브리타임</title>
-    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/post.css' %}" />
-    <script src="{% static 'js/main.js' %}" defer></script>
-</head>
-
 <body>
-    {% include "posts/header.html" %}
+    {% load humanize %}
+    <a href={% url 'posts:main' %}>메인페이지로 돌아가기</a><br><br>
+    {% if request.user.is_authenticated %}
+        <p>nickname : {{ user }}</p>
+        <a href="{% url 'accounts:logout' %}">로그아웃</a>
+    {% else %}
+        <a href="{% url 'accounts:login' %}">로그인</a>
+    {% endif %}
+    <hr>
+    
 
-    {% include "posts/navigation.html" %}
+    <h1>{{ category.name }}</h1>
+    
+    <form method="POST" action="{% url 'posts:create' category.slug %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" placeholder="제목 입력" name="title"><br>
+        <textarea name="content" placeholder="본문 입력"></textarea><br><br>
+        <div class="file">
+            <input type="file" name="image">
+            <input type="file" name="video">
+        </div>
+        <br>
+        <input type="checkbox" name="is_anonymous">익명
+        <input type="submit" value="작성 완료">
+    </form>
 
+    <hr>
 
-    <div class="main_part">
-        <section class="secret_board">
-            <header class="header_for_sb_category">
-                <p>{{ category.name }}</p>
-            </header>
+    {% for post in posts %}
 
-            <form class="writing_zone" method="POST" action="{% url 'posts:create' category.slug %}" enctype="multipart/form-data">
-                {% csrf_token %}
-                <input type="text" name="title" class="title" placeholder="글 제목"/>
-                <textarea name="content" class="main_content" placeholder="본문 입력"></textarea>
-                
-                <div class="bottom_option">
-                    <input type="file" name="image">
-                    <div class="options">
-                        <input type="checkbox" name="is_anonymous"> 익명
-                    </div>
-                    <button type="submit" class="submit">작성 완료</button>
-                </div>
-            </form>
+    {% if post.anonymity %}
+        <h2><a href="{% url 'posts:detail' post.id %}">{{ post.title }}</a></h2>
+        <p>{{ post.content }}</p>
+        <p>{{ post.created_at | naturaltime }}</p>
+    {% else %}
+        <h2><a href="{% url 'posts:detail' post.id %}">{{ post.title }}</a></h2>
+        <p>{{ post.content }}</p>
+        <p>{{ post.created_at | naturaltime }}</p>
+    {% endif %}
+    <hr>
+    {% empty %} <h2>글이 없습니다.</h2> {% endfor %}
 
-            <article class="showing_articles_in_one_page">
-                {% for post in posts %}
-                <article class="article1">
-                    <a href="{% url 'posts:detail' post.id %}" style="text-decoration: none; color: inherit;">
-                        <p class="title1">{{ post.title }}</p>
-                        <p class="content1">{{ post.content|truncatechars:100 }}</p>
-                        <p class="footer1">{{ post.created_at|naturaltime }} | {% if post.anonymity %}익명{% else %}{{ post.author }}{% endif %}</p>
-                    </a>
-                </article>
-                {% empty %}
-                <p style="padding: 20px; text-align: center;">글이 없습니다.</p>
-                {% endfor %}
-            </article>
-        </section>
-
-        {% include "posts/aside.html" %}
-    </div>
-</body>
-</html> {% endcomment %}
+</body> {% endcomment %}
 
 {% load static %}
 {% load humanize %}

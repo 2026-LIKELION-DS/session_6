@@ -1,3 +1,11 @@
+{% comment %} <h2>로그인</h2>
+<form method='post' action={% url 'accounts:login' %}>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">login</button>
+</form>
+<p><a href="{% url 'accounts:signup' %}">회원가입</a></p> {% endcomment %}
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -6,21 +14,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clone - 로그인 페이지</title>
     <link rel="stylesheet" href="{% static 'css/login.css' %}" />
-    <script src="{% static 'js/login.js' %}"></script>
+    <script src="{% static 'js/login.js' %}" defer></script>
 </head>
 <body>
     <header id="everytime">
         <img src="{% static 'img/logo.png' %}" alt="로고"/>
     </header>
 
-    <form methods='post' action={% url 'accounts:login' %} id="login">
+    <form id="login">
         {% csrf_token %}
         <input class="login_id" type="text" placeholder="LIKELION14" name="username">
         
         <input class="login_pw" type="text" placeholder="password" name="password">
 
-        <button id="loginBtn">
+        <button type="submit" id="loginBtn">
             <p>에브리타임 로그인</p>
+            {% if request.user.is_authenticated %}
+                <p>nickname : {{ user }}</p>
+                <a href="{% url 'accounts:logout' %}">로그아웃</a>
+            {% else %}
+                <a href="{% url 'accounts:login' %}">로그인</a>
+            {% endif %}
         </button>
 
         <a href="{% url 'accounts:signup' %}" class="signup">회원가입</a>

@@ -1,100 +1,71 @@
-{% comment %} {% load static %}
-{% load humanize %}
-<!doctype html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8" />
-    <title>{{ post.title }} - 에브리타임</title>
-    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/post.css' %}" />
-    <script src="{% static 'js/main.js' %}" defer></script>
-</head>
+{% comment %} <body>
+    <a href={% url 'posts:main' %}>메인페이지로 돌아가기</a><br><br>
+    {% if request.user.is_authenticated %}
+        <p>nickname : {{ user }}</p>
+        <a href="{% url 'accounts:logout' %}">로그아웃</a>
+    {% else %}
+        <a href="{% url 'accounts:login' %}">로그인</a>
+    {% endif %}
+    <hr>
 
-<body>
-    {% include "header.html" %}
-    {% include "navigation.html" %}
-    <div class="main_part">
-        <section class="secret_board">
-            <header class="header_for_sb_category">
-                <p>{{ post.category.name }}</p>
-            </header>
+    <h2>{{ post.title }}</h2><br>
+    <h3>{{ post.content }}</h3><br>
 
-            <article class="article_detail" style="padding: 20px;">
-                <h2 style="font-size: 22px; margin-bottom: 10px;">{{ post.title }}</h2>
-                <p style="color: #444; line-height: 1.6; margin-bottom: 15px;">{{ post.content }}</p>
-                
-                {# 이미지 및 비디오 출력 #}
-                {% if post.image %}
-                    <img src="{{ post.image.url }}" style="max-width: 100%; margin-bottom: 15px;">
-                {% endif %}
-                {% if post.video %}
-                    <video width="100%" controls style="margin-bottom: 15px;">
-                        <source src="{{ post.video.url }}" type="video/mp4" />
-                    </video>
-                {% endif %}
+    {% if post.image %}
+        <image width="320" height="240" src="{{ post.image.url }}"></image>
+    {% endif %}
+    {% if post.video %}
+        <video width="320" height="240" controls>
+            <source src="{{ post.video.url }}" type="video/mp4" />
+        </video>
+    {% endif %}
 
-                <p class="footer_detail" style="color: #a6a6a6; font-size: 12px; margin-bottom: 20px;">
-                    {{ post.created_at|naturaltime }} | 
-                    {% if post.is_anonymous %}익명{% else %}{{ post.author.nickname }}{% endif %}
-                </p>
+    <h3>{{ post.created_at }}</h3>
+    {% if post.is_anonymous %}
+        <h5>익명</h5>
+    {% else %}
+        <h5>{{ post.author.nickname }}</h5>
+    {% endif %}
 
-                {# 공감 및 스크랩 버튼 영역 #}
-                <div class="interaction_area" style="margin-bottom: 20px;">
-                    <p style="font-size: 13px; color: #c62917;">
-                        공감 {{ post.like.count }}개 · 스크랩 {{ post.scrap.count }}개
-                    </p>
-                    {% if request.user in post.like.all %}
-                        <a href="{% url 'posts:remove-like' post.id %}"><input type="button" value="공감 취소" /></a>
-                    {% else %}
-                        <a href="{% url 'posts:add-like' post.id %}"><input type="button" value="공감" /></a>
-                    {% endif %}
+    {% if request.user == post.author %}
+        <a href="{% url 'posts:update' post.id %}">수정하기</a>
+        <a href="{% url 'posts:delete' post.id %}">삭제하기</a>
+    {% endif %}
 
-                    {% if request.user in post.scrap.all %}
-                        <a href="{% url 'posts:remove-scrap' post.id %}"><input type="button" value="스크랩 취소" /></a>
-                    {% else %}
-                        <a href="{% url 'posts:add-scrap' post.id %}"><input type="button" value="스크랩" /></a>
-                    {% endif %}
-                </div>
+    <p>공감 {{ post.like.count }}개 스크랩 {{ post.scrap.count }}개</p>
 
-                {# 수정/삭제 버튼 (작성자일 때만) #}
-                {% if request.user == post.author %}
-                    <div style="margin-bottom: 20px;">
-                        <a href="{% url 'posts:update' post.id %}" style="color: #767676; font-size: 13px;">수정</a> | 
-                        <a href="{% url 'posts:delete' post.id %}" style="color: #767676; font-size: 13px;">삭제</a>
-                    </div>
-                {% endif %}
+    {% if request.user in post.like.all %}
+    <a href="{% url 'posts:remove-like' post.id %}"><input type="button" value="공감 취소" /></a>
+    {% else %}
+    <a href="{% url 'posts:add-like' post.id %}"><input type="button" value="공감" /></a>
+    {% endif %}
 
-                <hr style="border: 0.5px solid #eee;">
 
-                <div class="comment_section" style="margin-top: 20px;">
-                    <h4 style="margin-bottom: 15px;">댓글</h4>
-                    {% for comment in post.comments.all %}
-                        <div style="padding: 10px 0; border-bottom: 1px solid #f9f9f9;">
-                            <strong>{% if comment.anonymity %}익명{% else %}{{ comment.author.nickname }}{% endif %}</strong>
-                            <p style="margin: 5px 0;">{{ comment.content }}</p>
-                            <span style="font-size: 11px; color: #a6a6a6;">{{ comment.created_at|naturaltime }}</span>
-                            {% if request.user == comment.author %}
-                                <a href="{% url 'posts:delete-comment' post.id comment.id %}" style="color: #c62917; font-size: 11px; margin-left: 10px;">삭제</a>
-                            {% endif %}
-                        </div>
-                    {% empty %}
-                        <p style="color: #a6a6a6; font-size: 13px;">댓글이 없습니다.</p>
-                    {% endfor %}
+    {% if request.user in post.scrap.all %}
+    <a href="{% url 'posts:remove-scrap' post.id %}"><input type="button" value="스크랩 취소" /></a>
+    {% else %}
+    <a href="{% url 'posts:add-scrap' post.id %}"><input type="button" value="스크랩" /></a>
+    {% endif %}
 
-                    {# 댓글 작성 폼 #}
-                    <form method="POST" action="{% url 'posts:create-comment' post.id %}" style="margin-top: 20px; background: #f9f9f9; padding: 10px;">
-                        {% csrf_token %}
-                        <input type="text" name="content" placeholder="댓글을 입력하세요" style="width: 70%; padding: 5px;" required />
-                        <label style="font-size: 12px;"><input type="checkbox" name="anonymity" value="anonymity_true" /> 익명</label>
-                        <input type="submit" value="작성" style="background: #c62917; color: white; border: none; padding: 5px 10px;" />
-                    </form>
-                </div>
-            </article>
-        </section>
-        {% include "aside.html" %}
-    </div>
-</body>
-</html> {% endcomment %}
+    <hr>
+    <h4>댓글</h4>
+    <br>
+    {% for comment in post.comments.all %} {% if comment.anonymity %} 익명: {% else %} {{ comment.author.nickname }}: {% endif %}
+    {{ comment.content }} - {{ comment.created_at }}
+    {% if request.user == comment.author %}
+        <a href="{% url 'posts:delete-comment' post.id comment.id %}">삭제하기</a>
+    {% endif%}
+    <br>
+    <br>
+    {% empty %} 댓글이 없습니다 {% endfor %}
+
+    <form method="POST" action="{% url 'posts:create-comment' post.id %}">
+        {% csrf_token %} 댓글 <input type="text" name="content" /><input type="submit" value="작성" />
+        <input type="checkbox" name="anonymity" value="anonymity_true" />익명
+    </form>
+    <hr>
+    <br>
+</body> {% endcomment %}
 
 {% load static %}
 {% load humanize %}

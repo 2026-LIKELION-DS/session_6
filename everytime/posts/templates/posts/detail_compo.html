@@ -18,6 +18,10 @@
                 <div class="post_options">
                     <div>쪽지</div>
                     <div>신고</div>
+                    {% if request.user == post.author %}
+                        <a href="{% url 'posts:update' post.id %}">수정하기</a>
+                        <a href="{% url 'posts:delete' post.id %}">삭제하기</a>
+                    {% endif %}
                 </div>
             </div>
 
@@ -28,16 +32,37 @@
                 <div class="ttabong">
                     <img class="good" src="{% static 'img/container.articles.vote.png' %}" alt="따봉">
                     <div class="ttabong_count">{{ post.likes_count }}</div>
+
+                    {% if request.user in post.like.all %}
+                        <a href="{% url 'posts:remove-like' post.id %}"><input type="button" value="공감 취소" /></a>
+                    {% else %}
+                        <a href="{% url 'posts:add-like' post.id %}"><input type="button" value="공감" /></a>
+                    {% endif %}
                 </div>
                     
                 <div class="thatguel">
                     <img class="post_comments" src="{% static 'img/container.articles.comment.png' %}" alt="댓글">
                     <div>{{ comments.count }}</div>
+
+                    {% for comment in post.comments.all %} {% if comment.anonymity %} 익명: {% else %} {{ comment.author.nickname }}: {% endif %}
+                    {{ comment.content }} - {{ comment.created_at }}
+                    {% if request.user == comment.author %}
+                        <a href="{% url 'posts:delete-comment' post.id comment.id %}">삭제하기</a>
+                    {% endif%}
+                    <br>
+                    <br>
+                    {% empty %} 댓글이 없습니다 {% endfor %}
                 </div>
                     
                 <div class="peogayo">
                     <img class="scrap" src="{% static 'img/container.articles.scrap.png' %}" alt="스크랩">
                     <div class="scrap_count">0</div>
+
+                    {% if request.user in post.scrap.all %}
+                        <a href="{% url 'posts:remove-scrap' post.id %}"><input type="button" value="스크랩 취소" /></a>
+                    {% else %}
+                        <a href="{% url 'posts:add-scrap' post.id %}"><input type="button" value="스크랩" /></a>
+                    {% endif %}
                 </div>
             </div>
 
@@ -82,10 +107,10 @@
                     <input type="text" class="reThatguelChang" placeholder="대댓글을 입력하세요.">
                     <div class="comment_musuri">
                         <label>
-                            <input type="checkbox" checked> 익명
+                            <input name="is_anonymous" type="checkbox" checked> 익명
                         </label>
 
-                        <button class="submit_comment_rtg">
+                        <button type="submit" class="submit_comment_rtg">
                             <img src="{% static 'img/container.articles.write.submit.png' %}" alt="연필">
                         </button>
                     </div>

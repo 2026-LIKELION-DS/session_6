@@ -4,13 +4,15 @@ const loginBtn = document.querySelector('#loginBtn');
 
 
 function checkInputs() {
-    const userIdValue = userIdInput.value.trim();
-    const userPwValue = userPwInput.value.trim();
+    const userIdValue = userIdInput.value;
+    const userPwValue = userPwInput.value;
 
     if (userIdValue.length > 0 && userPwValue.length >= 8) {
+        loginBtn.classList.add("active");
         loginBtn.style.backgroundColor = '#f91f15';
         loginBtn.disabled = false;
     } else {
+        loginBtn.classList.remove("active");
         loginBtn.style.backgroundColor = '#737373';
         loginBtn.disabled = true;
     }
