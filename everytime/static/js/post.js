@@ -8,12 +8,16 @@ let isQuestionActive = false;
 questionBtn.addEventListener('click', function() {
     isQuestionActive = !isQuestionActive;
     const question_img = this.querySelector('img');
+
+    const questActiveSrc = question_img.dataset.active;
+    const questInactiveSrc = question_img.dataset.inactive;
+
     if (isQuestionActive) {
         question_info.style.display = 'block';
-        question_img.src = "../img/container.articles.write.question.active.png";
+        question_img.src = questActiveSrc;
     } else {
         question_info.style.display = 'none';
-        question_img.src = "../img/container.articles.write.question.png";
+        question_img.src = questInactiveSrc;
     }
 });
 
@@ -25,9 +29,13 @@ let isAnonym = false;
 anonymButton.addEventListener('click', function() {
     isAnonym = !isAnonym;
     const anonym_img = this.querySelector('img');
+
+    const anonymActiveSrc = anonym_img.dataset.active;
+    const anonymInactiveSrc = anonym_img.dataset.inactive;
+
     if (isAnonym) {
-        anonym_img.src = "../img/container.articles.write.anonym.active.png";
+        anonym_img.src = anonymActiveSrc;
     } else {
-        anonym_img.src = "../img/container.articles.write.anonym.png";
+        anonym_img.src = anonymInactiveSrc;
     }
 });

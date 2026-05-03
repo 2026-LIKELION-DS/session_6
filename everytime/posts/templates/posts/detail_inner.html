@@ -1,0 +1,82 @@
+{% load static %}
+{% block style %}<link rel="stylesheet" href="{% static "css/main.css" %}"/><link rel="stylesheet" href="{% static "css/detail.css" %}"/>{% endblock %}
+{% block body %}
+<section class="section">
+      <h1>비밀게시판</h1>
+      <article class="post_detail">
+        <div class="post_info">
+          <img src="{% static 'img/anonymous.profile.png' %}" alt="프로필"/>
+          <div class="profile_info">
+            <p class="nickname">익명</p>
+            <p class="time">04/01 21:07</p>
+          </div>
+          <div class="post_top">
+            <p>쪽지</p>
+            <p>신고</p>
+          </div>
+        </div>
+        <div class="content">
+          <h2 class="title">기숙사나 인대 라운지 열람실 등 오늘 학교에서 밤새는 사람 있니................</h2>
+          <p class="text">혼자가 아니라고 해줘,,,,,</p>
+        </div>  
+        <div class="status">
+          <div><img src="{% static 'img/container.articles.vote.png' %}" alt="공감"/><span class="like_num">3</span></div>
+          <div><img src="{% static 'img/container.articles.comment.png' %}" alt="댓글"/><span class="comment_num">0</span></div>
+          <div><img src="{% static 'img/container.articles.scrap.png' %}" alt="스크랩"/><span class="scrap_num">1</span></div>
+        </div>
+        <div class="buttons">
+          <button class="like_btn"><img src="{% static 'img/container.articles.buttons.posvote.png' %}" alt="공감"/>공감</button>
+          <button class="scrap_btn"><img src="{% static 'img/container.articles.buttons.scrap.png' %}" alt="스크랩"/>스크랩</button>
+        </div>
+      </article>  
+      <div class="comment_container">
+        <div class="comment_item">
+          <div class="comment_header">
+            <div class="user_info">
+              <img src="{% static 'img/anonymous.profile.png' %}" alt="프로필" class="profile_img">
+              <span class="nickname">익명1</span>
+            </div>
+            <div class="comment_menu">
+              <button type="button" class="re_comment_btn">대댓글</button> <span>공감</span> <span>쪽지</span> <span>신고</span>
+            </div>
+          </div>
+          <p class="comment_text">나나</p>
+          <span class="comment_time">4분 전</span>
+          <div class="child_comment">
+            <div class="comment_header">
+              <div class="user_info">
+                <img src="{% static 'img/anonymous.profile.png' %}" alt="프로필" class="profile_img">
+                <span class="nickname">익명2</span>
+              </div>
+              <div class="comment_menu">
+                <span>공감</span> <span>쪽지</span> <span>신고</span>
+              </div>
+            </div>
+            <p class="comment_text">같이 화이팅 해보자!!</p>
+            <span class="comment_time">2분 전</span>
+          </div>
+          <!-- 대댓글 부분 -->
+          <div class="re_comment_input">
+            <input type="text" class="re_input_text" placeholder="대댓글을 입력하세요."/>
+            <div class="tools">
+              <button class="anonym_btn" type="button">
+                <img src="{% static 'img/container.articles.write.anonym.png' %}"
+                  data-active="{% static 'img/container.articles.write.anonym.active.png' %}"
+                  data-inactive="{% static 'img/container.articles.write.anonym.png' %}" alt="익명"></button>
+              <button class="submit_btn"><img src="{% static 'img/container.articles.write.submit.png' %}" alt="글 작성"/></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="input_container">
+        <input type="text" class="input_text" placeholder="댓글을 입력하세요." />
+        <div class="tools">
+          <button class="anonym_btn" type="button"><img src="{% static 'img/container.articles.write.anonym.png' %}"
+            data-active="{% static 'img/container.articles.write.anonym.active.png' %}"
+            data-inactive="{% static 'img/container.articles.write.anonym.png' %}" alt="익명"></button>
+          <button class="submit_btn"><img src="{% static 'img/container.articles.write.submit.png' %}" alt="글 작성"/></button>
+        </div>
+      </div>
+      <button class="list-btn"><img src="{% static 'img/container.articles.pagination.list.png' %}" alt="목록"> 글 목록</button>
+</section>
+{% endblock %}

@@ -126,3 +126,11 @@ def remove_scrap(request, post_id):
     post = get_object_or_404(Post, id = post_id)
     post.scrap.remove(request.user)
     return redirect('posts:detail', post_id)
+
+# def detail(request, post_id):
+#     # pk에 post_id를 넣어서 가져옵니다.
+#     post = get_object_or_404(Post, pk=post_id)
+#     return render(request, 'posts/detail.html', {'post': post})
+
+def detail(request): # post_id 삭제
+    return render(request, 'posts/detail.html') # DB 찾는 코드 삭제

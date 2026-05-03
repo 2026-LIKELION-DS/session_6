@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import *
+from . import views
 # 미디어 파일 및 정적 경로 연결
 from django.conf import settings
 from django.conf.urls.static import static
@@ -11,7 +12,9 @@ urlpatterns = [
     path('create/<slug:slug>/', create_post, name = "create"),
     path('update/<int:id>/', update_post, name = "update"),
     path('delete/<int:id>/', delete_post, name = "delete"),
-    path('detail/<int:id>/', detail_post, name = "detail"),
+    # path('detail/<int:id>/', detail_post, name = "detail"),
+    # path('detail/', detail_post, name = "detail"),
+    path('detail/', views.detail, name='detail'),
     path('create-comment/<int:post_id>/', create_comment, name = "create-comment"),
     path('delete-comment/<int:post_id>/<int:comment_id>', delete_comment, name = "delete-comment"),
     path('add-like/<int:post_id>/', add_like, name = "add-like"),

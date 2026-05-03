@@ -6,12 +6,20 @@ const inputPw = document.querySelector("#password");
 const inputPwCheck = document.querySelector("#password_check");
 const signupBtn = document.querySelector(".signup_btn");
 
-function checkSignup(){
-    if (inputName.value && inputNickname.value && inputEmail.value && inputPw.value && inputPwCheck.value){
-        if (inputPw.value.length >= 8 && inputPwCheck.value.length >= 8){
-            signupBtn.style.background = "#F91F15";
-        }
-    }
+function checkSignup() {
+  if (
+    inputName.value &&
+    inputNickname.value &&
+    inputEmail.value &&
+    inputPw.value &&
+    inputPwCheck.value &&
+    inputPw.value.length >= 8 &&
+    inputPwCheck.value.length >= 8
+  ) {
+    signupBtn.style.background = "#F91F15";
+  } else {
+    signupBtn.style.background = "#ccc";
+  }
 }
 
 inputName.addEventListener("input", checkSignup);

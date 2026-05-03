@@ -1,0 +1,152 @@
+{% load static %}
+{% block style %}<link rel="stylesheet" href="{% static "css/main.css" %}"/>{% endblock %}
+{% block body %}
+<aside class="aside">
+    <!--right side-->
+    <div class="card">
+      <div class="board">
+        <h3>실시간 인기 글</h3>
+        <div class="board_article">
+          <h2>어린게 발랑 까져서~~~</h2>
+          <p class="grey_font">너무 귀엽다</p>
+          <div class="item3">
+            <p class="small">비밀게시판</p>
+            <img src="{% static 'img/container.articles.vote.png' %}" alt="좋아요" />
+            <p class="font_red_s">27</p>
+            <img src="{% static 'img/container.articles.comment.png' %}" alt="댓글" />
+            <p class="font_blue_s">1</p>
+          </div>
+        </div>
+        <div class="board_article">
+          <h2>새내기들아 친구 엄청 쉽게 만들 수 있음</h2>
+          <p class="grey_font">
+            나같경 새내기때 학교에서 하는 건 거의 죄다 참여했음 새터부터
+            시작해서 각종 개총 동아리 ds-fm 짝덕우 뻔선뻔후 스터디
+          </p>
+          <div class="item3">
+            <p class="small">새내기게시판</p>
+            <img src="{% static 'img/container.articles.vote.png' %}" alt="좋아요" />
+            <p class="font_red_s">22</p>
+            <img src="{% static 'img/container.articles.comment.png' %}" alt="댓글" />
+            <p class="font_blue_s">2</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--실시간 인기 글 끝-->
+    <div class="card">
+      <!--HOT 게시판-->
+      <div class="board">
+        <div class="item4">
+          <h3>HOT 게시물</h3>
+          <p class="grey_font_r">더 보기</p>
+        </div>
+        <div class="board_article">
+          <div class="item4">
+            <p>봄날엔도 잊으면 안 되는거 알지?</p>
+            <p class="grey_font">03/28 01:47</p>
+          </div>
+        </div>
+        <div class="board_article">
+          <div class="item4">
+            <p>타대학원 홍보🧫🧬</p>
+            <p class="grey_font">03/27 20:43</p>
+          </div>
+        </div>
+        <div class="board_article">
+          <div class="item4">
+            <p>나 왜이리 인기많아</p>
+            <p class="grey_font">03/28 11:11</p>
+          </div>
+        </div>
+        <div class="board_article">
+          <div class="item4">
+            <p>이거우리학교맞아?</p>
+            <p class="grey_font">03/28 06:09</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--HOT 게시물 끝-->
+    <div class="card">
+      <!--BEST 게시판-->
+      <div class="item4">
+        <h3>BEST 게시판</h3>
+        <p class="grey_font_r">더 보기</p>
+      </div>
+    </div>
+    <!--BEST 게시판 끝-->
+    <div class="card">
+      <!--학교 소식-->
+      <div class="board">
+        <h3>학교 소식</h3>
+        <div class="board_article">
+          <h2>
+            🤝덕성여자대학교 X 뮤지컬 &lt;빌리 엘리어트&gt; 제휴 안내🤝
+          </h2>
+          <p class="grey_font">
+            안녕하세요, 덕성여자대학교 제42대 총학생회 &lt;여정&gt;입니다.
+          </p>
+          <div class="item3">
+            <p class="small">총학생회</p>
+            <img src="{% static 'img/container.articles.vote.png' %}" alt="좋아요" />
+            <p class="font_red_s">2</p>
+            <img src="{% static 'img/container.articles.comment.png' %}" alt="댓글" />
+            <p class="font_blue_s">0</p>
+          </div>
+        </div>
+        <div class="board_article">
+          <h2>🎥더블뉴스 61회🎥</h2>
+          <p class="grey_font">
+            📅 3월 27일 금요일<br />🎙️ 뉴스를 더블하다.
+          </p>
+          <div class="item3">
+            <p class="small">운현방송국</p>
+            <img src="{% static 'img/container.articles.vote.png' %}" alt="좋아요" />
+            <p class="font_red_s">22</p>
+            <img src="{% static 'img/container.articles.comment.png' %}" alt="댓글" />
+            <p class="font_blue_s">0</p>
+          </div>
+        </div>
+      </div>
+      <!--학교 소식 끝-->
+    </div>
+    <div class="card">
+      <!--최근 강의평-->
+      <div class="board">
+        <div class="item4">
+          <h3>최근 강의평</h3>
+          <p class="grey_font_r">더 보기</p>
+        </div>
+        <div class="board_article">
+          <div class="item5">
+            <img src="{% static 'img/app.subject.rating.details.star.off.png' %}" alt="별"/>
+            <h2>미분적분학2 : 원대연</h2>
+            <p class="grey_font_b">
+              일단 큰 개념부터 크게크게 공부하세요.<br />
+              그 다음 교과서에 있는 예제 문제 열심히 풀면 됩니다.
+            </p>
+          </div>
+        </div>
+        <div class="board_article">
+          <div class="item5">
+            <img src="{% static 'img/app.subject.rating.details.star.off.png' %}" alt="별"/>
+            <h2>문학의이해 : 유예현</h2>
+            <p class="grey_font_b">
+              시험 없어서 너무 좋았어요 !!! 한 과목이라도 시험 부담 덜고
+              싶다면 적극 추천..
+            </p>
+          </div>
+        </div>
+        <div class="board_article">
+          <div class="item5">
+            <img src="{% static 'img/app.subject.rating.details.star.off.png' %}" alt="별"/>
+            <h2>학교폭력예방및학생의이해 : 유지인</h2>
+            <p class="grey_font_b">별 1점도 아까움. 별-5점 드릴게요.</p>
+          </div>
+        </div>
+      </div>
+      <!--최근 강의평 끝-->
+    </div>
+</aside>
+{% endblock %}

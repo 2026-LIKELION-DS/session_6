@@ -55,7 +55,8 @@
 </head>
   <body>
     <div class="page">
-      <header class="header">
+      {% include "posts/header.html" %}
+      {% comment %} <header class="header">
         <!--header 부분 -->
         <img src="{% static 'img/nav.logo.png' %}" alt="로고" class="logo_img"/>
         <img src="{% static 'img/aside.title.hamburger.png' %}" alt="메뉴" class="hamburger"/>
@@ -76,8 +77,8 @@
           <button class="communication_btn"><img src="{% static 'img/icon_communication_chat_filled_gray500_light.svg' %}" alt="쪽지함"/></button>
           <button class="user_btn"><img src="{% static 'img/icon_account_user_filled_gray500_light.svg' %}" alt="내정보"/></button>
         </div>
-      </header>
-      <nav class="nav">
+      </header> {% endcomment %}
+      {% comment %} <nav class="nav">
         <!--navigation 부분 -->
         <div class="navBox">
           <div class="line"></div>
@@ -148,9 +149,10 @@
           </ul>
           <div class="line"></div>
         </div>
-      </nav>
+      </nav> {% endcomment %}
+      {% include "posts/navigation.html" %}
       <div class="container">
-        <section class="section">
+        {% comment %} <section class="section">
           <h1>비밀게시판</h1>
           <article id="article1">
             <div class="article1Box">
@@ -309,8 +311,9 @@
             </button>
           </div>
           <!--글 밑 검색창 끝-->
-        </section>
-        <aside class="aside">
+        </section> {% endcomment %}
+        {% include "posts/section.html" %}
+        {% comment %} <aside class="aside">
           <!--right side-->
           <div class="card">
             <div class="board">
@@ -457,7 +460,8 @@
             </div>
             <!--최근 강의평 끝-->
           </div>
-        </aside>
+        </aside> {% endcomment %}
+        {% include "posts/aside.html" %}
         <!--right side 끝-->
       </div>
       <footer class="footer">
