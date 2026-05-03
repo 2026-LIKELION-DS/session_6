@@ -1,4 +1,4 @@
-body {
+#writing_area body {
     margin: 0;
     padding: 0;
     background-color: #f2f2f2;
@@ -7,18 +7,12 @@ body {
     justify-content: center;
 }
 
-.writing_zone {
-    width: 780px;
-    height: auto;
-    background-color: #ffffff;
-    border: solid 1px lightgray;
-}
-
-.title {
+#writing_area .title {
     display: block;
 
-    width: 738px;
+    width: 92%;
     padding: 15px 20px;
+    margin-left: 15px;
     font-size: 18px;
     font-weight: bold;
 
@@ -26,14 +20,14 @@ body {
     border: solid 1px lightgray;
 }
 
-.main_content {
+#writing_area .main_content {
     display: flex;
     align-content: flex-start;
     padding: 20px;
 
-    width: 740px;
+    width: 92%;
     height: 600px;
-    margin: 0;
+    margin-left: 15px;
     font-size: 14px;
 
     resize: none;
@@ -42,72 +36,74 @@ body {
     border: solid 1px lightgray;
 }
 
-.bottom_option {
+#writing_area .bottom_option {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     height: 50px;
     border-top: 1px solid #f2f2f2;
-    width: 100%;
+    width: 96.5%;
+    margin-left: 15px;
+    margin-bottom: 10px;
 
     border: solid 1px lightgray;
 }
 
-.bottom_option div {
+#writing_area .bottom_option div {
     display: flex;
     align-items: center;
 }
 
-.sharp, .clip {
+#writing_area .sharp, #writing_area .clip {
     padding: 0px;
     border: none;
     background-color: transparent;
 }
 
-.sharp {
+#writing_area .sharp {
     padding: 2px 4px 2px 2px;
 }
 
-.bottom_option img {
+#writing_area .bottom_option img {
     height: 40px;
     width: auto;
 }
 
-.logoPic, .options {
+#writing_area .logoPic, #writing_area .options {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.checkcheck, .anonymous {
+#writing_area .checkcheck, #writing_area .anonymous {
     margin-left: 15px;
 }
 
-.options {
+#writing_area .options {
     padding-right: 10px;
 }
 
-.checkbox_text, .anonymous_text {
+#writing_area .checkbox_text, #writing_area .anonymous_text {
     font-size: 14px;
     font-weight: bold;
     margin-left: 5px;
     color: #444;
 }
 
-.submit {
+#writing_area .submit {
     padding: 0px;
     margin: 3px 0px 0px 0px;
     border: none;
     background-color: transparent;
 }
 
-.submit img {
+#writing_area .submit img {
     height: 50px;
     background-color: #ff1900;
 }
 
-#question_noti {
+#writing_area #question_noti {
     display: none;
     background-color: #f2fcfc;
     border: 1px solid #d1eeee;
@@ -116,18 +112,18 @@ body {
     padding: 12px 15px;
 }
 
-#question_noti p {
+#writing_area #question_noti p {
     margin: 0;
     font-size: 13px;
     line-height: 1.5;
     color: #0ca5af;
 }
 
-#question_noti strong {
+#writing_area #question_noti strong {
     font-weight: bold;
 }
 
-input[type="checkbox"] {
+#writing_area input[type="checkbox"] {
     width: 18px;
     height: 18px;
 }

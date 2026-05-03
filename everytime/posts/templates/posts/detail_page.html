@@ -1,4 +1,4 @@
-{% load static %}
+{% comment %} {% load static %}
 {% load humanize %}
 <!doctype html>
 <html lang="ko">
@@ -13,7 +13,6 @@
 <body>
     {% include "header.html" %}
     {% include "navigation.html" %}
-
     <div class="main_part">
         <section class="secret_board">
             <header class="header_for_sb_category">
@@ -92,8 +91,24 @@
                 </div>
             </article>
         </section>
-
         {% include "aside.html" %}
     </div>
 </body>
-</html>
+</html> {% endcomment %}
+
+{% load static %}
+{% load humanize %}
+
+{% block style %} 
+<link rel="stylesheet" href="{% static 'css/detail.css' %}" />
+{% endblock %}
+
+{% block content %}
+    {% include 'posts/header.html' %}
+    {% include 'posts/navigation.html' %}
+    {% include 'posts/aside.html' %}
+    
+    {% include 'posts/detail_compo.html' %}
+
+    <script src="{% static "js/detail.js" %}"/>
+{% endblock %}

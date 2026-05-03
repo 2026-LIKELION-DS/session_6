@@ -1,4 +1,4 @@
-{% load static %}
+{% comment %} {% load static %}
 {% load humanize %}
 <!doctype html>
 <html lang="ko">
@@ -14,6 +14,7 @@
     {% include "posts/header.html" %}
 
     {% include "posts/navigation.html" %}
+
 
     <div class="main_part">
         <section class="secret_board">
@@ -53,4 +54,25 @@
         {% include "posts/aside.html" %}
     </div>
 </body>
-</html>
+</html> {% endcomment %}
+
+{% load static %}
+{% load humanize %}
+
+{% block style %} 
+<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div style="display:flex; flex-direction:column;">
+    {% include 'posts/header.html' %}
+    {% include 'posts/navigation.html' %}
+
+    <div class="makeitright" style="display: flex; justify-content: center;">
+        {% include 'posts/section.html' %}
+        {% include 'posts/aside.html' %}
+    </div>
+</div>
+
+    <script src="{% static "js/main.js" %}"/>
+{% endblock %}
