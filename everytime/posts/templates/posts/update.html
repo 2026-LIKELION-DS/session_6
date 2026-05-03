@@ -1,4 +1,4 @@
-<body>
+{% comment %} <body>
     <h2>글 수정</h2>
     <form method="POST" action="{% url 'posts:update' post.id %}" enctype="multipart/form-data">
         {% csrf_token %}
@@ -20,4 +20,98 @@
         <input type="checkbox" name="is_anonymous" {% if post.is_anonymous %} checked {% endif %}>익명
         <input type="submit" value="수정하기">
     </form>
+</body> {% endcomment %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/post.css' %}">
+</head>
+<body>
+    {% include 'posts/header.html' %}
+    {% include 'posts/navigation.html' %}
+
+    <form method="POST" action="{% url 'posts:update' post.id %}" class="postContainer">
+        {% csrf_token %}
+        <input value="{{ post.title }}" type="text" class="titlee" name="title" >
+        <div class="content">
+            <textarea name="content">
+                {{ post.content }}
+            </textarea>
+        </div>
+        <div class="postImgg">
+            {% if post.image %}
+                <image width="200" height="200" src="{{ post.image.url }}" class="postImgg">
+            {% endif %}
+            {% if post.video %}
+                기존 비디오 : <video width="200" height="200" controls>
+                    <source src="{{ post.video.url }}" type="video/mp4">
+                </video>
+            {% endif %}
+        </div>
+        <div id="questionContainer">
+            <div id="qSmallContainer">
+                <div>
+                    질문 글을 작성하면 게시판 상단에 일정 기간 동안 노출되어, 더욱 빠르게 답변을 얻을 수 있게 됩니다.<br>
+                    또한, 다른 학우들이 정성껏 작성한 답변을 유지하기 위해, 댓글이 달린 이후에는
+                    <b>글을 수정 및 삭제할 수 없습니다.</b>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bar">
+            <!-- <div class="images">
+                <div class="barImg">
+                    <img src="../img/container.articles.write.hashtag.png" alt="shap" class="barImg1">
+                </div>
+            </div> -->
+                <div class="bigImgs">
+                    <div class="bigImg">
+                        
+                        <div class="barImg">
+                            
+                            <img src="{% static 'img/container.articles.write.hashtag.png' %}" alt="shap" class="barImg1">
+                            
+                            <label for="file">
+                                <img src="{% static 'img/container.articles.write.attach.png' %}" alt="clip" class="barImg2">
+                            </label>
+                            <input id="file" type="file">
+                            
+                        </div>
+                    </div>
+                    <div class="rightImgs">
+                        <div class="qImg">
+                            <img 
+                                            data-active="{% static 'img/container.articles.write.question.active.png' %}"
+                                            data-default="{% static 'img/container.articles.write.question.png' %}"
+                                            src="{% static 'img/container.articles.write.question.png' %}" id="questionButton"
+                                            >
+                        </div>
+                        <div class="whoImg">
+                            <label for="anonymous">
+                                                <img data-active="{% static 'img/container.articles.write.anonym.active.png' %}"
+                                                data-default="{% static 'img/container.articles.write.anonym.png' %}"
+                                                src="{% static 'img/container.articles.write.anonym.png' %}" id="who">
+                                            <input type="checkbox" name="is_anonymous" id="anonymous">
+                        </div>
+                        <input type="image" src="{% static 'img/container.articles.write.submit.png' %}" class="barImggg"/>
+                    </div>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+
+    
+
+    {% include 'posts/aside.html' %}
+    <script src="{% static 'js/post.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
+</html>

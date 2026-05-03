@@ -1,30 +1,30 @@
-const button = document.getElementById("questionButton");
+// const button = document.getElementById("questionButton");
 
-let clicked = true;
+// let clicked = true;
 
-button.addEventListener("click", function () {
-  if (clicked === true) {
-    button.src = "../img/container.articles.write.question.active.png";
-  } else {
-    button.src = "../img/container.articles.write.question.png";
-  }
-  clicked = !clicked;
-});
+// button.addEventListener("click", function () {
+//   if (clicked === true) {
+//     button.src = "../img/container.articles.write.question.active.png";
+//   } else {
+//     button.src = "../img/container.articles.write.question.png";
+//   }
+//   clicked = !clicked;
+// });
 
 
 
-const who = document.getElementById("who");
+// const who = document.getElementById("who");
 
-let click = true;
+// let click = true;
 
-who.addEventListener("click", function () {
-  if (click === true) {
-    who.src = "../img/container.articles.write.anonym.active.png";
-  } else {
-    who.src = "../img/container.articles.write.anonym.png";
-  }
-  click = !click;
-});
+// who.addEventListener("click", function () {
+//   if (click === true) {
+//     who.src = "../img/container.articles.write.anonym.active.png";
+//   } else {
+//     who.src = "../img/container.articles.write.anonym.png";
+//   }
+//   click = !click;
+// });
 
 
 const questionButton= document.getElementById("questionButton");

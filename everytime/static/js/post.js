@@ -30,15 +30,23 @@ who.addEventListener("click", function () {
 // "/img/container.articles.write.anonym.active.png"
 // "/img/container.articles.write.anonym.png"
 
-const questionButton= document.getElementById("question");
 
-questionButton.addEventListener("click", function() {
-  if(questionContainer.style.display === "block"){
-    questionContainer.style.display="none";
-  } else{
-    questionContainer.style.display="block";
-  }
-});
+
+
+
+// const questionButton= document.getElementById("question");
+
+// questionButton.addEventListener("click", function() {
+//   if(questionContainer.style.display === "block"){
+//     questionContainer.style.display="none";
+//   } else{
+//     questionContainer.style.display="block";
+//   }
+// });
+
+
+
+
 
 // const questionButton= document.getElementById("question");
 

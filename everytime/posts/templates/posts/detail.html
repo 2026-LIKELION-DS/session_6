@@ -22,7 +22,7 @@
 
  
 
-
+{% comment %} 
     <p>공감 {{ post.like.count }}개 스크랩 {{ post.scrap.count }}개</p>
 
     {% if request.user in post.like.all %}
@@ -55,7 +55,7 @@
         <input type="checkbox" name="anonymity" value="anonymity_true" />익명
     </form>
     <hr>
-    <br>
+    <br> {% endcomment %}
 
     
           <div class="postContainer">
@@ -79,11 +79,13 @@
               </div>
               <div class="status">
                 {% if request.user == post.author %}
-                    <a href="{% url 'posts:update' post.id %}">수정하기</a>
-                    <a href="{% url 'posts:delete' post.id %}">삭제하기</a>
+                    <a href="{% url 'posts:update' post.id %}">수정</a>
+                    <a href="{% url 'posts:delete' post.id %}">삭제</a>
                 {% endif %}
+                {% if request.user != post.author %}
                 <div class="statusMsg">쪽지</div>
                 <div class="statusMsg">신고</div>
+                {% endif %}
                 
               </div>
             </div>
@@ -125,7 +127,7 @@
                   alt="comment"
                   class="statusImg"
                 />
-                <div class="statusText2">3</div>
+                <div class="statusText2">0</div>
               </div>
               <div class="statusBox">
                 <img
@@ -164,7 +166,7 @@
                     class="statusImg b1"
                   />
                 </div>
-                <input type="button" class="buttonText">스크랩</input></a>
+                <input type="button" class="buttonText2">스크랩</input></a>
             {% endif %}
 
             </div>
