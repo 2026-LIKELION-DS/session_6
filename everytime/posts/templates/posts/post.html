@@ -4,9 +4,12 @@
 <link rel="stylesheet" href="{% static 'css/post.css' %}" />
 {% endblock %}
 
-<form class="writing_zone" id="writing_area" style="display: none;" method="POST">
+
+<form class="writing_zone" id="writing_area" style="display: none;" method="POST" 
+action="{% url 'posts:create' category.slug %}" enctype="multipart/form-data">
     {% csrf_token %}
     <input type="text" name="title" class="title" placeholder="글 제목"/>
+
 
     <textarea 
         name="content"
@@ -45,11 +48,11 @@
 
     <div class="bottom_option">
         <div class="logoPic">
-            <button type="button" class="sharp">
+            <button type="button" class="sharp" name="image">
                 <img src="{% static 'img/container.articles.write.hashtag.png' %}" alt="샾">
             </button>
 
-            <button name="image" type="button" class="clip">
+            <button name="video" type="button" class="clip">
                 <img src="{% static 'img/container.articles.write.attach.png' %}" alt="첨부파일">
             </button>
         </div>
@@ -67,7 +70,7 @@
                 </div>
             </div>
 
-            <button name="submit" type="submit" class="submit">
+            <button name="submit" value="작성 완료" type="submit" class="submit">
                 <img src="{% static 'img/container.articles.write.submit.png' %}">
             </button>
         </div>

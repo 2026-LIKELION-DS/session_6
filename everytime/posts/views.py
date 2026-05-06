@@ -79,8 +79,11 @@ def delete_post(request, id):
 @login_required
 def detail_post(request, id):
     post = get_object_or_404(Post, id=id)
-
-    return render(request, 'posts/detail.html', {'post': post})
+    comments = post.comments.all() 
+    return render(request, 'posts/detail_page.html', { 
+        'post': post,
+        'comments': comments
+    })
 
 @login_required
 def create_comment(request, post_id):

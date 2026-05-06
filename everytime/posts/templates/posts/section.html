@@ -37,7 +37,11 @@
         <img src="{% static 'img/container.write.background.png' %}" alt="연필" />
       </div>
 
-      <form class="writing_zone" id="writing_area" style="display: none;" method="POST">
+      <form class="writing_zone" id="writing_area" 
+      style="display: none;" method="POST" 
+      action="{% url 'posts:create' category.slug %}" 
+      enctype="multipart/form-data">
+      {% csrf_token %}
         <input type="text" name="title" class="title" placeholder="글 제목"/>
 
         <textarea 
