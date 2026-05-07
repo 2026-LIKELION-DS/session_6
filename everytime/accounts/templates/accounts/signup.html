@@ -1,62 +1,62 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clone - 회원가입 페이지</title>
-    <link rel="stylesheet" href="{% static 'css/signup.css' %}" />
-    <script src="{% static 'js/signup.js' %}" defer></script>
-</head>
-<body>
-    <header id="signupInfo">
-        <h1>에브리타임 회원가입</h1>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Clone - 회원가입 페이지</title>
+        <link rel="stylesheet" href="{% static 'css/signup.css' %}" />
+    </head>
+    <body>
+        <header id="signupInfo">
+            <h1>에브리타임 회원가입</h1>
 
-        <div id="oneSentence">
-            <p id="explain">에브리타임 계정으로 <div>캠퍼스픽, 에브리타임</div> 등</p>
-        </div>
+            <div id="oneSentence">
+                <p id="explain">에브리타임 계정으로 <div>캠퍼스픽, 에브리타임</div> 등</p>
+            </div>
 
-        <p>다양한 대학생 서비스를 모두 이용하실 수 있습니다.</p>
-    </header>
+            <p>다양한 대학생 서비스를 모두 이용하실 수 있습니다.</p>
+        </header>
 
-    <form id="signupForm" method="POST" action="{% url 'accounts:signup' %}">
-        {% csrf_token %}
-        
-        <div class="inputBigBox">
-            <p>이름</p>
-            <input name="username" id="userName" class="inputBox" type="text" placeholder="이름을 입력하세요.">
-        </div>
+        <form id="signupForm" form method='post' action={% url 'accounts:signup' %}>
+            {% csrf_token %}
+            
+            <div class="inputBigBox">
+                <p>이름</p>
+                <input name="username" id="userName" class="inputBox" type="text" placeholder="이름을 입력하세요."/>
+            </div>
 
-        <div class="inputBigBox">
-            <p>닉네임</p>
-            <input name="nickname" id="userNickname" class="inputBox" type="text" placeholder="닉네임을 입력하세요.">
-        </div>
+            <div class="inputBigBox">
+                <p>닉네임</p>
+                <input name="nickname" id="userNickname" class="inputBox" type="text" placeholder="닉네임을 입력하세요."/>
+            </div>
 
-        <div class="inputBigBox">
-            <p>이메일</p>
-            <input name="email" id="userEmail" class="inputBox" type="text" placeholder="이메일을 입력하세요.">
-        </div>
+            <div class="inputBigBox">
+                <p>이메일</p>
+                <input name="email" id="userEmail" class="inputBox" type="text" placeholder="이메일을 입력하세요."/>
+            </div>
 
-        <div class="inputBigBox">
-            <p>비밀번호</p>
-            <input name="password1" id="userPw" class="inputBox" type="password" placeholder="숫자/문자 조합, 최소 8자 이상">
-        </div>
+            <div class="inputBigBox">
+                <p>비밀번호</p>
+                <input name="password1" id="userPw" class="inputBox" type="password" placeholder="숫자/문자 조합, 최소 8자 이상"/>
+            </div>
 
-        <div class="inputBigBox">
-            <p>비밀번호 재입력</p>
-            <input name="password2" id="userPwCheck" class="inputBox" type="password" placeholder="비밀번호를 재입력하세요.">
-        </div>
+            <div class="inputBigBox">
+                <p>비밀번호 재입력</p>
+                <input name="password2" id="userPwCheck" class="inputBox" type="password" placeholder="비밀번호를 재입력하세요."/>
+            </div>
 
-        <button id="signupBtn" type="submit">
-            <p>회원가입</p>
-        </button>
-    </form>
+            <button id="signupBtn" type="submit">
+                <p>회원가입</p>
+            </button>
+        </form>
 
-    <footer id="footer">
-        <p>이용약관</p>
-        <p>개인정보처리방침</p>
-        <p>문의하기</p>
-        <p>@에브리타임</p>
-    </footer>
-</body>
+        <footer id="footer">
+            <p>이용약관</p>
+            <p>개인정보처리방침</p>
+            <p>문의하기</p>
+            <p>@에브리타임</p>
+        </footer>
+    </body>
+    <script src="{% static 'js/signup.js' %}"></script>
 </html>

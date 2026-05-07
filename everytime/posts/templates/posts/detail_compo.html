@@ -11,13 +11,21 @@
                 <div class="smallBox">
                     <img src="{% static 'img/anonymous.profile.png' %}" alt="익명프사">
                     <div class="name_tag">
-                        <p class="nickname">{{ post.author }}</p>
-                        <p class="written_time">{{ post.created_at|date:"m/d H:i" }}</p>
+                        <p class="nickname">
+                            {{ post.created_at }}
+                            {% if post.is_anonymous %}
+                                <p>익명</p>
+                            {% else %}
+                            <p>{{ post.author.nickname }}</p>
+                            {% endif %}
+                        </p>
+                        <p class="written_time">{{ comment.content }} - {{ comment.created_at }}</p>
                     </div>
                 </div>
                 <div class="post_options">
                     <div>쪽지</div>
                     <div>신고</div>
+
                     {% if request.user == post.author %}
                         <a href="{% url 'posts:update' post.id %}">수정하기</a>
                         <a href="{% url 'posts:delete' post.id %}">삭제하기</a>
@@ -25,68 +33,82 @@
                 </div>
             </div>
 
-            <h2 class="post_title">{{ post.title }}</h2>
-            <p class="post_text">{{ post.content }}</p>
+            <h2>{{ post.title }}</h2><br>
+            <h3>{{ post.content }}</h3><br>
+
+            {% if post and post.image %}
+                <div class="preview">
+                    <img src="{{ post.image.url }}" style="width: 240px;">
+                </div>
+            {% endif %}
+            {% if post and post.video %}
+                <div class="preview">
+                    <video width="150" controls>
+                        <source src="{{ post.video.url }}" type="video/mp4">
+                    </video>
+                </div>
+            {% endif %}
 
             <div class="post_reaction">
                 <div class="ttabong">
                     <img class="good" src="{% static 'img/container.articles.vote.png' %}" alt="따봉">
-                    <div class="ttabong_count">{{ post.likes_count }}</div>
-
-                    {% if request.user in post.like.all %}
-                        <a href="{% url 'posts:remove-like' post.id %}"><input type="button" value="공감 취소" /></a>
-                    {% else %}
-                        <a href="{% url 'posts:add-like' post.id %}"><input type="button" value="공감" /></a>
-                    {% endif %}
+                    <div class="ttabong_count">{{ post.like.count }}</div>
                 </div>
                     
                 <div class="thatguel">
                     <img class="post_comments" src="{% static 'img/container.articles.comment.png' %}" alt="댓글">
-                    <div>{{ comments.count }}</div>
-
-                    {% for comment in post.comments.all %} {% if comment.anonymity %} 익명: {% else %} {{ comment.author.nickname }}: {% endif %}
-                    {{ comment.content }} - {{ comment.created_at }}
-                    {% if request.user == comment.author %}
-                        <a href="{% url 'posts:delete-comment' post.id comment.id %}">삭제하기</a>
-                    {% endif%}
+                    <div>{{ post.comments.count }}</div>
                     <br>
                     <br>
-                    {% empty %} 댓글이 없습니다 {% endfor %}
                 </div>
                     
                 <div class="peogayo">
                     <img class="scrap" src="{% static 'img/container.articles.scrap.png' %}" alt="스크랩">
-                    <div class="scrap_count">0</div>
-
-                    {% if request.user in post.scrap.all %}
-                        <a href="{% url 'posts:remove-scrap' post.id %}"><input type="button" value="스크랩 취소" /></a>
-                    {% else %}
-                        <a href="{% url 'posts:add-scrap' post.id %}"><input type="button" value="스크랩" /></a>
-                    {% endif %}
+                    <div class="scrap_count">{{ post.scrap.count }}</div>
                 </div>
             </div>
 
             <div class="post_button">
                 <button class="ttabong_button">
                     <img src="{% static 'img/container.articles.buttons.posvote.png' %}" alt="따봉버튼">
-                    <div>공감</div>
+                    <div>
+
+                        {% if request.user in post.like.all %}
+                            <a href="{% url 'posts:remove-like' post.id %}"><input type="button" value="공감취소" /></a>
+                        {% else %}
+                            <a href="{% url 'posts:add-like' post.id %}"><input type="button" value="공감" /></a>
+                        {% endif %}
+                    </div>
                 </button>
 
                 <button class="scrap_button">
                     <img src="{% static 'img/container.articles.buttons.scrap.png' %}" alt="스크랩버튼">
-                    <div>스크랩</div>
+                    <div>
+                        {% if request.user in post.scrap.all %}
+                            <a href="{% url 'posts:remove-scrap' post.id %}"><input type="button" value="스크랩 취소" /></a>
+                        {% else %}
+                            <a href="{% url 'posts:add-scrap' post.id %}"><input type="button" value="스크랩" /></a>
+                        {% endif %}
+                    </div>
                 </button>
             </div>
         </article>
 
         <div class="realComments">
-            {% for comment in comments %}
+            {% for comment in post.comments.all %}
+
             <div class="commentContent">
                 <div class="middleBox">
                     <div class="smallBox">
                         <img src="{% static 'img/anonymous.profile.png' %}" alt="익명프사">
                         <div class="name_tag">
-                            <p class="nickname">{{ comment.author }}</p>
+                            <p class="nickname">
+                                {% if comment.anonymity %}
+                                익명
+                                {% else %}
+                                {{ comment.author.nickname }}
+                                {% endif %}
+                            </p>
                         </div>
                     </div>
                     <div class="sideOfComment">
@@ -94,14 +116,21 @@
                         <p>공감</p>
                         <p>쪽지</p>
                         <p>신고</p>
+
+                        {% if request.user == comment.author %}
+                            <a href="{% url 'posts:delete-comment' post.id comment.id %}">삭제하기</a>
+                        {% endif%}
+
                     </div>
                 </div>
-
-                <p>{{ comment.content }}</p>
-                <div>{{ comment.created_at|timesince }} 전</div>
+                <p>{{ comment.content }} </p>
+                <div>{{ comment.created_at }} </div>
             </div>
+
+            {% empty %} 
+                댓글이 없습니다 
             {% endfor %}
-            
+
             <div class="boxForHide">
                 <div class="reThatGuel">
                     <input type="text" class="reThatguelChang" placeholder="대댓글을 입력하세요.">
@@ -118,12 +147,12 @@
             </div>
         </div>
 
-        <form class="leave_comment" method="POST">
+        <form class="leave_comment" method="POST" action="{% url 'posts:create-comment' post.id %}">
             {% csrf_token %}
             <input type="text" name="content" class="thatguelChang" placeholder="댓글을 입력하세요.">
             <div class="comment_musuri">
                 <label>
-                    <input type="checkbox" name="is_anonymous" checked> 익명
+                    <input type="checkbox" name="anonymity" value="anonymity_true">익명</input>
                 </label>
 
                 <button type="submit" class="submit_comment_tg">
@@ -137,4 +166,6 @@
             <div>글 목록</div>
         </div>
     </section>
+
+    <script src="{% static "js/main.js" %}"/>
 </div>

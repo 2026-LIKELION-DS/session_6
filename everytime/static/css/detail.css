@@ -312,6 +312,11 @@
     color: #f91f15; 
 }
 
+.ttabong_button > a {
+    background-color: transparent;
+    border: none;
+}
+
 .thatguel {
     color: #056ab5; 
 }    

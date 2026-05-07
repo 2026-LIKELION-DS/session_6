@@ -27,10 +27,6 @@ let reThatguelContent;
 tta_btn.addEventListener("click", function () {
     tta_count++;
     tta_display_num.textContent = tta_count;
-    
-    tta_btn.disabled = true;
-    tta_btn.style.opacity = "0.5";
-    tta_btn.style.cursor = "default";
 });
 
 

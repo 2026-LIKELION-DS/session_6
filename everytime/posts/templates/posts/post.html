@@ -5,11 +5,12 @@
 {% endblock %}
 
 
-<form class="writing_zone" id="writing_area" style="display: none;" method="POST" 
-action="{% url 'posts:create' category.slug %}" enctype="multipart/form-data">
+<form class="writing_zone" method="POST" 
+action="{% if post %}{% url 'posts:update' post.id %}
+{% else %}{% url 'posts:create' category.slug %}
+{% endif %}" enctype="multipart/form-data">
     {% csrf_token %}
     <input type="text" name="title" class="title" placeholder="글 제목"/>
-
 
     <textarea 
         name="content"
@@ -40,21 +41,47 @@ action="{% url 'posts:create' category.slug %}" enctype="multipart/form-data">
 - 음란물, 성적 수치심을 유발하는 행위
 - 스포일러, 공포, 속임, 놀라게 하는 행위"></textarea>
 
+    {% if post and post.image %}
+        <div class="preview">
+            <img src="{{ post.image.url }}" style="width: 120px;">
+        </div>
+    {% endif %}
+    {% if post and post.video %}
+        <div class="preview">
+            <video width="150" controls>
+                <source src="{{ post.video.url }}" type="video/mp4">
+            </video>
+        </div>
+    {% endif %}
+
+    
+    
+
     <div id="question_noti">
         <p>질문 글을 작성하면 게시판 상단에 일정 기간 동안 노출되어, 더욱 빠르게 답변을 얻을 수 있게 됩니다. 
         <br>또한, 다른 학우들이 정성껏 작성한 답변을 유지하기 위해, 댓글이 달린 이후에는 글을 수정 및 삭제할 수 없습니다.
         </p>
     </div>
 
+
+
     <div class="bottom_option">
         <div class="logoPic">
-            <button type="button" class="sharp" name="image">
+            <input type="file" class="sharp" name="image">
                 <img src="{% static 'img/container.articles.write.hashtag.png' %}" alt="샾">
-            </button>
+                {% if post.image %}
+                    <image width="320" height="240" src="{{ post.image.url }}">
+                {% endif %}
+            </input>
 
-            <button name="video" type="button" class="clip">
+            <input type="file" name="video" class="clip">
                 <img src="{% static 'img/container.articles.write.attach.png' %}" alt="첨부파일">
-            </button>
+                {% if post.video %}
+                    <video width="320" height="240" controls>
+                        <source src="{{ post.video.url }}" type="video/mp4">
+                    </video>
+                {% endif %}
+            </input>
         </div>
 
         <div class="notClip">

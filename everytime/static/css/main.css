@@ -4,6 +4,11 @@
     font-family: "Apple SD Gothic Neo", "맑은 고딕", "돋움", sans-serif;
 }
 
+#writing_area {
+    display: none;
+}
+
+
 .logo_header {
     display: flex;
     align-items: center;

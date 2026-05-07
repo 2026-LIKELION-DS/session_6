@@ -5,8 +5,6 @@ from .models import *
 
 def main(request):
     categories = Category.objects.all()
-    
-    # 카테고리별 최신 글 4개 저장 (리스트 형태)
     category_posts = [
         {"category": category, "posts": Post.objects.filter(category=category).order_by('-created_at')[:4]}
         for category in categories
@@ -79,11 +77,8 @@ def delete_post(request, id):
 @login_required
 def detail_post(request, id):
     post = get_object_or_404(Post, id=id)
-    comments = post.comments.all() 
-    return render(request, 'posts/detail_page.html', { 
-        'post': post,
-        'comments': comments
-    })
+
+    return render(request, 'posts/detail.html', {'post': post})
 
 @login_required
 def create_comment(request, post_id):

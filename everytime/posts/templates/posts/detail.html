@@ -67,7 +67,6 @@
     <br>
 </body> {% endcomment %}
 
-{% extends 'base.html' %}
 {% load static %}
 {% load humanize %}
 
@@ -82,5 +81,5 @@
     
     {% include 'posts/detail_compo.html' %}
 
-    <script src="{% static "js/detail.js" %}"/>
+    <script src="{% static "js/detail.js" %}"></script>
 {% endblock %}
