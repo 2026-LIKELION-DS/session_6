@@ -128,7 +128,7 @@
 
                 <div class="boxForHide">
                     <div class="reThatGuel">
-                        <input type="text" class="reThatguelChang" placeholder="대댓글을 입력하세요.">
+                        <input type="text" name="content" class="reThatguelChang" placeholder="대댓글을 입력하세요.">
                         <div class="comment_musuri">
                             <label>
                                 <input name="is_anonymous" type="checkbox" checked> 익명
@@ -163,11 +163,12 @@
             </div>
         </form>
         
-        <div class="post_list">
+        <button type="button" class="post_list">
             <img src="{% static 'img/container.articles.pagination.list.png' %}" alt="목록">
             <div>글 목록</div>
-        </div>
+        </button>
     </section>
 
     <script src="{% static "js/main.js" %}"></script>
+    <script src="{% static "js/detail.js" %}"></script>
 </div>

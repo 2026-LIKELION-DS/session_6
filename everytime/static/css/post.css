@@ -1,4 +1,4 @@
-#writing_area body {
+.writing_zone body {
     margin: 0;
     padding: 0;
     background-color: #f2f2f2;
@@ -7,7 +7,7 @@
     justify-content: center;
 }
 
-#writing_area .title {
+.title {
     display: block;
 
     width: 92%;
@@ -20,7 +20,7 @@
     border: solid 1px lightgray;
 }
 
-#writing_area .main_content {
+.main_content {
     display: flex;
     align-content: flex-start;
     padding: 20px;
@@ -36,7 +36,7 @@
     border: solid 1px lightgray;
 }
 
-#writing_area .bottom_option {
+.bottom_option {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -49,56 +49,57 @@
 
     border: solid 1px lightgray;
 }
-
-#writing_area .bottom_option div {
+.bottom_option div {
     display: flex;
     align-items: center;
 }
 
-#writing_area .sharp, #writing_area .clip {
+.clip {
     padding: 0px;
     border: none;
     background-color: transparent;
 }
 
-#writing_area .sharp {
+.sharp {
     padding: 2px 4px 2px 2px;
+    border: none;
+    background-color: transparent;
 }
 
-#writing_area .bottom_option img {
+.bottom_option img {
     height: 40px;
     width: auto;
 }
 
-#writing_area .logoPic, #writing_area .options {
+.logoPic, .options {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-#writing_area .checkcheck, #writing_area .anonymous {
+.checkcheck, .anonymous {
     margin-left: 15px;
 }
 
-#writing_area .options {
+.options {
     padding-right: 10px;
 }
 
-#writing_area .checkbox_text, #writing_area .anonymous_text {
+.checkbox_text, .anonymous_text {
     font-size: 14px;
     font-weight: bold;
     margin-left: 5px;
     color: #444;
 }
 
-#writing_area .submit {
+.submit {
     padding: 0px;
     margin: 3px 0px 0px 0px;
     border: none;
     background-color: transparent;
 }
 
-#writing_area .submit img {
+.submit img {
     height: 50px;
     background-color: #ff1900;
 }

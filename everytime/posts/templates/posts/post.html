@@ -2,6 +2,8 @@
 
 {% block style %}
 <link rel="stylesheet" href="{% static 'css/post.css' %}" />
+<link rel="stylesheet" href="{% static 'css/detail.css' %}" />
+
 {% endblock %}
 
 
@@ -10,7 +12,12 @@ action="{% if post %}{% url 'posts:update' post.id %}
 {% else %}{% url 'posts:create' category.slug %}
 {% endif %}" enctype="multipart/form-data">
     {% csrf_token %}
-    <input type="text" name="title" class="title" placeholder="글 제목"/>
+
+
+    <input type="text" name="title" 
+    class="title" placeholder="글 제목"
+    value="{% if post %}{{ post.title }}{% endif%}"
+    />
 
     <textarea 
         name="content"
@@ -39,7 +46,11 @@ action="{% if post %}{% url 'posts:update' post.id %}
 - 범죄, 불법 행위 등 법령을 위반하는 행위
 - 욕설, 비하, 차별, 혐오, 자살, 폭력 관련 내용을 포함한 게시물 작성 행위
 - 음란물, 성적 수치심을 유발하는 행위
-- 스포일러, 공포, 속임, 놀라게 하는 행위"></textarea>
+- 스포일러, 공포, 속임, 놀라게 하는 행위">
+    {% if post %}
+    {{ post.content }}
+    {% endif %}</textarea>
+
 
     {% if post and post.image %}
         <div class="preview">
@@ -53,9 +64,6 @@ action="{% if post %}{% url 'posts:update' post.id %}
             </video>
         </div>
     {% endif %}
-
-    
-    
 
     <div id="question_noti">
         <p>질문 글을 작성하면 게시판 상단에 일정 기간 동안 노출되어, 더욱 빠르게 답변을 얻을 수 있게 됩니다. 
