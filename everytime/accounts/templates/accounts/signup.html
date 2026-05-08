@@ -12,13 +12,13 @@
             <h1>에브리타임 회원가입</h1>
 
             <div id="oneSentence">
-                <p id="explain">에브리타임 계정으로 <div>캠퍼스픽, 에브리타임</div> 등</p>
+                <p id="explain">에브리타임 계정으로 <span>캠퍼스픽, 에브리타임</span> 등</p>
             </div>
 
             <p>다양한 대학생 서비스를 모두 이용하실 수 있습니다.</p>
         </header>
 
-        <form id="signupForm" form method='post' action={% url 'accounts:signup' %}>
+        <form id="signupForm" method='post' action="{% url 'accounts:signup' %}">
             {% csrf_token %}
             
             <div class="inputBigBox">
@@ -58,5 +58,6 @@
             <p>@에브리타임</p>
         </footer>
     </body>
+    
     <script src="{% static 'js/signup.js' %}"></script>
 </html>

@@ -20,14 +20,14 @@
         <img src="{% static 'img/logo.png' %}" alt="로고"/>
     </header>
 
-    <form id="login" method='post' action={% url 'accounts:login' %}>
+    <form id="login" method='post' action="{% url 'accounts:login' %}">
         {% csrf_token %}
         <input class="login_id" type="text" placeholder="LIKELION14" name="username"/>
         
         <input class="login_pw" type="password" placeholder="password" name="password"/>
 
         <button type="submit" id="loginBtn">
-            <p>에브리타임 로그인</p>
+            <span>에브리타임 로그인</span>
         </button>
 
         <a href="{% url 'accounts:signup' %}" class="signup">회원가입</a>
@@ -40,5 +40,6 @@
         <p>@에브리타임</p>
     </footer>
 </body>
+
 <script src="{% static 'js/login.js' %}"></script>
 </html>

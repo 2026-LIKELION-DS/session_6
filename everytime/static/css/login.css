@@ -35,6 +35,10 @@
     padding-left: 10px;
 }
 
+#loginBtn * {
+    pointer-events: none; /* 버튼 안의 모든 자식 요소가 마우스 이벤트를 무시하게 함 */
+}
+
 #loginBtn {
     background-color:#737373;
     border: none;
@@ -44,7 +48,7 @@
     margin-top: 10px;
 }
 
-#loginBtn > p {
+#loginBtn > span {
     color: white;
     font-size: larger;
 }
