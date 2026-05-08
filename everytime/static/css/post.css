@@ -103,7 +103,7 @@
     background-color: #ff1900;
 }
 
-#writing_area #question_noti {
+#question_noti {
     display: none;
     background-color: #f2fcfc;
     border: 1px solid #d1eeee;
@@ -112,16 +112,14 @@
     padding: 12px 15px;
 }
 
-#writing_area #question_noti p {
+#question_noti p {
     margin: 0;
     font-size: 13px;
+    font-weight: bold;
     line-height: 1.5;
     color: #0ca5af;
 }
 
-#writing_area #question_noti strong {
-    font-weight: bold;
-}
 
 #writing_area input[type="checkbox"] {
     width: 18px;

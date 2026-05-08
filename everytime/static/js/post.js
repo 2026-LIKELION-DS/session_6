@@ -1,5 +1,5 @@
-const notice = document.getElementById("#question_noti");
-const btn = document.getElementById("#check_for_question");
+const notice = document.getElementById("question_noti");
+const btn = document.getElementById("check_for_question");
 
 btn.addEventListener("click", function() {
     if (btn.checked) {

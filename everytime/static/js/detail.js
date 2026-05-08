@@ -6,7 +6,7 @@ const scrap_btn_text = scrap_btn.querySelector("div");
 const tta_display_num = document.querySelector(".ttabong_count");
 const scrap_display_num = document.querySelector(".scrap_count");
 
-const rethatguel_btn = document.getElementById("reReply");
+const rethatguel_btn = document.querySelector(".reReply");
 const rethatguel_popup = document.querySelector(".boxForHide");
 
 const rethatguel = document.querySelector(".reThatguelChang");
