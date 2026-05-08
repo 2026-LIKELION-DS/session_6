@@ -77,8 +77,10 @@
 {% block content %}
     {% include 'posts/header.html' %}
     {% include 'posts/navigation.html' %}
+
+<div class="makeitright" style="display: flex; justify-content: center;">
+    {% include 'posts/detail_compo.html' %}
     {% include 'posts/aside.html' %}
     
-    {% include 'posts/detail_compo.html' %}
-
+</div>
 {% endblock %}

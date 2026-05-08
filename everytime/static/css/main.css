@@ -293,6 +293,7 @@
 .main_part {
     display: flex;
     justify-content: center;
+    width: 850px;
 }
 
 .big_box_for_aside {

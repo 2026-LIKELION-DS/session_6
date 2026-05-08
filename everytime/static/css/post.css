@@ -1,3 +1,51 @@
+
+.content_box {
+    position: relative;  
+    width: 92%;          
+    margin-left: 15px;
+    background-color: #fff;
+}
+
+
+.main_content {
+    display: block;
+    width: 650px; 
+    height: 600px;
+    padding: 20px;
+    
+    padding-bottom: 160px; 
+    
+    font-size: 14px;
+    color: #666;
+    border: solid 1px lightgray;
+    resize: none;          
+    box-sizing: border-box; 
+}
+
+
+.preview {
+    position: absolute;   
+    bottom: 20px;        
+    left: 20px;           
+    z-index: 10;          
+    
+    display: flex;
+    gap: 10px;             
+}
+
+
+.preview img, .preview video {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;     
+    border-radius: 8px;    
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}
+
+/* 위:글수정페이지 사진 넣기 */
+
+
 .writing_zone body {
     margin: 0;
     padding: 0;
@@ -10,7 +58,7 @@
 .title {
     display: block;
 
-    width: 92%;
+    width: 95.5%;
     padding: 15px 20px;
     margin-left: 15px;
     font-size: 18px;
@@ -25,9 +73,7 @@
     align-content: flex-start;
     padding: 20px;
 
-    width: 92%;
     height: 600px;
-    margin-left: 15px;
     font-size: 14px;
 
     resize: none;
@@ -43,7 +89,8 @@
 
     height: 50px;
     border-top: 1px solid #f2f2f2;
-    width: 96.5%;
+
+    width: 95.5%;
     margin-left: 15px;
     margin-bottom: 10px;
 

@@ -185,11 +185,11 @@
 .bigBox {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 800px;
 }
 
 .secret_board {
-    width: 97%;
+    width: 80%;
     margin: 0px 15px;
 }
 
@@ -204,6 +204,8 @@
 
     padding: 15px;
     margin: 20px 15px 5px 15px;
+
+    width: 91%;
 }
 
 .header_for_sb_category > p{
@@ -216,6 +218,7 @@
     padding: 25px;
     padding-bottom: 0pt;
     position: relative;
+    width: 710px;
 }
 
 .smallBox {
@@ -273,6 +276,13 @@
     color:#a6a6a6;
 }
 
+.post_options a {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color:#a6a6a6;
+}
+
 .post_title {
     font-size: 20px;
     font-weight: bold;
@@ -312,7 +322,12 @@
     color: #f91f15; 
 }
 
-.ttabong_button > a {
+.ttabong_button input {
+    background-color: transparent;
+    border: none;
+}
+
+.scrap_button input {
     background-color: transparent;
     border: none;
 }
@@ -361,6 +376,8 @@
     background-color: #f9f9f9;
     border: 2px solid #e3e3e3;
     padding: 4px 4px 4px 15px;
+
+    width: 740px;
 }
 
 .reThatGuel {
@@ -447,6 +464,8 @@
 
 .realComments {
     border: 1px solid #e3e3e3;
+    width: 760px;
+    padding: 10px 0px;
 }
 
 .middleBox {
@@ -461,15 +480,24 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin-right: 20px;
 }
 
 .sideOfComment > p {
     margin: 10px;
     color: #a6a6a6;
     font-size: 12px;
+    background-color: transparent;
 }
 
-#reReply {
+.sideOfComment > a {
+    margin: 10px;
+    color: #a6a6a6;
+    font-size: 12px;
+    background-color: transparent;
+}
+
+.reReply {
     border: none;
     background-color: transparent;
     color: #a6a6a6;
