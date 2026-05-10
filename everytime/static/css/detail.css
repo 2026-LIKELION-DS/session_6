@@ -295,6 +295,11 @@ header {
     flex-shrink: 0;
 }
 
+.write {
+    width: 780px;
+    flex-shrink: 0;
+}
+
 .sidebar-box {
     border: 1px solid #e3e3e3;
     background-color: #f8f8f8;
@@ -869,6 +874,8 @@ a {
 
     .main-container {
         padding: 15px 20px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .board-contents {
@@ -1056,4 +1063,25 @@ a {
     }
 
 
+    .bulletin-board.board-type:first-child {
+        margin-left: 0;
+    }
+
+    .bulletin-board.board-type:last-child {
+        margin-right: 0;
+    }
+
+    .board-contents {
+        width: 100%;
+    }
+
+    .write {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .write .title, .write .content {
+        width: 100%;
+        box-sizing: border-box;
+    }
 }

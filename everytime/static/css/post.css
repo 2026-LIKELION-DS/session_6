@@ -519,3 +519,264 @@ body {
     padding: 0;
     cursor: pointer;
 }
+
+
+
+@media (max-width: 640px) {
+    header {
+        height: 50px;
+    }
+    
+    .banner-top, .everytime-logo {
+        display: none; 
+    }
+
+    .mobile-header {
+        display: flex;
+        align-items: center;
+        height:50px;
+    }
+
+    .hamburger-icon {
+        display: block;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        margin-right: 15px;
+
+    }
+
+    .bulletin-board {
+        display: flex;
+        flex-direction: row; 
+        overflow-x: auto; /* 지정한 x축(=가로 너비) 넘어가면 가로 스크롤바 자동 생성 */
+        justify-content: flex-start;
+        border-bottom: 2px solid #e3e3e3;
+        background-color: #f8f8f8;
+    }
+
+    .board-type {
+        border-right: 1px solid #e3e3e3;
+        border-bottom: none;
+        padding: 0px 20px;
+        flex-shrink: 0; /* so that 글씨 안 찌그러지게 */
+        white-space: nowrap;
+    }
+
+    .right-sidebar {
+        display: none;
+    }
+
+    .main-container {
+        padding: 15px 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .board-contents {
+        width: 100%;
+    }
+    
+    .new-article-input {
+        width: 90%;
+    }
+
+
+    .side-hamburger {
+        display: none;
+        position: fixed;
+        flex-direction: column;
+        align-items: flex-start;
+        left: 0;
+        top: 0;
+        width: 75%;
+        height: 100vh;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        background-color: #fff;
+        z-index:1000;
+    }
+
+    .side-hamburger.active {
+        display: flex;
+    }
+
+    .everytime-logo-hamburger {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 24px;
+        gap: 8px;
+    }
+
+    .everytime-logo-hamburger a {
+        width: 40px;
+        height:40px;
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-everytime {
+        margin-left: 3px;
+        line-height: 15px;
+        font-size: 12px;
+    }
+
+    .logo-univname {
+        line-height: 25px;
+        color: #292929;
+        font-size: 22px;
+    }
+    /*해야 할 거: side-hamburger 아닌 영역 터치 시 side-hamburger 닫히고 원래 화면으로 돌아갈 수 있도록*/
+
+    .banner-top {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%
+    }
+
+    .banner-top li {
+        width: 100%;
+    }
+
+    .banner-top a {
+        display: block;
+        padding: 12px 24px;
+        box-sizing: border-box;
+        width: 100%;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    
+    .users-menu {
+        display: flex;
+        position: fixed;
+        left:0;
+        bottom: 0;
+        padding-left: 24px;
+        height: 80px;
+
+    }
+
+
+
+    .desktop-header { 
+        display: none; 
+    }
+    
+    .header-inner {
+        width: 100%;
+        padding: 0 15px;
+        height: 50px;
+    }
+
+    .mobile-header {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    .hamburger-icon {
+        display: block;
+        margin-right: 15px;
+    }
+
+    .which-board {
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .side-hamburger {
+        display: none;
+        position: fixed;
+        flex-direction: column;
+        align-items: flex-start;
+        left: 0;
+        top: 0;
+        width: 75%;
+        height: 100vh;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        background-color: #fff;
+        z-index: 9999;
+    }
+
+    .side-hamburger.active {
+        display: flex;
+    }
+
+    .everytime-logo-hamburger {
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+        border-bottom: 1px solid #e3e3e3;
+        gap: 8px;
+    }
+
+    .logo-img {
+        width: 40px;
+        height: 40px;
+        margin-top: 2px;
+    }
+
+    .banner-top li {
+        width: 100%;
+    }
+
+    .banner-top div {
+        display: block;
+        padding: 15px 20px;
+        box-sizing: border-box;
+        width: 100%;
+        color: #121212;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .side-hamburger .banner-top div.active-menu {
+        background-color: #f9f9f9;
+        color: #F91F15;
+    }
+
+    .side-hamburger .users-menu {
+        display: flex;
+        gap: 15px;
+        margin-top: auto;
+        padding: 20px;
+    }
+
+    .side-hamburger .banner-top {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+    }
+
+
+    .bulletin-board.board-type:first-child {
+        margin-left: 0;
+    }
+
+    .bulletin-board.board-type:last-child {
+        margin-right: 0;
+    }
+
+    .board-contents {
+        width: 100%;
+    }
+
+    .write {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .write .title, .write .content {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
