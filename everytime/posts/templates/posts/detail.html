@@ -1,6 +1,5 @@
-{% extends 'base.html' %} {% load static %} {% block style %}
-<link rel="stylesheet" href="{% static 'css/post.css' %}" />
-{% endblock %} {% block body %}
+{% extends 'posts/base.html' %} 
+{% load static %} 
 
 <div id="writeCollapsed" class="write-collapsed">새 글을 작성해주세요!</div>
 
@@ -91,4 +90,155 @@
     <hr>
     <br>
 
+
+
+
+
+
+
+
+
+<main class="content-wrap">
+  <section class="left-board">
+    <div class="board-title"><h2>비밀게시판</h2></div>
+
+    <div class="post-box">
+      <div class="post-header">
+        <div class="profile-pic"></div>
+        <div class="profile-info">
+          <img src="{% static 'img/익명사진.png' %}" />
+          <div class="profiletime">
+            <span class="nickname">익명</span>
+            <span class="time">4분 전</span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <span>쪽지</span>
+          <span>신고</span>
+        </div>
+      </div>
+
+      <h2 class="post-title">학생복지스토어</h2>
+      <p class="post-content">
+        아이패드 에어13 m4 256기가 얼만지 봐줄사람!!! 학생인증이 안돼서
+        불편하다잉
+      </p>
+
+      <div class="post-stats">
+        <span class="stat-like">
+          <img src="{% static 'img/빨간 좋아요.png' %}" alt="좋아요" />
+          <!-- 값이 없으면 0이 뜨도록 default:"0" 추가 -->
+          <span id="like-count">{{ post.like.count|default:"0" }}</span>
+        </span>
+        <span class="stat-comment">
+          <img src="{% static 'img/초록 채팅.png' %}" alt="댓글" /> 
+          <span id="comment-count">{{ post.comments.count|default:"0" }}</span>
+        </span>
+        <span class="stat-scrap">
+          <img src="{% static 'img/에타 별.png' %}" alt="스크랩" />
+          <span id="scrap-count">{{ post.scrap.count|default:"0" }}</span>
+        </span>
+      </div>
+      
+      <!-- 하단 공감/스크랩 버튼 부분 -->
+      <div class="post-buttons">
+        <button class="btn-action" id="btn-like" data-post-id="{{ post.id }}">
+          <img src="{% static 'img/공감.png' %}" alt="공감" /> 공감
+        </button>
+        <button class="btn-action" id="btn-scrap" data-post-id="{{ post.id }}">
+          <img src="{% static 'img/스크랩.png' %}" alt="스크랩" /> 스크랩
+        </button>
+      </div>
+    <div class="everytime-comment-container">
+        <div class="comment-item">
+          <div class="comment-header">
+            <div class="user-info">
+              <div class="profile-placeholder"></div>
+              <span class="username">익명2</span>
+            </div>
+            <div class="comment-actions">
+              <a href="javascript:void(0)" onclick="toggleReplyForm(1)">대댓글</a>
+              <a href="#">공감</a>
+              <a href="#">쪽지</a>
+              <a href="#">신고</a>
+            </div>
+          </div>
+          <div class="comment-content">삼김이?</div>
+          <div class="comment-footer">
+            <span class="time">02/09 22:30</span>
+          </div>
+          <div id="reply-area-1" class="reply-container"></div>
+        </div>
+
+        <div class="comment-item">
+          <div class="comment-header">
+            <div class="user-info">
+              <div class="profile-placeholder"></div>
+              <span class="username">익명3</span>
+            </div>
+            <div class="comment-actions">
+              <a href="javascript:void(0)" onclick="toggleReplyForm(2)">대댓글</a>
+              <a href="#">공감</a>
+              <a href="#">쪽지</a>
+              <a href="#">신고</a>
+            </div>
+          </div>
+          <div class="comment-content">도덕이 ❤️</div>
+          <div class="comment-footer">
+            <span class="time">02/09 22:35</span>
+            <span class="like-count">
+            <img src="{% static 'img/빨간 좋아요.png' %}" alt="좋아요" /> 1
+            </span>
+          </div>
+          <div id="reply-area-2" class="reply-container">
+            <div class="reply-item">
+              <div class="comment-header">
+                <div class="user-info">
+                  <div class="profile-placeholder"></div>
+                  <span class="username author">익명(글쓴이)</span>
+                </div>
+                <div class="comment-actions">
+                  <a href="#">공감</a> <a href="#">쪽지</a>
+                  <a href="#">신고</a>
+                </div>
+              </div>
+              <div class="comment-content">정답 🥰</div>
+              <div class="comment-footer">
+                <span class="time">02/09 22:49</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="comment-input-area">
+        <input
+          type="text"
+          id="mainCommentInput"
+          placeholder="댓글을 입력하세요."
+        />
+        <button class="btn-submit">
+         <img src="{% static 'img/에타 연필.png' %}" alt="댓글" />
+        </button>
+      </div>
+    </div>
+
+    <div class="comment-input-area"></div>
+
+    <div
+      id="questionInfoBox"
+      class="info-box hidden"
+      style="
+        border: 1px solid #05bcbc;
+        padding: 10px;
+        margin-top: 10px;
+        font-size: 12px;
+        color: #05bcbc;
+        background-color: #d8fffc;
+      "
+    >
+      질문 글을 작성하면 게시판 상단에 일정 기간 노출되어, 더욱 빠르게 답변을
+      얻을 수 있게 됩니다.
+    </div>
+  </section> 
+</main>
 {% endblock %}
